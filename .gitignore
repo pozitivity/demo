@@ -1,3 +1,5 @@
 backend/.idea/
 backend/demo.iml
 backend/target/
+frontend/node_modules/
+frontend/build/

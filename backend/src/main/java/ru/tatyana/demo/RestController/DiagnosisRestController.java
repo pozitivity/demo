@@ -1,4 +1,4 @@
-package ru.tatyana.demo.RestController;
+package ru.tatyana.demo.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package ru.tatyana.demo.util.insertData;
+package ru.tatyana.demo.util.convertData;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 /**
  * Created by Tatyana on 12.03.2016.
  */
-public class InsertData {
+public class ConvertData {
 
     private final String FILE_DIAGNOSES_MKB_10_TXT = ".\\src\\main\\resources\\sql\\spr_mkb10.txt";
     private final String TABLE_NAME = "diagnosis";
@@ -35,8 +35,8 @@ public class InsertData {
                 int id = new Integer(rec[0]).intValue();
                 String code = rec[1];
                 String name = rec[2];
-                linewrite = "INSERT INTO " + TABLE_NAME + TABLE_FIELDS + "SELECT " + id + ", \"" + code + "\", " + "\"" + name + "\"" +
-                        " WHERE NOT EXISTS (SELECT id FROM " + TABLE_NAME + " WHERE " + UNIQUE_FIELD + " = \"" + code + "\");";
+                linewrite = "INSERT INTO " + TABLE_NAME + TABLE_FIELDS + " SELECT " + id + ", \'" + code + "\', " + "\'" + name + "\'" +
+                        " WHERE NOT EXISTS (SELECT id FROM " + TABLE_NAME + " WHERE " + UNIQUE_FIELD + " = \'" + code + "\');";
                 buffered_writer.newLine();
                 buffered_writer.write(linewrite);
             }
