@@ -1,7 +1,7 @@
 /**
  * Created by Tatyana on 14.03.2016.
  */
-require('jquery');
+import 'jquery';
 require('angular');
 require('js-data');
 require('js-data-angular');
@@ -12,15 +12,12 @@ require('angular-ui-router');
 require('angular-ui-bootstrap');
 require('angular-translate');
 
-require('ng-file-upload');
+import 'ng-file-upload';
 require('angular-translate-storage-local');
 
-require('bootstrap/dist/css/bootstrap.css');
-require('bootstrap/dist/css/bootstrap-theme.css');
-require('bootstrap/dist/css/bootstrap.css');
-require('bootstrap');
+import 'bootstrap';
 
-require('../css/app.scss');
+import '../css/app.scss';
 
 require("font-awesome-webpack");
 
@@ -29,9 +26,7 @@ const app = angular.module('demo', [
     'ui.bootstrap',
     'js-data',
     'pascalprecht.translate',
-    'ngCookies',
-    'ngFileUpload'
-]);
+    'ngFileUpload']);
 
 app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
         ($urlRouterProvider, $stateProvider, $translateProvider) => {
