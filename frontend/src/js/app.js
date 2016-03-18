@@ -12,8 +12,10 @@ require('angular-ui-router');
 require('angular-ui-bootstrap');
 require('angular-translate');
 
+import 'angular-cookies';
 import 'ng-file-upload';
 require('angular-translate-storage-local');
+require('angular-translate-storage-cookie');
 
 import 'bootstrap';
 
@@ -25,6 +27,7 @@ const app = angular.module('demo', [
     'ui.router',
     'ui.bootstrap',
     'js-data',
+    'ngCookies',
     'pascalprecht.translate',
     'ngFileUpload']);
 
