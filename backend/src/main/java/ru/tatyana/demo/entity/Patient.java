@@ -6,9 +6,6 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
-/**
- * Created by Tatyana on 12.03.2016.
- */
 @Entity
 @Table(name = "patient")
 public class Patient {

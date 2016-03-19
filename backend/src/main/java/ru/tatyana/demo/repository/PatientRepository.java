@@ -6,9 +6,6 @@ import ru.tatyana.demo.entity.Patient;
 
 import java.util.List;
 
-/**
- * Created by Tatyana on 12.03.2016.
- */
 public interface PatientRepository extends JpaRepository<Patient, Long> {
     @Query("select p from Patient p")
     public List<Patient> getPatients();

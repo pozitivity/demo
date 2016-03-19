@@ -7,9 +7,6 @@ import ru.tatyana.demo.repository.DiagnosisRepository;
 
 import java.util.List;
 
-/**
- * Created by Tatyana on 12.03.2016.
- */
 @Component
 public class DiagnosisService {
     @Autowired

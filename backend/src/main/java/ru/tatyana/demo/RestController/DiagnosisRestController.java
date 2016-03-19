@@ -9,9 +9,6 @@ import ru.tatyana.demo.service.DiagnosisService;
 
 import java.util.List;
 
-/**
- * Created by Tatyana on 12.03.2016.
- */
 @RestController
 @RequestMapping(value = {"api"})
 public class DiagnosisRestController {

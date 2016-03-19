@@ -7,9 +7,6 @@ import ru.tatyana.demo.repository.PatientRepository;
 
 import java.util.List;
 
-/**
- * Created by Tatyana on 12.03.2016.
- */
 @Component
 public class PatientService {
     @Autowired

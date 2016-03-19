@@ -13,9 +13,9 @@ public class ConvertData {
     private final String TABLE_NAME = "diagnosis";
     private final String TABLE_FIELDS = " (id, code, name)";
     private final String UNIQUE_FIELD = "code";
-    private final String FILE_DIAGNOSES_MKB_10_SQL = ".\\src\\main\\resources\\data.sql";*/
+    private final String FILE_DIAGNOSES_MKB_10_SQL = ".\\src\\main\\resources\\data.1sql";*/
     private final String FILE_MAIN_TXT = ".\\src\\main\\resources\\sql\\main.txt";
-    private final String FILE_MAIN_SQL = ".\\\\src\\\\main\\\\resources\\\\data.sql";
+    private final String FILE_MAIN_SQL = ".\\\\src\\\\main\\\\resources\\\\data.1sql";
 
     public void readDataFromFile() {
         /*try {

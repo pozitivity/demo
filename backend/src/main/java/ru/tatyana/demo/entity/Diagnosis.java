@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
-/**
- * Created by Tatyana on 12.03.2016.
- */
+
 @Entity
 @Table(name = "diagnosis")
 public class Diagnosis {

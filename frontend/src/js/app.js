@@ -12,9 +12,14 @@ require('angular-ui-router');
 require('angular-ui-bootstrap');
 require('angular-translate');
 
+import 'angular-cookies';
 import 'ng-file-upload';
 require('angular-translate-storage-local');
+require('angular-translate-storage-cookie');
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 
 import '../css/app.scss';
@@ -25,6 +30,7 @@ const app = angular.module('demo', [
     'ui.router',
     'ui.bootstrap',
     'js-data',
+    'ngCookies',
     'pascalprecht.translate',
     'ngFileUpload']);
 
@@ -33,7 +39,6 @@ app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
             $urlRouterProvider.otherwise('/');
             $translateProvider.useLocalStorage();
             $translateProvider.preferredLanguage('ru');
-
             $stateProvider
                 .state('app', {
                     url: '',
@@ -41,16 +46,13 @@ app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
                     views: {
                         'header@': {
                             template: require("./index.header.tmpl.html")
+                        },
+                        'sidebar@': {
+                            template: require("./index.sidebar.tmpl.html")
                         }
                     }
                 });
         }
 ]);
 
-app.controller('appController', ['$translate',
-    function($translate) {
-        console.log("[OK] AppController");
-    }
-]);
-
-require('./states/config.states');
+require('./states/config.states')(app);
