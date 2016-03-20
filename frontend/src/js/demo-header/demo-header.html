@@ -1,6 +1,9 @@
-<div class="row">
-    <div>
-
+<div class="col-xs-12 header">
+    <div class="col-xs-12 types pull-right" ng-class="{'display_none': !showTypes}">
+        <span>{{ 'header.type' | translate }} #1</span>
+        <span>{{ 'header.type' | translate }} #2</span>
+        <span>{{ 'header.type' | translate }} #3</span>
+        <span>{{ 'header.type' | translate }} #4</span>
     </div>
-    <div>{{ 'header.typeDiagrams' | translate }}</div>
+    <div class="header_type" ng-click="showTypes = !showTypes">{{ 'header.labelTypeDiagrams' | translate }}</div>
 </div>

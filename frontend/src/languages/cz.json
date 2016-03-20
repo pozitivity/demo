@@ -3,6 +3,7 @@
     "label": "Filtr"
   },
   "header": {
-    "typeDiagrams": "Druhy diagramů"
+    "labelTypeDiagrams": "Druhy diagramů",
+    "type": "Druh"
   }
 }

@@ -66,3 +66,21 @@
 }
 .display_block { display: block; }
 .display_none { display: none; }
+.header {
+  font-family: Panama-Light;
+  text-transform: uppercase;
+  padding: 1em 0;
+}
+.header_type {
+  cursor: pointer;
+  padding: 1em 2em;
+}
+.header_type:hover, .header_type:focus { text-decoration: underline; }
+.types {
+  padding: 1em 2em;
+}
+.types span {
+  padding: 0 2em 0 0;
+  cursor: pointer;
+}
+.types span:hover, .types span:focus { text-decoration: underline; }

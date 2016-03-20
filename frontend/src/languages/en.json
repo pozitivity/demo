@@ -3,6 +3,7 @@
     "label": "Filter"
   },
   "header": {
-    "typeDiagrams": "Types of diagrams"
+    "labelTypeDiagrams": "Types of diagrams",
+    "type": "Type"
   }
 }

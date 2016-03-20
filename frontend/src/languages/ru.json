@@ -3,6 +3,7 @@
     "label": "Фильтр"
   },
   "header": {
-    "typeDiagrams": "Виды диаграмм"
+    "labelTypeDiagrams": "Виды диаграмм",
+    "type": "Тип"
   }
 }
