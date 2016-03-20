@@ -37,22 +37,16 @@ const app = angular.module('demo', [
 app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
         ($urlRouterProvider, $stateProvider, $translateProvider) => {
             $urlRouterProvider.otherwise('/');
-            $translateProvider.useLocalStorage();
-            $translateProvider.preferredLanguage('ru');
+            //$translateProvider.useLocalStorage();
+            $translateProvider.preferredLanguage('en');
             $stateProvider
                 .state('app', {
                     url: '',
-                    abstract: true,
-                    views: {
-                        'header@': {
-                            template: require("./index.header.tmpl.html")
-                        },
-                        'sidebar@': {
-                            template: require("./index.sidebar.tmpl.html")
-                        }
-                    }
+                    abstract: true
                 });
         }
 ]);
 
 require('./states/config.states')(app);
+require('./demo-filters/demo-filters.directive')(app);
+require('./demo-header/demo-header.directive')(app);
