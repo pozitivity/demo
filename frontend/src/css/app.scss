@@ -84,3 +84,16 @@
   cursor: pointer;
 }
 .types span:hover, .types span:focus { text-decoration: underline; }
+
+.pie {
+  background-image: url(img/pie.png);
+  background-repeat: no-repeat;
+  background-size: 200px 300px;
+  background-position: center;
+}
+.thirdD {
+  background-image: url(img/thirdD.jpg);
+  background-repeat: no-repeat;
+  background-size: 200px 300px;
+  background-position: center;
+}

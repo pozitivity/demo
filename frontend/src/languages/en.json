@@ -4,6 +4,8 @@
   },
   "header": {
     "labelTypeDiagrams": "Types of diagrams",
-    "type": "Type"
+    "type": "Type",
+    "3d": "3D",
+    "pie": "Pie"
   }
 }

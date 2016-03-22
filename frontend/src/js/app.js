@@ -12,6 +12,7 @@ require('angular-ui-router');
 require('angular-ui-bootstrap');
 require('angular-translate');
 
+import 'angular-route';
 import 'angular-cookies';
 import 'ng-file-upload';
 require('angular-translate-storage-local');
@@ -24,6 +25,8 @@ import 'bootstrap';
 
 import '../css/app.scss';
 
+import './models/models';
+
 require("font-awesome-webpack");
 
 const app = angular.module('demo', [
@@ -32,21 +35,33 @@ const app = angular.module('demo', [
     'js-data',
     'ngCookies',
     'pascalprecht.translate',
-    'ngFileUpload']);
+    'ngFileUpload',
+    'ngRoute',
+
+    'dsConfig'
+]);
 
 app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
         ($urlRouterProvider, $stateProvider, $translateProvider) => {
-            $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/content');
             //$translateProvider.useLocalStorage();
             $translateProvider.preferredLanguage('en');
             $stateProvider
-                .state('app', {
+                .state('demo', {
                     url: '',
                     abstract: true
-                });
+                })
+                ;
         }
-]);
+])
 
-require('./states/config.states')(app);
-require('./demo-filters/demo-filters.directive')(app);
-require('./demo-header/demo-header.directive')(app);
+.run(
+    [          '$rootScope', '$state', '$stateParams',
+        function ($rootScope,   $state,   $stateParams) {
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        }
+    ]
+);
+
+require('./config.states')(app);

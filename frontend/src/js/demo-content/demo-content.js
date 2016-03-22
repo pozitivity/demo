@@ -1,5 +1,5 @@
 /**
- * Created by tatiana.gorbunova on 3/20/2016.
+ * Created by tatiana.gorbunova on 3/21/2016.
  */
 import 'js-data';
 import 'js-data-angular';
@@ -12,30 +12,20 @@ require('angular-translate-storage-cookie');
 require('angular-translate-storage-local');
 
 module.exports = (app) => {
-        app.config(['$translateProvider', function ($translateProvider) {
-            $translateProvider.translations('ru', hl_ru);
-            $translateProvider.translations('en', hl_en);
-            $translateProvider.translations('cz', hl_cz);
-        }])
-        .directive('demoFilters', directive);
+    app.config(['$translateProvider', '$stateProvider', function ($translateProvider, $stateProvider) {
+        $translateProvider.translations('ru', hl_ru);
+        $translateProvider.translations('en', hl_en);
+        $translateProvider.translations('cz', hl_cz);
+    }])
+        .controller('DemoContentController', DemoContentController)
 };
 
-function directive() {
-    return {
-        restrict: 'E'
-        , scope: {}
-        , template: require('./demo-filters.html')
-        , controller: controller
-        , controllerAs: 'dfCtrl'
-    }
-}
-
-controller.$inject = ['$scope', '$translate'];
-function controller ($scope, $translate) {
+DemoContentController.$inject = ['$scope', '$translate', '$state', '$stateParams'];
+function DemoContentController ($scope, $translate, $state, $stateParams) {
     $scope.ctrl = {};
     var ctrl = $scope.ctrl;
 
-    console.log('[OK] demo-filters controller init');
+    console.log('[OK] demo-content controller init');
 
     ctrl.languages = [
         { value: 'en', description: 'English' },

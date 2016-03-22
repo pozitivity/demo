@@ -4,6 +4,8 @@
   },
   "header": {
     "labelTypeDiagrams": "Druhy diagramů",
-    "type": "Druh"
+    "type": "Druh",
+    "3d": "3D",
+    "pie": "Koláčový"
   }
 }
