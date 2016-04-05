@@ -1,16 +1,25 @@
 <div>
-    <h2>Всего: {{ ctrl.lengthDiagnosis }}</h2>
-    <table>
-        <thead>
-            <th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </th>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
+    <!--<div id="loading"></div>
+    <div style="height: 400px; overflow: scroll;">
+        <table class="table table-hover">
+              <thead>
+              <tr>
+                    <th>#</th>
+                    <th>Дата рождения</th>
+                    <th>Дата обращения</th>
+                    <th>Диагноз</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="patient in ctrl.patients">
+                    <td>{{ patient.id }}</td>
+                    <td>{{ ctrl.displayDate(patient.birthday) }}</td>
+                    <td>{{ ctrl.displayDate(patient.datein) }}</td>
+                    <td>{{ ctrl.displayDiagnosis(patient.diagnosisId) }}</td>
+              </tr>
+              </tbody>
+        </table>
+    </div>-->
+  <div id="bubble">
+  </div>
 </div>

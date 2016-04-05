@@ -7,5 +7,19 @@
     "type": "Тип",
     "3d": "3D",
     "pie": "Круговая"
+  },
+  "months": {
+    "January": { "display": "Янв" },
+    "February": { "display": "Фев" },
+    "March": { "display": "Мар" },
+    "April": { "display": "Апр" },
+    "May": { "display": "Май" },
+    "June": { "display":"Июн" },
+    "July": { "display": "Июл" },
+    "August": { "display": "Авг" },
+    "September": { "display": "Сент" },
+    "October": { "display": "Окт" },
+    "November": { "display": "Нояб" },
+    "December": { "display": "Дек" }
   }
 }

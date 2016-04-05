@@ -7,5 +7,19 @@
     "type": "Type",
     "3d": "3D",
     "pie": "Pie"
+  },
+  "months": {
+    "January": { "display": "Jan" },
+    "February": { "display": "Feb" },
+    "March": { "display": "Mar" },
+    "April": { "display": "Apr" },
+    "May": { "display": "May" },
+    "June": { "display":"Jun" },
+    "July": { "display": "Jul" },
+    "August": { "display": "Aug" },
+    "September": { "display": "Sep" },
+    "October": { "display": "Oct" },
+    "November": { "display": "Nov" },
+    "December": { "display": "Dec" }
   }
 }

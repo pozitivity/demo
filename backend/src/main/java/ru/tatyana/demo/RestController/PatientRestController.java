@@ -18,7 +18,9 @@ public class PatientRestController {
 
     @RequestMapping(value = "/patients", method = RequestMethod.GET)
     public List<Patient> getPatients() {
-        return patientService.getPatients();
+        List<Patient> all = patientService.getPatients();
+        List<Patient> result = all.subList(0, 100);
+        return result;
     }
 
     @RequestMapping(value = "/patientsbydiagnosis", method = RequestMethod.GET)

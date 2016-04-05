@@ -84,16 +84,13 @@
   cursor: pointer;
 }
 .types span:hover, .types span:focus { text-decoration: underline; }
+table { font-family: Panama-Light; text-transform: uppercase; }
+.header div span a, .header div span a:hover, .header div span a:focus { color: #000; }
 
-.pie {
-  background-image: url(img/pie.png);
-  background-repeat: no-repeat;
-  background-size: 200px 300px;
-  background-position: center;
-}
-.thirdD {
-  background-image: url(img/thirdD.jpg);
-  background-repeat: no-repeat;
-  background-size: 200px 300px;
-  background-position: center;
-}
+/*
+#loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(img/ring.gif) no-repeat center center;
+}*/

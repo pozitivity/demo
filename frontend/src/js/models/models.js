@@ -11,6 +11,9 @@ angular
     })
     .factory('Diagnosis', function(DS) {
         return DS.defineResource('diagnosis');
+    })
+    .factory('Bubble', function(DS) {
+        return DS.defineResource('bubble');
     });
     /*.run(['DS', function (DS) {
         DS.defaults.basePath = '/api';
