@@ -15,7 +15,7 @@
             </div>
 
             <div class="nav-dropdown" ng-class="{ 'active': showLanguage }">
-                <a href="#"
+                <a href=""
                    class="nav-dropdown-open"
                    ng-class="{ 'active': showLanguage }"
                    ng-click="showLanguage = !showLanguage">{{ ctrl.langkey }}</a>
@@ -23,7 +23,7 @@
                     <ul>
                         <li ng-repeat="lang in ctrl.languages"
                             ng-click="ctrl.changeLang(lang.value)">
-                            <a href="#">{{ lang.description }}</a>
+                            <a href="">{{ lang.description }}</a>
                         </li>
                     </ul>
                 </div>
@@ -35,11 +35,12 @@
                 <!--HEADER-->
                 <div class="col-xs-12 header">
                     <div class="col-xs-12 types pull-right" ng-class="{'display_none': !showTypes}">
-                        <span><a ui-sref="content.pie">{{ 'header.pie' | translate }} #1</a></span>
-                        <span><a ui-sref="content.chart">{{ 'header.3d' | translate }} #2</a></span>
+                        <span><a class="disabled" ui-sref="content.pie">{{ 'header.pie' | translate }} #1</a></span>
+                        <span><a class="disabled" ui-sref="content.chart">{{ 'header.3d' | translate }} #2</a></span>
                         <span><a ui-sref="content.table">table</a></span>
-                        <span>{{ 'header.type' | translate }} #3</span>
-                        <span>{{ 'header.type' | translate }} #4</span>
+                        <span><a ui-sref="content.bubble">bubble</a></span>
+                        <span><a class="disabled">{{ 'header.type' | translate }} #3</a></span>
+                        <span><a class="disabled">{{ 'header.type' | translate }} #4</a></span>
                     </div>
                     <div><span class="header_type"  ng-click="showTypes = !showTypes">{{ 'header.labelTypeDiagrams' | translate }}</span></div>
                 </div>

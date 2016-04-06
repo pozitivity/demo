@@ -21,5 +21,10 @@
     "October": { "display": "Окт" },
     "November": { "display": "Нояб" },
     "December": { "display": "Дек" }
+  },
+  "table": {
+    "dateOfBirth": "Дата рождение",
+    "treatmentDate": "Дата обращения",
+    "diagnosis": "Диагноз"
   }
 }

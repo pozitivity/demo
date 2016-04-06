@@ -86,7 +86,7 @@
 .types span:hover, .types span:focus { text-decoration: underline; }
 table { font-family: Panama-Light; text-transform: uppercase; }
 .header div span a, .header div span a:hover, .header div span a:focus { color: #000; }
-
+.disabled { pointer-events: none; color: #ccc !important; }
 /*
 #loading {
   position: absolute;

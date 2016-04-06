@@ -9,6 +9,7 @@ module.exports = (app) => {
     require('./contents/pie/pie')(app);
     require('./contents/chart/chart')(app);
     require('./contents/table/table')(app);
+    require('./contents/bubble/bubble')(app);
     app.config(['$stateProvider', ($stateProvider) => {
             $stateProvider.state('content', {
             url: '/content'
@@ -40,6 +41,14 @@ module.exports = (app) => {
                 '@content': {
                     template: require('./contents/table/table.content.tmpl.html'),
                     controller: 'TableController'
+                }
+            }
+        }).state('content.bubble', {
+            url: '/bubble',
+            views: {
+                '@content': {
+                    template: require('./contents/bubble/bubble.content.tmpl.html'),
+                    controller: 'BubbleController'
                 }
             }
         });
