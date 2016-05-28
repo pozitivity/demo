@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import ru.tatyana.demo.entity.Patient;
 import ru.tatyana.demo.repository.jpa.PatientRepository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Component
@@ -26,5 +27,17 @@ public class PatientService {
 
     public List<Long> getListAvailableDiagnoses() {
         return patientRepository.getListAvailablesDiagnoses();
+    }
+
+    public Timestamp getMinDatein() {
+        return patientRepository.getMinDatein();
+    }
+
+    public Timestamp getMaxDatein() {
+        return patientRepository.getMaxDatein();
+    }
+
+    public Long getPatientsWithSameDatein(Timestamp min, Timestamp max) {
+        return patientRepository.getCountPatientsWithSameDatein(min, max);
     }
 }

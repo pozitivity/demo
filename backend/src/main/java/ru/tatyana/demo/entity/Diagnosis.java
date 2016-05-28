@@ -1,8 +1,5 @@
 package ru.tatyana.demo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.data.domain.Persistable;
-
 import javax.persistence.*;
 
 @Entity

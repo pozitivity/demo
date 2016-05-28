@@ -10,6 +10,7 @@ module.exports = (app) => {
     require('./contents/chart/chart')(app);
     require('./contents/table/table')(app);
     require('./contents/bubble/bubble')(app);
+    require('./contents/pyramid/pyramid')(app);
     app.config(['$stateProvider', ($stateProvider) => {
             $stateProvider.state('content', {
             url: '/content'
@@ -49,6 +50,14 @@ module.exports = (app) => {
                 '@content': {
                     template: require('./contents/bubble/bubble.content.tmpl.html'),
                     controller: 'BubbleController'
+                }
+            }
+        }).state('content.pyramid', {
+            url: '/pyramid',
+            views: {
+                '@content': {
+                    template: require('./contents/pyramid/pyramid.content.tmpl.html'),
+                    controller: 'PyramidController'
                 }
             }
         });
