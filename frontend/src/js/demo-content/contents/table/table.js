@@ -7,34 +7,35 @@ import '../../../models/models';
 module.exports = (app) => {
 
     require('../../../common/common')(app);
-
+    require('../../../common/spinner')(app);
     app.controller('TableController', TableController)
     ;
 };
 
-TableController.$inject = ['$scope', '$translate', 'Diagnosis', 'Patient', '$filter', 'timeConverter', 'Bubble'];
-function TableController($scope, $translate, Diagnosis, Patient, $filter, timeConverter, Bubble) {
-    $scope.ctrl = {};
-    var ctrl = $scope.ctrl;
+TableController.$inject = ['$scope', '$translate', 'Diagnosis', 'Patient', '$filter', 'timeConverter', 'spinnerService'];
+function TableController($scope, $translate, Diagnosis, Patient, $filter, timeConverter, spinnerService) {
+    let ctrl = this;
 
     ctrl.patients = [];
     ctrl.diagnoses = [];
 
     console.log('[OK] TableController init');
+    ctrl.loading = false;
 
     Diagnosis.findAll().then(function (diagnoses) {
         ctrl.diagnoses = diagnoses;
 
         Patient.findAll().then(function (patients) {
             ctrl.patients = patients;
+            ctrl.loading = true;
         });
     });
 
-    ctrl.displayDiagnosis = function(diagnosisid) {
+    ctrl.displayDiagnosis = (diagnosisid) => {
         return $filter('getById')(ctrl.diagnoses, diagnosisid).name;
-    }
+    };
 
-    ctrl.displayDate = function(timestamp) {
+    ctrl.displayDate = (timestamp) => {
         var months = [];
         months.push($translate.instant('months.January.display'));
         months.push($translate.instant('months.February.display'));
@@ -50,5 +51,5 @@ function TableController($scope, $translate, Diagnosis, Patient, $filter, timeCo
         months.push($translate.instant('months.December.display'));
         var date = timeConverter.fromTimestamp(timestamp, months);
         return date;
-    }
+    };
 }

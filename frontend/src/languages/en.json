@@ -6,7 +6,8 @@
     "labelTypeDiagrams": "Types of diagrams",
     "type": "Type",
     "3d": "3D",
-    "pie": "Pie"
+    "pie": "Pie",
+    "pyramid": "Pyramid"
   },
   "months": {
     "January": { "display": "Jan" },

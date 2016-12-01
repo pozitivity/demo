@@ -2,9 +2,7 @@
   font-family: Panama-Light;
   src: url(fonts/Panama-Light.otf);
 }
-.body {
-  font-family: Panama-Light;
-}
+.body {  font-family: Panama-Light;  }
 .sidebar {
   position: fixed;
   top: 0;
@@ -19,9 +17,6 @@
   z-index: 100;
   color: #fff;
   font-family: Panama-Light;
-}
-.filters {
-
 }
 .nav-dropdown {
   bottom: 0px;
@@ -58,12 +53,8 @@
   text-decoration: none;
   color: #9e9e9e;
 }
-.nav-content ul li a:hover, .nav-content ul li a:focus {
-  color: #fff;
-}
-.filter {
-  padding: 1.5em 2em;
-}
+.nav-content ul li a:hover, .nav-content ul li a:focus {  color: #fff;  }
+.filter {  padding: 1.5em 2em;  }
 .display_block { display: block; }
 .display_none { display: none; }
 .header {
@@ -76,9 +67,7 @@
   padding: 1em 2em;
 }
 .header_type:hover, .header_type:focus { text-decoration: underline; }
-.types {
-  padding: 1em 2em;
-}
+.types {  padding: 1em 2em;  }
 .types span {
   padding: 0 2em 0 0;
   cursor: pointer;
@@ -87,6 +76,7 @@
 table { font-family: Panama-Light; text-transform: uppercase; }
 .header div span a, .header div span a:hover, .header div span a:focus { color: #000; }
 .disabled { pointer-events: none; color: #ccc !important; }
+.ring { background: url(img/ring.gif); }
 /*
 #loading {
   position: absolute;
@@ -94,3 +84,26 @@ table { font-family: Panama-Light; text-transform: uppercase; }
   height: 100%;
   background: url(img/ring.gif) no-repeat center center;
 }*/
+svg {  font: 10px sans-serif;  }
+.y.axis path {  display: none;  }
+
+.y.axis line {
+  stroke: #fff;
+  stroke-opacity: .2;
+  shape-rendering: crispEdges;
+}
+.y.axis .zero line {
+  stroke: #000;
+  stroke-opacity: 1;
+}
+.title {
+  font: 300 78px Helvetica Neue;
+  fill: #666;
+}
+.birthyear, .age {  text-anchor: middle;  }
+.birthyear {  fill: #fff;  }
+rect {
+  fill-opacity: .6;
+  fill: #e377c2;
+}
+rect:first-child {  fill: #1f77b4;  }

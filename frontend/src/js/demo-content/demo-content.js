@@ -22,8 +22,7 @@ module.exports = (app) => {
 
 DemoContentController.$inject = ['$scope', '$translate', '$state', '$stateParams'];
 function DemoContentController ($scope, $translate, $state, $stateParams) {
-    $scope.ctrl = {};
-    var ctrl = $scope.ctrl;
+    let ctrl = this;
 
     console.log('[OK] demo-content controller init');
 
@@ -35,7 +34,7 @@ function DemoContentController ($scope, $translate, $state, $stateParams) {
 
     ctrl.langkey = ctrl.languages[0].value;
 
-    ctrl.changeLang = function (lang) {
+    ctrl.changeLang = (lang) => {
         ctrl.langkey = lang;
         $translate.use(lang);
     }

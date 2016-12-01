@@ -6,7 +6,8 @@
     "labelTypeDiagrams": "Виды диаграмм",
     "type": "Тип",
     "3d": "3D",
-    "pie": "Круговая"
+    "pie": "Круговая",
+    "pyramid": "Пирамида"
   },
   "months": {
     "January": { "display": "Янв" },

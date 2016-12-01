@@ -6,7 +6,8 @@
     "labelTypeDiagrams": "Druhy diagramů",
     "type": "Druh",
     "3d": "3D",
-    "pie": "Koláčový"
+    "pie": "Koláčový",
+    "pyramid": "Pyramid"
   },
   "months": {
     "January": { "display": "Leden" },

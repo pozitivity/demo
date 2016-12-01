@@ -12,10 +12,9 @@ module.exports = (app) => {
     ;
 };
 
-BubbleController.$inject = ['$scope', '$translate', '$filter', 'Bubble'];
-function BubbleController($scope, $translate, $filter, Bubble) {
-    $scope.ctrl = {};
-    var ctrl = $scope.ctrl;
+BubbleController.$inject = ['$translate', '$filter', 'Bubble'];
+function BubbleController($translate, $filter, Bubble) {
+    let ctrl = this;
 
     ctrl.bubbles = [];
 
@@ -27,7 +26,7 @@ function BubbleController($scope, $translate, $filter, Bubble) {
         ctrl.draw();
     });
 
-    ctrl.draw = function () {
+    ctrl.draw = () => {
         var diameter = 1500,
             format = d3.format(",d"),
             color = d3.scale.category20c();

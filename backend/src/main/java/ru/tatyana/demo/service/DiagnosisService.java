@@ -3,7 +3,7 @@ package ru.tatyana.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.tatyana.demo.entity.Diagnosis;
-import ru.tatyana.demo.repository.jpa.DiagnosisRepository;
+import ru.tatyana.demo.repository.DiagnosisRepository;
 
 import java.util.List;
 
