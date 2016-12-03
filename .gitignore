@@ -5,3 +5,4 @@ frontend/node_modules/
 frontend/build/
 frontend/angular2/node_modules/
 frontend/angular2/dist/
+*.iml
