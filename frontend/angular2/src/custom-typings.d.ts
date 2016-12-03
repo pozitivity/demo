@@ -54,6 +54,7 @@ declare var ENV: string;
 declare var HMR: boolean;
 declare var System: SystemJS;
 declare var $: JQueryStatic;
+declare var d3: any;
 
 declare const BACKEND : WebApplication;
 declare const FRONTEND : WebApplication;

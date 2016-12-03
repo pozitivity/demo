@@ -78,6 +78,7 @@ import {AppComponent}  from './app/app.component';
 import {MainModule} from "./app/components/main/main.module";
 // services
 import {TableService} from "./app/services/TableService";
+import {BubbleService} from "./app/services/BubbleService";
 
 @NgModule({
     imports:      [
@@ -97,7 +98,8 @@ import {TableService} from "./app/services/TableService";
     providers: [
         {provide: LOCALE_ID, useValue: "ru"},
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        TableService
+        TableService,
+        BubbleService
     ],
     bootstrap:    [ AppComponent ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
