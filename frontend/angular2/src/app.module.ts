@@ -67,14 +67,15 @@ import {RouterModule, Router} from  '@angular/router';
 import {HttpModule, Http, RequestOptions, XHRBackend} from '@angular/http';
 import {Ng2BootstrapModule, ModalModule, AlertModule} from "ng2-bootstrap";
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
+import {TranslateModule} from "ng2-translate";
+import {TranslateLoader} from "ng2-translate";
+import {TranslateStaticLoader} from "ng2-translate";
 
 import {routing} from './app.route.ts';
 // components
 import {AppComponent}  from './app/app.component';
 // modules
 import {MainModule} from "./app/components/main/main.module";
-import {TableModule} from "./app/components/table/table.module";
-import {BubbleModule} from "./app/components/bubble/bubble.module";
 // services
 import {TableService} from "./app/services/TableService";
 
@@ -86,8 +87,11 @@ import {TableService} from "./app/services/TableService";
         MainModule,
         Ng2BootstrapModule,
         routing,
-        TableModule,
-        BubbleModule
+        TranslateModule.forRoot({
+            provide: TranslateLoader,
+            useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/i18n', '.json'),
+            deps: [Http]
+        })
     ],
     declarations: [ AppComponent ],
     providers: [

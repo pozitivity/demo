@@ -1,0 +1,31 @@
+{
+  "filter": {
+    "label": "Filtr"
+  },
+  "header": {
+    "labelTypeDiagrams": "Druhy diagramů",
+    "type": "Druh",
+    "3d": "3D",
+    "pie": "Koláčový",
+    "pyramid": "Pyramid"
+  },
+  "months": {
+    "January": { "display": "Leden" },
+    "February": { "display": "Feb" },
+    "March": { "display": "Brežen" },
+    "April": { "display": "Apr" },
+    "May": { "display": "May" },
+    "June": { "display":"Jun" },
+    "July": { "display": "Jul" },
+    "August": { "display": "Aug" },
+    "September": { "display": "Sep" },
+    "October": { "display": "Oct" },
+    "November": { "display": "Nov" },
+    "December": { "display": "Dec" }
+  },
+  "table": {
+    "dateOfBirth": "Narozeniny",
+    "treatmentDate": "Datum ošetření",
+    "diagnosis": "Diagnóza"
+  }
+}

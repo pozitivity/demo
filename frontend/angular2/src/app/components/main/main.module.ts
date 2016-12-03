@@ -9,6 +9,9 @@ import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {TranslateModule} from "ng2-translate";
 import {SidebarComponent} from "../sidebar/sidebar.component";
+import {TableModule} from "../table/table.module";
+import {BubbleModule} from "../bubble/bubble.module";
+import {HeaderComponent} from "../header/header.component";
 
 @NgModule({
     imports: [
@@ -17,11 +20,14 @@ import {SidebarComponent} from "../sidebar/sidebar.component";
         AlertModule,
         TabsModule,
         CommonModule,
+        TableModule,
+        BubbleModule,
         TranslateModule.forRoot()
     ],
     declarations: [
         MainComponent,
-        SidebarComponent
+        SidebarComponent,
+        HeaderComponent
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -4,7 +4,8 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'sidebar-comp',
-    template: require("./sidebar.tmpl.html")
+    template: require("./sidebar.tmpl.html"),
+    styles: [require('!style!css!sass!../../../assets/css/partial/sidebar/sidebar.scss').toString()]
 })
 
 export class SidebarComponent {
