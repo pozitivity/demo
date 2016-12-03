@@ -63,13 +63,20 @@
 
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {AppComponent}  from './app/app.component';
 import {RouterModule, Router} from  '@angular/router';
 import {HttpModule, Http, RequestOptions, XHRBackend} from '@angular/http';
-import {routing} from './app.routes';
-import {MainModule} from "./app/components/main/main.module";
 import {Ng2BootstrapModule, ModalModule, AlertModule} from "ng2-bootstrap";
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
+
+import {routing} from './app.route.ts';
+// components
+import {AppComponent}  from './app/app.component';
+// modules
+import {MainModule} from "./app/components/main/main.module";
+import {TableModule} from "./app/components/table/table.module";
+import {BubbleModule} from "./app/components/bubble/bubble.module";
+// services
+import {TableService} from "./app/services/TableService";
 
 @NgModule({
     imports:      [
@@ -78,19 +85,15 @@ import {LocationStrategy,HashLocationStrategy} from '@angular/common';
         RouterModule,
         MainModule,
         Ng2BootstrapModule,
-        routing
+        routing,
+        TableModule,
+        BubbleModule
     ],
     declarations: [ AppComponent ],
     providers: [
-        //{provide: Http,
-        //    useFactory: (
-        //        backend: XHRBackend,
-        //        defaultOptions: RequestOptions,
-        //        router: Router
-        //    )
-        //},
         {provide: LOCALE_ID, useValue: "ru"},
-        {provide: LocationStrategy, useClass: HashLocationStrategy}
+        {provide: LocationStrategy, useClass: HashLocationStrategy},
+        TableService
     ],
     bootstrap:    [ AppComponent ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

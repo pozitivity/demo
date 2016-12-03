@@ -4,14 +4,21 @@
 import {Routes, RouterModule} from "@angular/router";
 import {ModuleWithProviders} from "@angular/core";
 import {MainComponent} from "./main.component";
+import {TableComponent} from "../table/table.component";
+import {BubbleComponent} from "../bubble/bubble.component";
+
 const routes: Routes  = [
     {
-        path: '',
+        path: 'content',
         component: MainComponent,
         children: [
             {
-                path: '',
-                component: MainComponent
+                path: 'table',
+                component: TableComponent
+            },
+            {
+                path: 'bubble',
+                component: BubbleComponent
             }
         ]
     }

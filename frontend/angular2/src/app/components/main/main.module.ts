@@ -8,6 +8,7 @@ import {ModalModule, AlertModule, TabsModule} from "ng2-bootstrap";
 import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {TranslateModule} from "ng2-translate";
+import {SidebarComponent} from "../sidebar/sidebar.component";
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {TranslateModule} from "ng2-translate";
     ],
     declarations: [
         MainComponent,
+        SidebarComponent
     ],
     providers: [],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
