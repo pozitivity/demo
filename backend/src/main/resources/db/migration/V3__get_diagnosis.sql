@@ -1,0 +1,1 @@
+create or replace function "get_diagnosis"(  _id bigint)returns refcursor AS$BODY$declare ref refcursor := 'rc_GetDiagnosis';BEGIN  open ref for  select * from diagnosis  where id = _id;  return ref;END;$BODY$  LANGUAGE plpgsql VOLATILE;

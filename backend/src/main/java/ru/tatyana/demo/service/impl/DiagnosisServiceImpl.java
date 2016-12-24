@@ -28,7 +28,7 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 
     @Override
     public Diagnosis getById(Long id) {
-        return diagnosisRepositoryJpa.getById(id);
+        return diagnosisRepository.getDiagnosisById(id);
     }
 
 }
