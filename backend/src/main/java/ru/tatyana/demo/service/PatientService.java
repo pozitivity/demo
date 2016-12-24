@@ -1,43 +1,25 @@
 package ru.tatyana.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.tatyana.demo.entity.Patient;
-import ru.tatyana.demo.repository.PatientRepositoryJpa;
 
 import java.sql.Timestamp;
 import java.util.List;
 
-@Component
-public class PatientService {
-    @Autowired
-    private PatientRepositoryJpa patientRepositoryJpa;
+/**
+ * Created by tatiana.gorbunova on 24.12.2016.
+ */
+public interface PatientService {
+    List<Patient> getPatients(Integer offset, Integer pageSize);
 
-    public List<Patient> getPatients() {
-        return patientRepositoryJpa.getPatients();
-    }
+    List<Patient> getPatientsByDiagnosis(Long diagnosisId);
 
-    public List<Patient> getPatientsByDiagnosis(Long diagnosis_id) {
-        return patientRepositoryJpa.getPatientsByDiagnosis(diagnosis_id);
-    }
+    Long getCountPatientsByDiagnosis(Long diagnosisId);
 
-    public Long getCountPatientsByDiagnosis(Long diagnosis_id) {
-        return patientRepositoryJpa.getCountPatientsByDiagnosis(diagnosis_id);
-    }
+    List<Long> getListAvailableDiagnoses();
 
-    public List<Long> getListAvailableDiagnoses() {
-        return patientRepositoryJpa.getListAvailablesDiagnoses();
-    }
+    Timestamp getMinDatein();
 
-    public Timestamp getMinDatein() {
-        return patientRepositoryJpa.getMinDatein();
-    }
+    Timestamp getMaxDatein();
 
-    public Timestamp getMaxDatein() {
-        return patientRepositoryJpa.getMaxDatein();
-    }
-
-    public Long getPatientsWithSameDatein(Timestamp min, Timestamp max) {
-        return patientRepositoryJpa.getCountPatientsWithSameDatein(min, max);
-    }
+    Long getPatientsWithSameDatein(Timestamp min, Timestamp max);
 }

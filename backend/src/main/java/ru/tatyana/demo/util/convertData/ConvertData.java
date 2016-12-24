@@ -16,6 +16,7 @@ public class ConvertData {
     private final String FILE_DIAGNOSES_MKB_10_SQL = ".\\src\\main\\resources\\data.sql";*/
     private final String FILE_MAIN_TXT = ".\\src\\main\\resources\\sql\\PATIENTS.txt";
     private final String FILE_MAIN_SQL = ".\\\\src\\\\main\\\\resources\\\\data.sql";
+    private final String FILE_WITH_RESULT = ".\\\\src\\\\main\\\\resources\\\\result.txt";
 
     public void readDataFromFile() {
         /*try {
@@ -71,4 +72,23 @@ public class ConvertData {
             e.printStackTrace();
         }
     }
+
+//    public void writeToTxtFile(List<ResultModel> result, String nameMethod) {
+//        try {
+//            BufferedWriter buffered_writer = null;
+//            if (Files.exists(Paths.get(FILE_WITH_RESULT))) {
+//                buffered_writer = new BufferedWriter(new FileWriter(FILE_WITH_RESULT, true));
+//            } else {
+//                buffered_writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(FILE_WITH_RESULT), "utf-8"));
+//            }
+//            buffered_writer.write(nameMethod);
+//            buffered_writer.newLine();
+//            for (ResultModel resultModel: result) {
+//                buffered_writer.write(resultModel.getIteration().toString() + " " + resultModel.getInterval().toString());
+//                buffered_writer.newLine();
+//            }
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

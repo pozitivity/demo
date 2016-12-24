@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tatyana.demo.entity.Patient;
-import ru.tatyana.demo.model.PagingList;
 import ru.tatyana.demo.procedure.patient.GetListPatientsProcedure;
 
 import javax.sql.DataSource;

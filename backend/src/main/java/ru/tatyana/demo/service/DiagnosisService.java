@@ -1,22 +1,15 @@
 package ru.tatyana.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import ru.tatyana.demo.entity.Diagnosis;
-import ru.tatyana.demo.repository.DiagnosisRepository;
 
 import java.util.List;
 
-@Component
-public class DiagnosisService {
-    @Autowired
-    private DiagnosisRepository diagnosisRepository;
+/**
+ * Created by tatiana.gorbunova on 24.12.2016.
+ */
+public interface DiagnosisService {
 
-    public List<Diagnosis> getDiagnoses() {
-        return diagnosisRepository.getDiagnoses();
-    }
+    List<Diagnosis> getDiagnoses(Integer offset, Integer pageSize);
 
-    public Diagnosis getById(Long id) {
-        return diagnosisRepository.getById(id);
-    }
+    Diagnosis getById(Long id);
 }

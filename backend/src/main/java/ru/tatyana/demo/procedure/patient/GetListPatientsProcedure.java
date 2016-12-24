@@ -4,7 +4,6 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.object.StoredProcedure;
 import ru.tatyana.demo.entity.Patient;
-import ru.tatyana.demo.model.PagingList;
 import ru.tatyana.demo.procedure.extractor.patient.PatientListExtractor;
 
 import javax.sql.DataSource;
@@ -38,8 +37,6 @@ public class GetListPatientsProcedure extends StoredProcedure {
         params.put(OFFSET, offset);
         params.put(PAGE_SIZE, pageSize);
         Map<String, Object> stringObjectMap = execute(params);
-        //@SuppressWarnings("unchecked")
         return (List<Patient>) stringObjectMap.get(REFCUR);
-        //return result;
     }
 }

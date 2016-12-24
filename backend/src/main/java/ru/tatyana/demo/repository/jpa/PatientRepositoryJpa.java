@@ -1,11 +1,9 @@
-package ru.tatyana.demo.repository;
+package ru.tatyana.demo.repository.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.QueryHints;
 import ru.tatyana.demo.entity.Patient;
 
-import javax.persistence.QueryHint;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -17,7 +15,7 @@ public interface PatientRepositoryJpa extends JpaRepository<Patient, Long> {
 
     // get patients with same diagnosis
     @Query("select p from Patient p where p.diagnosis = ?1")
-    List<Patient> getPatientsByDiagnosis(Long diagnosis_id);
+    List<Patient> getPatientsByDiagnosis(Long diagnosisId);
 
     // get diagnoses, which are
     @Query("select distinct p.diagnosisId from Patient p")
