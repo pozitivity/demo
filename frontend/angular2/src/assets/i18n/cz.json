@@ -7,7 +7,9 @@
     "type": "Druh",
     "3d": "3D",
     "pie": "Koláčový",
-    "pyramid": "Pyramid"
+    "pyramid": "Pyramid",
+    "bubble": "Bublina",
+    "table": "Tabulka"
   },
   "months": {
     "January": { "display": "Leden" },

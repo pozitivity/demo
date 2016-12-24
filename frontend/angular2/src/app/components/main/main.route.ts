@@ -9,7 +9,7 @@ import {BubbleComponent} from "../bubble/bubble.component";
 
 const routes: Routes  = [
     {
-        path: 'content',
+        path: '',
         component: MainComponent,
         children: [
             {

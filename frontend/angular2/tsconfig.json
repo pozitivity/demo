@@ -21,7 +21,8 @@
       "source-map",
       "uglify-js",
       "webpack",
-      "jquery"
+      "jquery",
+      "d3"
     ]
   },
   "exclude": [

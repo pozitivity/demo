@@ -7,7 +7,9 @@
     "type": "Тип",
     "3d": "3D",
     "pie": "Круговая",
-    "pyramid": "Пирамида"
+    "pyramid": "Пирамида",
+    "bubble": "Пузырьковая",
+    "table": "Таблица"
   },
   "months": {
     "January": { "display": "Янв" },

@@ -7,7 +7,9 @@
     "type": "Type",
     "3d": "3D",
     "pie": "Pie",
-    "pyramid": "Pyramid"
+    "pyramid": "Pyramid",
+    "bubble": "Bubble",
+    "table": "Table"
   },
   "months": {
     "January": { "display": "Jan" },
