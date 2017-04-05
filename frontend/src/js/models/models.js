@@ -16,18 +16,26 @@ angular
         return DS.defineResource('bubble');
     })
     .factory('Pyramid', function(DS) {
-        return DS.defineResource('pyramid');
+        return DS.defineResource({
+            name:'pyramid',
+            idAttribute: 'year'
+        });
     });
-    /*.run(['DS', function (DS) {
-        DS.defaults.basePath = '/api';
-
-        DS.defineResource({
-            name: 'diagnosis'
-            , endpoint: 'diagnosis'
-        });
-
-        DS.defineResource({
-            name: 'patient'
-            , endpoint: 'patients'
-        });
-    }])*/
+    // .run(['DS', function (DS) {
+    //     DS.defaults.basePath = '/api';
+    //
+    //     DS.defineResource({
+    //         name: 'diagnosis'
+    //         , endpoint: 'diagnosis'
+    //     });
+    //
+    //     DS.defineResource({
+    //         name: 'patient'
+    //         , endpoint: 'patients'
+    //     });
+    //
+    //     DS.defineResource({
+    //         name: 'pyramid',
+    //         idAttribute: 'bymonth'
+    //     })
+    // }])
