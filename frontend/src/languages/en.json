@@ -7,8 +7,16 @@
     "type": "Type",
     "3d": "3D",
     "pie": "Pie",
-    "barchart": "Bar chart"
+    "barchart": "Bar chart",
+    "table": "Table with data",
+    "bubble": "Bubble chart"
   },
+
+  "barchart": {
+    "bymonth": "By month",
+    "byyear": "By year"
+  },
+
   "months": {
     "January": { "display": "Jan" },
     "February": { "display": "Feb" },

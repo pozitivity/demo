@@ -52,7 +52,7 @@ module.exports = (app) => {
                     controller: 'BubbleController'
                 }
             }
-        }).state('content.pyramid', {
+        }).state('content.barchart', {
             url: '/barchart',
             views: {
                 '@content': {

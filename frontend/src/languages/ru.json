@@ -7,8 +7,16 @@
     "type": "Тип",
     "3d": "3D",
     "pie": "Круговая",
-    "barchart": "Гистограмма"
+    "barchart": "Гистограмма",
+    "table": "Таблица данных",
+    "bubble": "Пузырьковая диаграмма"
   },
+
+  "barchart": {
+    "bymonth": "По месяцам",
+    "byyear": "По годам"
+  },
+
   "months": {
     "January": { "display": "Янв" },
     "February": { "display": "Фев" },

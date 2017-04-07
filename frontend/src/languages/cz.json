@@ -7,8 +7,16 @@
     "type": "Druh",
     "3d": "3D",
     "pie": "Koláčový",
-    "barchart": "Sloupcový graf"
+    "barchart": "Sloupcový graf",
+    "table": "Tabulka dat",
+    "bubble": "Bublinový graf"
   },
+
+  "barchart": {
+    "bymonth": "Podle měsíce",
+    "byyear": "Rok"
+  },
+
   "months": {
     "January": { "display": "Leden" },
     "February": { "display": "Feb" },
