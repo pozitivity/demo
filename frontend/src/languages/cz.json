@@ -7,7 +7,7 @@
     "type": "Druh",
     "3d": "3D",
     "pie": "Koláčový",
-    "pyramid": "Pyramid"
+    "barchart": "Sloupcový graf"
   },
   "months": {
     "January": { "display": "Leden" },

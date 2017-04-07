@@ -7,7 +7,7 @@
     "type": "Тип",
     "3d": "3D",
     "pie": "Круговая",
-    "pyramid": "Пирамида"
+    "barchart": "Гистограмма"
   },
   "months": {
     "January": { "display": "Янв" },

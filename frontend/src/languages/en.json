@@ -7,7 +7,7 @@
     "type": "Type",
     "3d": "3D",
     "pie": "Pie",
-    "pyramid": "Pyramid"
+    "barchart": "Bar chart"
   },
   "months": {
     "January": { "display": "Jan" },

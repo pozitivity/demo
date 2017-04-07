@@ -15,9 +15,9 @@ angular
     .factory('Bubble', function(DS) {
         return DS.defineResource('bubble');
     })
-    .factory('Pyramid', function(DS) {
+    .factory('BarChart', function(DS) {
         return DS.defineResource({
-            name:'pyramid',
+            name:'barchart',
             idAttribute: 'year'
         });
     });

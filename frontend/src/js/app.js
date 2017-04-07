@@ -11,6 +11,7 @@ require('bootstrap');
 require('angular-ui-router');
 require('angular-ui-bootstrap');
 require('angular-translate');
+require('d3-scale');
 
 import 'angular-route';
 import 'angular-cookies';
