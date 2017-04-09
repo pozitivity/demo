@@ -6,9 +6,9 @@ angular
     .config(['DSProvider', 'DSHttpAdapterProvider', function (DSProvider, DSHttpAdapterProvider) {
         DSProvider.defaults.basePath = '/api';
     }])
-    .factory('Patient', function(DS) {
-        return DS.defineResource('patients');
-    })
+    // .factory('Patient', function(DS) {
+    //     return DS.defineResource('patients');
+    // })
     .factory('Diagnosis', function(DS) {
         return DS.defineResource('diagnosis');
     })

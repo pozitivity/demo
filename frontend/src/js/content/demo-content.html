@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-3 col-md-2 sidebar menu">
+            <div class="logo">
+                <img src="../../css/img/logo.jpg" />
+            </div>
+            <div class="items">
+                <div class="item">
+                    <span><a class="disabled" ui-sref="content.pie">{{ 'header.pie' | translate }}</a></span>
+                </div>
+                <div class="item">
+                    <span><a class="disabled" ui-sref="content.chart">{{ 'header.3d' | translate }} #2</a></span>
+                </div>
+                <div class="item">
+                    <span><a ui-sref="content.table">{{ 'header.table' | translate }}</a></span>
+                </div>
+                <div class="item">
+                    <span><a ui-sref="content.bubble">{{ 'header.bubble' | translate }}</a></span>
+                </div>
+                <div class="item">
+                    <span><a ui-sref="content.barchart">{{ 'header.barchart' | translate }}</a></span>
+                </div>
+                <div class="item">
+                    <span><a class="disabled">{{ 'header.type' | translate }} #4</a></span>
+                </div>
+            </div>
+
+            <div class="nav-dropdown" ng-class="{ 'active': showLanguage }">
+                <a href="" class="nav-dropdown-open"
+                   ng-class="{ 'active': showLanguage }"
+                   ng-click="showLanguage = !showLanguage">{{ ctrl.langkey }}</a>
+                <div class="nav-content" id="nav-language" ng-class="{ 'display_none': !showLanguage, 'active': showLanguage }">
+                    <ul>
+                        <li ng-repeat="lang in ctrl.languages"
+                            ng-click="ctrl.changeLang(lang.value)">
+                            <a href="">{{ lang.description }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9 col-md-10 col-md-offset-2 col-sm-offset-3">
+            <div class="col-sm-12 content">
+                <div ui-view>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="bottom">
+                    <div class="visualizated-items">
+                        <ul>
+                            <li class="item">
+                                <a ui-sref="content.barchart">
+                                    <div class="zoom">
+                                        <figure>
+                                            <img src="../../css/img/types/barchart.jpg" />
+                                        </figure>
+                                    </div>
+                                    <div>
+                                        <h2>{{ 'header.barchart' | translate }}</h2>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="item">
+                                <a ui-sref="content.table">
+                                    <div class="zoom">
+                                        <figure style="background-image: url(../../css/img/types/table.png);"></figure>
+                                    </div>
+                                    <div>
+                                        <h2>{{ 'header.table' | translate }}</h2>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                            <li class="item"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

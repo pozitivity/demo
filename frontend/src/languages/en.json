@@ -2,6 +2,11 @@
   "filter": {
     "label": "Filter"
   },
+
+  "title": {
+    "mdv": "Medical data visualization system"
+  },
+
   "header": {
     "labelTypeDiagrams": "Types of diagrams",
     "type": "Type",

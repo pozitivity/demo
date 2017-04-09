@@ -1,8 +1,7 @@
 /**
  * Created by tatiana.gorbunova on 3/21/2016.
  */
-import 'js-data';
-import 'js-data-angular';
+
 import * as hl_ru from 'json!../../languages/ru.json';
 import * as hl_en from 'json!../../languages/en.json';
 import * as hl_cz from 'json!../../languages/cz.json';

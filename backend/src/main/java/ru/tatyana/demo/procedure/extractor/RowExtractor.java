@@ -2,6 +2,7 @@ package ru.tatyana.demo.procedure.extractor;
 
 import ru.tatyana.demo.entity.Diagnosis;
 import ru.tatyana.demo.entity.Patient;
+import ru.tatyana.demo.model.PatientModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,12 +11,12 @@ import java.sql.SQLException;
  * Created by tatiana.gorbunova on 30.11.2016.
  */
 public class RowExtractor {
-    public static Patient patient(ResultSet rs) throws SQLException {
-        Patient patient = new Patient();
+    public static PatientModel patient(ResultSet rs) throws SQLException {
+        PatientModel patient = new PatientModel();
         patient.setId(rs.getLong("id"));
-        patient.setBirthday(rs.getTimestamp("date_birthday"));
-        patient.setDatein(rs.getTimestamp("date_in"));
-        patient.setDiagnosisId(rs.getLong("diagnosis_id"));
+        patient.setBirthday(rs.getTimestamp("birthday"));
+        patient.setDatein(rs.getTimestamp("datein"));
+        patient.setDiagnosis(rs.getString("diagnosis"));
         return patient;
     }
 

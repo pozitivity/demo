@@ -3,7 +3,7 @@ package ru.tatyana.demo.procedure.patient;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.object.StoredProcedure;
-import ru.tatyana.demo.entity.Patient;
+import ru.tatyana.demo.model.PatientModel;
 import ru.tatyana.demo.procedure.extractor.patient.PatientListExtractor;
 
 import javax.sql.DataSource;
@@ -32,11 +32,11 @@ public class GetListPatientsProcedure extends StoredProcedure {
         compile();
     }
 
-    public List<Patient> execute(Integer offset, Integer pageSize) {
+    public List<PatientModel> execute(Integer offset, Integer pageSize) {
         Map<String, Object> params = new HashMap<>();
         params.put(OFFSET, offset);
         params.put(PAGE_SIZE, pageSize);
         Map<String, Object> stringObjectMap = execute(params);
-        return (List<Patient>) stringObjectMap.get(REFCUR);
+        return (List<PatientModel>) stringObjectMap.get(REFCUR);
     }
 }

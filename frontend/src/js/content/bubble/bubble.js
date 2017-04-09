@@ -1,12 +1,10 @@
 /**
  * Created by tatiana.gorbunova on 06.04.2016.
  */
-import 'js-data';
-import 'js-data-angular';
-import '../../../models/models';
+
 module.exports = (app) => {
 
-    require('../../../common/common')(app);
+    require('../../common/common')(app);
 
     app.controller('BubbleController', BubbleController)
     ;

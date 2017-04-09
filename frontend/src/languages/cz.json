@@ -2,6 +2,11 @@
   "filter": {
     "label": "Filtr"
   },
+
+  "title": {
+    "mdv": "Vizualizace zdravotnického systému dat"
+  },
+
   "header": {
     "labelTypeDiagrams": "Druhy diagramů",
     "type": "Druh",

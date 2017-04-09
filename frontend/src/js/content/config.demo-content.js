@@ -6,33 +6,39 @@ import 'angular-route';
 
 module.exports = (app) => {
     require('./demo-content')(app);
-    require('./contents/pie/pie')(app);
-    require('./contents/chart/chart')(app);
-    require('./contents/table/table')(app);
-    require('./contents/bubble/bubble')(app);
-    require('./contents/barchart/barchart')(app);
+    require('./pie/pie')(app);
+    require('./chart/chart')(app);
+    require('./table/table')(app);
+    require('./bubble/bubble')(app);
+    require('./barchart/barchart')(app);
+
+    require('../services/barchart.service')(app);
+    require('../services/patient.service')(app);
+
     app.config(['$stateProvider', ($stateProvider) => {
             $stateProvider.state('content', {
             url: '/content'
             , views: {
                 'main@': {
                     template: require('./demo-content.html'),
-                    controller: 'DemoContentController'
+                    controller: 'DemoContentController',
+                    controllerAs: 'ctrl'
                 }
             }
         }).state('content.pie', {
             url: '/pie',
             views: {
                 '@content': {
-                    template: require('./contents/pie/pie.content.tmpl.html'),
-                    controller: 'PieController'
+                    template: require('./pie/pie.content.tmpl.html'),
+                    controller: 'PieController',
+                    controllerAs: 'ctrl'
                 }
             }
         }).state('content.chart', {
             url: '/chart',
             views: {
                 '@content': {
-                    template: require('./contents/chart/chart.content.tmpl.html'),
+                    template: require('./chart/chart.content.tmpl.html'),
                     controller: 'ChartController'
                 }
             }
@@ -40,24 +46,27 @@ module.exports = (app) => {
             url: '/table',
             views: {
                 '@content': {
-                    template: require('./contents/table/table.content.tmpl.html'),
-                    controller: 'TableController'
+                    template: require('./table/table.content.tmpl.html'),
+                    controller: 'TableController',
+                    controllerAs: 'ctrl'
                 }
             }
         }).state('content.bubble', {
             url: '/bubble',
             views: {
                 '@content': {
-                    template: require('./contents/bubble/bubble.content.tmpl.html'),
-                    controller: 'BubbleController'
+                    template: require('./bubble/bubble.content.tmpl.html'),
+                    controller: 'BubbleController',
+                    controllerAs: 'ctrl'
                 }
             }
         }).state('content.barchart', {
             url: '/barchart',
             views: {
                 '@content': {
-                    template: require('./contents/barchart/barchart.content.tmpl.html'),
-                    controller: 'BarChartController'
+                    template: require('./barchart/barchart.content.tmpl.html'),
+                    controller: 'BarChartController',
+                    controllerAs: 'ctrl'
                 }
             }
         });

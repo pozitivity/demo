@@ -37,7 +37,7 @@ module.exports = function (config) {
             loaders: ["style", "css?sourceMap", "sass?sourceMap"]
         },
         {test: /\.otf/, loader: "url-loader?limit=100000"},
-        {test: /\.jpeg/, loader: "url-loader?limit=100000"},
+        {test: /\.jpe?g/, loader: "url-loader?limit=100000"},
         {test: /\.png/, loader: "url-loader?limit=100000"},
 
 
@@ -47,7 +47,7 @@ module.exports = function (config) {
         {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"},
         {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&minetype=image/svg+xml"},
         {
-            test: /\.(jpe?g|png|gif|svg)$/i,
+            test: /\.(gif|svg)$/i,
             loaders: [
                 'file?hash=sha512&digest=hex&name=[hash].[ext]',
                 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
@@ -79,7 +79,8 @@ module.exports = function (config) {
     plugins = [
         new HtmlWebpackPlugin({
             inject: true,
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon: './src/css/img/favicon.jpg'
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
         new webpack.ProvidePlugin({

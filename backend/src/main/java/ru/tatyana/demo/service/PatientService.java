@@ -1,6 +1,7 @@
 package ru.tatyana.demo.service;
 
 import ru.tatyana.demo.entity.Patient;
+import ru.tatyana.demo.model.PatientModel;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * Created by tatiana.gorbunova on 24.12.2016.
  */
 public interface PatientService {
-    List<Patient> getPatients(Integer offset, Integer pageSize);
+    List<PatientModel> getPatients(Integer offset, Integer pageSize);
 
     List<Patient> getPatientsByDiagnosis(Long diagnosisId);
 

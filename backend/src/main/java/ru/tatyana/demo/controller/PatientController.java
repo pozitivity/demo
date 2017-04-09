@@ -3,6 +3,7 @@ package ru.tatyana.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.tatyana.demo.entity.Patient;
+import ru.tatyana.demo.model.PatientModel;
 import ru.tatyana.demo.service.impl.PatientServiceImpl;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class PatientController {
     private PatientServiceImpl patientServiceImpl;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Patient> getPatients(@RequestParam(required = false) Integer offset, @RequestParam(required = false) Integer pageSize) {
+    public List<PatientModel> getPatients(@RequestParam(required = false) Integer offset, @RequestParam(required = false) Integer pageSize) {
         return patientServiceImpl.getPatients(offset, pageSize);
     }
 

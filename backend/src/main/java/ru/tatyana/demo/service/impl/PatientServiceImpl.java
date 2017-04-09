@@ -3,6 +3,7 @@ package ru.tatyana.demo.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.tatyana.demo.entity.Patient;
+import ru.tatyana.demo.model.PatientModel;
 import ru.tatyana.demo.repository.PatientRepository;
 import ru.tatyana.demo.repository.jpa.PatientRepositoryJpa;
 import ru.tatyana.demo.service.PatientService;
@@ -23,7 +24,7 @@ public class PatientServiceImpl implements PatientService {
 //    }
 
     @Override
-    public List<Patient> getPatients(Integer offset, Integer pageSize) {
+    public List<PatientModel> getPatients(Integer offset, Integer pageSize) {
         return patientRepository.getPatients(offset, pageSize);
     }
 

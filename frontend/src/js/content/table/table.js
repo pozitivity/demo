@@ -1,39 +1,32 @@
 /**
  * Created by tatiana.gorbunova on 24.03.2016.
  */
-import 'js-data';
-import 'js-data-angular';
-import '../../../models/models';
+
+//import '../../services/patient.service';
+
 module.exports = (app) => {
 
-    require('../../../common/common')(app);
-    require('../../../common/spinner')(app);
+    require('../../common/common')(app);
+    require('../../common/spinner')(app);
+
     app.controller('TableController', TableController)
     ;
 };
 
-TableController.$inject = ['$scope', '$translate', 'Diagnosis', 'Patient', '$filter', 'timeConverter', 'spinnerService'];
-function TableController($scope, $translate, Diagnosis, Patient, $filter, timeConverter, spinnerService) {
+TableController.$inject = ['$scope', '$translate', '$filter', 'timeConverter', 'spinnerService', 'PatientService'];
+function TableController($scope, $translate, $filter, timeConverter, spinnerService, PatientService) {
     let ctrl = this;
 
-    ctrl.patients = [];
-    ctrl.diagnoses = [];
+    function init() {
+        ctrl.patients = [];
+        ctrl.diagnoses = [];
+        console.log('[OK] TableController init');
+        ctrl.loading = false;
+        ctrl.offset = 0;
+        ctrl.pageSize = 20;
+    }
 
-    console.log('[OK] TableController init');
-    ctrl.loading = false;
-
-    Diagnosis.findAll().then(function (diagnoses) {
-        ctrl.diagnoses = diagnoses;
-
-        Patient.findAll().then(function (patients) {
-            ctrl.patients = patients;
-            ctrl.loading = true;
-        });
-    });
-
-    ctrl.displayDiagnosis = (diagnosisid) => {
-        return $filter('getById')(ctrl.diagnoses, diagnosisid).name;
-    };
+    ctrl.patients = PatientService.list({offset: ctrl.offset, pageSize: ctrl.pageSize});
 
     ctrl.displayDate = (timestamp) => {
         var months = [];

@@ -16,6 +16,7 @@ require('d3-scale');
 import 'angular-route';
 import 'angular-cookies';
 import 'ng-file-upload';
+import 'angular-resource';
 require('angular-translate-storage-local');
 require('angular-translate-storage-cookie');
 
@@ -25,8 +26,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 
 import '../css/app.scss';
-
-import './models/models';
 
 require("font-awesome-webpack");
 
@@ -38,14 +37,12 @@ const app = angular.module('demo', [
     'pascalprecht.translate',
     'ngFileUpload',
     'ngRoute',
-
-    'dsConfig'
+    'ngResource'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
         ($urlRouterProvider, $stateProvider, $translateProvider) => {
             $urlRouterProvider.otherwise('/content');
-            //$translateProvider.useLocalStorage();
             $translateProvider.preferredLanguage('en');
             $stateProvider
                 .state('demo', {
@@ -65,4 +62,4 @@ app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',
     ]
 );
 
-require('./config.states')(app);
+require('./content/config.demo-content')(app);
