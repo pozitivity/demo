@@ -3,9 +3,11 @@ package ru.tatiana.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.tatiana.demo.service.FileDataService;
 import ru.tatiana.demo.model.FileData;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -32,6 +34,12 @@ public class FileDataController {
     @RequestMapping(method = RequestMethod.POST)
     public Long saveFile(@RequestBody FileData file) {
         return fileDataService.saveFileData(file.getId(), file.getContent(), file.getUsed(), file.getName());
+    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public String upload(@RequestParam("file")MultipartFile file) throws IOException {
+        fileDataService.parseFile(file);
+        return "Done";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

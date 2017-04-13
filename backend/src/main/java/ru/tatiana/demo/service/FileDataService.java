@@ -1,5 +1,6 @@
 package ru.tatiana.demo.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import ru.tatiana.demo.model.FileData;
 
 import java.util.List;
@@ -9,7 +10,12 @@ import java.util.List;
  */
 public interface FileDataService {
     List<FileData> getListFiles(Integer offset, Integer pageSize);
+
     FileData getFileDataById(Long id);
+
     Long saveFileData(Long id, String content, Boolean used, String name);
+
     void deleteFileData(Long id);
+
+    void parseFile(MultipartFile file);
 }

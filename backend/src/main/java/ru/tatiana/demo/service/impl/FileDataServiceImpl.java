@@ -2,6 +2,7 @@ package ru.tatiana.demo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 import ru.tatiana.demo.repository.FileDataRepository;
 import ru.tatiana.demo.service.FileDataService;
 import ru.tatiana.demo.model.FileData;
@@ -35,5 +36,10 @@ public class FileDataServiceImpl implements FileDataService {
     @Override
     public void deleteFileData(Long id) {
         fileDataRepository.deleteSaveFile(id);
+    }
+
+    @Override
+    public void parseFile(MultipartFile file) {
+
     }
 }
