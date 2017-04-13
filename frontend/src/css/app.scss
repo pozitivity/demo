@@ -220,8 +220,6 @@ rect:first-child {
     position: fixed;
     z-index: 1;
     bottom: 0;
-    //left: 0;
-    //background: #24292e;
     width: 100%;
     text-align: center;
     padding: 0 1.25em;
@@ -245,6 +243,14 @@ rect:first-child {
           opacity: 1;
           border: 1px solid #e8e8e8;
           float: left;
+
+          .slick-slide {
+            width: 200px !important;
+          }
+        }
+
+        li.item.slick-slide {
+          width: 200px !important;
         }
 
         li a {
@@ -300,4 +306,13 @@ rect:first-child {
       }
     }
   }
+}
+
+.drop-box {
+  background: #f8f8f8;
+  border: 5px dashed #ddd;
+  width: 170px;
+  text-align: center;
+  padding: 50px 10px;
+  margin-left: 10px;
 }

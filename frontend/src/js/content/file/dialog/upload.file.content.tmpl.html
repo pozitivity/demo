@@ -2,9 +2,13 @@
     <h3 class="modal-title">Upload file</h3>
 </div>
 <div class="modal-body">
-    <div class="button" ngf-select
-         ng-model="$ctrl.file" name="file"
-         ngf-pattern="'.csv, .xls, .xlsx'" ngf-max-size="20MB">Select</div>
+    <div ngf-select="ctrl.upload($invalidFiles, $files)"
+         ngf-drop ng-model="ctrl.file"
+         class="drop-box"
+         ngf-change="ctrl.upload(ctrl.file)">
+        Select file
+    </div>
+    <div class="preview"></div>
 </div>
 <div class="modal-footer">
     <button class="btn" type="button" ng-click="$ctrl.ok()">OK</button>

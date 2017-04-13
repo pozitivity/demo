@@ -19,14 +19,14 @@ function FileController($scope, FileService, $translate, $uibModal) {
     function init() {
         console.log('[OK] FileController');
         ctrl.files = [];
-        ctrl.files = FileService.list();
+        ctrl.files = FileService.list({offset: 0, pageSize: 20});
     }
 
     ctrl.openUpload = () => {
         let modalInstance = $uibModal.open({
             template: require('./dialog/upload.file.content.tmpl.html'),
             controller: 'UploadFileModalController',
-            controllerAs: '$ctrl'
+            controllerAs: 'ctrl'
         });
 
         modalInstance.result.then((value) => {

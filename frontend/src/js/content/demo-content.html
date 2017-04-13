@@ -53,9 +53,7 @@
                 <div class="bottom">
                     <div class="visualizated-items">
                         <ul class="diagrams">
-                            <button class="btn" ng-click="ctrl.settingSlick.method.slickNext()">Next</button>
-                            <button class="btn" ng-click="ctrl.settingSlick.method.slickPlay()">Play</button>
-                            <slick infinite="true" slides-to-show="1" slides-to-scroll="1" settings="ctrl.settingSlick">
+                            <slick infinite="true" slides-to-show="2" slides-to-scroll="1" settings="ctrl.settingSlick">
                                 <li class="item" style="width:200px">
                                     <a ui-sref="content.barchart">
                                         <div class="zoom">
@@ -92,57 +90,71 @@
                                         </div>
                                     </a>
                                 </li>
+                                <li class="item">
+                                    <a ui-sref="content.pie">
+                                        <div class="zoom">
+                                            <figure>
+                                                <img src="../../css/img/types/pie.png">
+                                            </figure>
+                                        </div>
+                                        <div>
+                                            <h2>{{ 'header.pie' | translate }}</h2>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="item"></li>
+                                <li class="item"></li>
                             </slick>
-                            <li class="item">
-                                <a ui-sref="content.barchart">
-                                    <div class="zoom">
-                                        <figure>
-                                            <img src="../../css/img/types/barchart.jpg" />
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <h2>{{ 'header.barchart' | translate }}</h2>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a ui-sref="content.table">
-                                    <div class="zoom">
-                                        <figure>
-                                            <img src="../../css/img/types/table.png" />
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <h2>{{ 'header.table' | translate }}</h2>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a ui-sref="content.bubble">
-                                    <div class="zoom">
-                                        <figure>
-                                            <img src="../../css/img/types/bubble.png" />
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <h2>{{ 'header.bubble' | translate }}</h2>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a ui-sref="content.pie">
-                                    <div class="zoom">
-                                        <figure>
-                                            <img src="../../css/img/types/pie.png">
-                                        </figure>
-                                    </div>
-                                    <div>
-                                        <h2>{{ 'header.pie' | translate }}</h2>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="item"></li>
-                            <li class="item"></li>
+                            <!--<li class="item">-->
+                                <!--<a ui-sref="content.barchart">-->
+                                    <!--<div class="zoom">-->
+                                        <!--<figure>-->
+                                            <!--<img src="../../css/img/types/barchart.jpg" />-->
+                                        <!--</figure>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<h2>{{ 'header.barchart' | translate }}</h2>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="item">-->
+                                <!--<a ui-sref="content.table">-->
+                                    <!--<div class="zoom">-->
+                                        <!--<figure>-->
+                                            <!--<img src="../../css/img/types/table.png" />-->
+                                        <!--</figure>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<h2>{{ 'header.table' | translate }}</h2>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="item">-->
+                                <!--<a ui-sref="content.bubble">-->
+                                    <!--<div class="zoom">-->
+                                        <!--<figure>-->
+                                            <!--<img src="../../css/img/types/bubble.png" />-->
+                                        <!--</figure>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<h2>{{ 'header.bubble' | translate }}</h2>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="item">-->
+                                <!--<a ui-sref="content.pie">-->
+                                    <!--<div class="zoom">-->
+                                        <!--<figure>-->
+                                            <!--<img src="../../css/img/types/pie.png">-->
+                                        <!--</figure>-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<h2>{{ 'header.pie' | translate }}</h2>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<li class="item"></li>-->
+                            <!--<li class="item"></li>-->
                         </ul>
                     </div>
                 </div>
