@@ -14,7 +14,8 @@
     "pie": "Koláčový",
     "barchart": "Sloupcový graf",
     "table": "Tabulka dat",
-    "bubble": "Bublinový graf"
+    "bubble": "Bublinový graf",
+    "file": "Stahování souborů"
   },
 
   "barchart": {

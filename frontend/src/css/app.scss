@@ -275,6 +275,11 @@ rect:first-child {
             margin: 0;
             background-size: cover;
             background-position: center center;
+
+            img {
+              height: 100%;
+              object-fit: cover;
+            }
           }
         }
 
@@ -287,7 +292,6 @@ rect:first-child {
             font-size: 0.75em;
             line-height: 1.333333333em;
             padding-bottom: 0.833333333em;
-            //margin-bottom: 0.9166666667em;
             position: relative;
             font-weight: 600;
             text-transform: uppercase;

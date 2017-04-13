@@ -20,6 +20,10 @@ import 'angular-resource';
 require('angular-translate-storage-local');
 require('angular-translate-storage-cookie');
 
+
+require('angular-slick-carousel');
+require('slick-carousel');
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -37,7 +41,8 @@ const app = angular.module('demo', [
     'pascalprecht.translate',
     'ngFileUpload',
     'ngRoute',
-    'ngResource'
+    'ngResource',
+    'slickCarousel'
 ]);
 
 app.config(['$urlRouterProvider', '$stateProvider', '$translateProvider',

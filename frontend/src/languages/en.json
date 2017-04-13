@@ -14,7 +14,8 @@
     "pie": "Pie",
     "barchart": "Bar chart",
     "table": "Table with data",
-    "bubble": "Bubble chart"
+    "bubble": "Bubble chart",
+    "file": "Upload files"
   },
 
   "barchart": {

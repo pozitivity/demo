@@ -40,6 +40,11 @@ export class BubbleComponent implements OnChanges, AfterViewInit {
     private bubbles: Bubble[] = [];
     private host;
     private svg;
+    private margin;
+    private width;
+    private height;
+    private xScale;
+    private yScale;
     private htmlElement: HTMLElement;
 
     ngOnInit() : void {
@@ -59,12 +64,34 @@ export class BubbleComponent implements OnChanges, AfterViewInit {
 
     }
 
+//    private setup(): void {
+//        this.margin = {
+//            top: 20,
+//            right: 20,
+//            bottom: 40,
+//            left: 40
+//        };
+//        this.width = this.htmlElement.clientWidth - this.margin.left - this.margin.right;
+//        this.height = this.width * 0.5 - this.margin.top - this.margin.bottom;
+//        this.xScale = D3.time().scale().range([0, this.width]);
+//        this.yScale = D3.scale.linear().range([this.height, 0]);
+//    }
+//
+//    private buildSVG(): void {
+//    this.host.html('');
+//    this.svg = this.host.append('svg')
+//        .attr('width', this.width + this.margin.left + this.margin.right)
+//        .attr('height', this.height + this.margin.top + this.margin.bottom)
+//        .append('g')
+//        .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
+//}
+
     draw() : void {
         let diameter = 1500,
-            format = d3.format(",d");
-            //color = d3.scale.category20c();
+            format = D3.format(",d"),
+            color = D3.scale.category20c();
 
-        let bubble = d3.layout.pack()
+        let bubble = D3.layout.pack()
             .sort(null)
             .value(function(d){
                 return d.size;
@@ -72,7 +99,7 @@ export class BubbleComponent implements OnChanges, AfterViewInit {
             .size([diameter, diameter])
             .padding(10);
 
-        let canvas = d3.select("#bubble").append("svg")
+        let canvas = D3.select("#bubble").append("svg")
             .attr("width", diameter)
             .attr("height", diameter)
             .append("g");

@@ -37,4 +37,8 @@ function DemoContentController ($scope, $translate, $state, $stateParams) {
         ctrl.langkey = lang;
         $translate.use(lang);
     }
+
+    ctrl.settingSlick = {
+        enabled: true
+    }
 }

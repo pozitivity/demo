@@ -17,6 +17,7 @@
     "angular-cookies": "1.5.8",
     "angular-route": "1.5.8",
     "angular-resource": "1.5.8",
+    "angular-slick-carousel": "3.1.7",
     "angular-translate": "^2.10.0",
     "angular-translate-storage-cookie": "^2.10.0",
     "angular-translate-storage-local": "^2.10.0",

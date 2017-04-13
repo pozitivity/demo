@@ -1,0 +1,35 @@
+this is view table of files
+<div class="row">
+    <div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-xs" ng-click="ctrl.openUpload()">
+                <span class="glyphicon glyphicon-download"></span>
+                Загрузить
+            </button>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th width="50%">Name</th>
+                <th>Size</th>
+                <th>Date upload</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in ctrl.files">
+                <td>{{ item.name }}</td>
+                <td></td>
+                <td>{{ item.create }}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="ctrl.remove(item)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        Remove
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

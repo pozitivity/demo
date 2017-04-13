@@ -11,9 +11,11 @@ module.exports = (app) => {
     require('./table/table')(app);
     require('./bubble/bubble')(app);
     require('./barchart/barchart')(app);
+    require('./file/file')(app);
 
     require('../services/barchart.service')(app);
     require('../services/patient.service')(app);
+    require('../services/file.service')(app);
 
     app.config(['$stateProvider', ($stateProvider) => {
             $stateProvider.state('content', {
@@ -66,6 +68,15 @@ module.exports = (app) => {
                 '@content': {
                     template: require('./barchart/barchart.content.tmpl.html'),
                     controller: 'BarChartController',
+                    controllerAs: 'ctrl'
+                }
+            }
+        }).state('content.file', {
+            url: '/files',
+            views: {
+                '@content': {
+                    template: require('./file/file.content.tmpl.html'),
+                    controller: 'FileController',
                     controllerAs: 'ctrl'
                 }
             }
