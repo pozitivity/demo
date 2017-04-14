@@ -34,7 +34,7 @@ public class RowExtractor {
         fileData.setName(rs.getString("name"));
         fileData.setContent(rs.getString("content"));
         fileData.setUsed(rs.getBoolean("used"));
-        fileData.setCreate(rs.getTimestamp("create"));
+        fileData.setCreate(rs.getTimestamp("create_time"));
         return fileData;
     }
 }

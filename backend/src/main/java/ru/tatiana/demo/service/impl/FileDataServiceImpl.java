@@ -6,7 +6,9 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.tatiana.demo.repository.FileDataRepository;
 import ru.tatiana.demo.service.FileDataService;
 import ru.tatiana.demo.model.FileData;
+import ru.tatiana.demo.util.convertData.ParseFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,6 +19,9 @@ public class FileDataServiceImpl implements FileDataService {
 
     @Autowired
     FileDataRepository fileDataRepository;
+
+    @Autowired
+    ParseFile parseFile;
 
     @Override
     public List<FileData> getListFiles(Integer offset, Integer pageSize) {
@@ -40,6 +45,12 @@ public class FileDataServiceImpl implements FileDataService {
 
     @Override
     public void parseFile(MultipartFile file) {
-
+        FileData fileData = new FileData();
+        fileData.setName(file.getName());
+        try {
+            parseFile.getContent(file.getInputStream());
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -15,9 +15,6 @@ module.exports = (app) => {
                 url: 'http://localhost:8080' + GlobalVarService.BACKEND_URL + "/file/upload",
                 data: {
                     file: file
-                },
-                restParams: {
-                    name: file.name
                 }
             }).then((resp) => {
                 console.log(resp);
