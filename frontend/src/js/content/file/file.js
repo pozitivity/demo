@@ -9,17 +9,17 @@ module.exports = (app) => {
 
 };
 
-FileController.$inject = ['$scope', 'FileService', '$translate', '$uibModal'];
+FileController.$inject = ['$scope', 'DataFileService' ,'$translate', '$uibModal'];
 
-function FileController($scope, FileService, $translate, $uibModal) {
+function FileController($scope, DataFileService, $translate, $uibModal) {
     let ctrl = this;
 
     init();
 
     function init() {
         console.log('[OK] FileController');
-        ctrl.files = [];
-        ctrl.files = FileService.list({offset: 0, pageSize: 20});
+        ctrl.dataFiles = [];
+        ctrl.dataFiles = DataFileService.list({offset: 0, pageSize: 20});
     }
 
     ctrl.openUpload = () => {

@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 /**
  * Created by Tatyana on 11.04.2017.
  */
-public class FileData {
+public class DataFile {
 
     private Long id;
     private String name;

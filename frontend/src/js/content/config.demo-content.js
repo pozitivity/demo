@@ -16,6 +16,7 @@ module.exports = (app) => {
     require('../services/barchart.service')(app);
     require('../services/patient.service')(app);
     require('../services/file.service')(app);
+    require('../services/dataFile.service')(app);
 
     app.config(['$stateProvider', ($stateProvider) => {
             $stateProvider.state('content', {

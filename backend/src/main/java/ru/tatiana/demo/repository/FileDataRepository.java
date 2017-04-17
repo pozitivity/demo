@@ -3,7 +3,7 @@ package ru.tatiana.demo.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.tatiana.demo.procedure.fileData.GetListFileDataProcedure;
-import ru.tatiana.demo.model.FileData;
+import ru.tatiana.demo.model.DataFile;
 import ru.tatiana.demo.procedure.fileData.DeleteFileDataProcedure;
 import ru.tatiana.demo.procedure.fileData.GetFileDataProcedure;
 import ru.tatiana.demo.procedure.fileData.SaveFileDataProcedure;
@@ -32,12 +32,12 @@ public class FileDataRepository {
     }
 
     @Transactional
-    public List<FileData> getListFileData(Integer offset, Integer pageSize) {
+    public List<DataFile> getListFileData(Integer offset, Integer pageSize) {
         return getListFileDataProcedure.execute(offset, pageSize);
     }
 
     @Transactional
-    public FileData getFileDataById(Long id) {
+    public DataFile getFileDataById(Long id) {
         return getFileDataProcedure.execute(id);
     }
 

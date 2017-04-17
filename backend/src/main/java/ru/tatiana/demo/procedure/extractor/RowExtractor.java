@@ -1,7 +1,7 @@
 package ru.tatiana.demo.procedure.extractor;
 
+import ru.tatiana.demo.model.DataFile;
 import ru.tatiana.demo.model.Diagnosis;
-import ru.tatiana.demo.model.FileData;
 import ru.tatiana.demo.model.PatientModel;
 
 import java.sql.ResultSet;
@@ -28,13 +28,13 @@ public class RowExtractor {
         return diagnosis;
     }
 
-    public static FileData fileData(ResultSet rs) throws SQLException {
-        FileData fileData = new FileData();
-        fileData.setId(rs.getLong("id"));
-        fileData.setName(rs.getString("name"));
-        fileData.setContent(rs.getString("content"));
-        fileData.setUsed(rs.getBoolean("used"));
-        fileData.setCreate(rs.getTimestamp("create_time"));
-        return fileData;
+    public static DataFile fileData(ResultSet rs) throws SQLException {
+        DataFile dataFile = new DataFile();
+        dataFile.setId(rs.getLong("id"));
+        dataFile.setName(rs.getString("name"));
+        dataFile.setContent(rs.getString("content"));
+        dataFile.setUsed(rs.getBoolean("used"));
+        dataFile.setCreate(rs.getTimestamp("create_time"));
+        return dataFile;
     }
 }

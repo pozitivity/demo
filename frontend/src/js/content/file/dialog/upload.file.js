@@ -12,7 +12,7 @@ module.exports = (app) => {
         ctrl.upload = (file) => {
             Upload.upload({
                 method: 'POST',
-                url: 'http://localhost:8080' + GlobalVarService.BACKEND_URL + "/file/upload",
+                url: 'http://localhost:8085' + GlobalVarService.BACKEND_URL + "/file/upload",
                 data: {
                     file: file
                 }

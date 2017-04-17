@@ -3,7 +3,7 @@ package ru.tatiana.demo.procedure.fileData;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.object.StoredProcedure;
-import ru.tatiana.demo.model.FileData;
+import ru.tatiana.demo.model.DataFile;
 import ru.tatiana.demo.procedure.extractor.fileData.FileDataListExtractor;
 
 import javax.sql.DataSource;
@@ -31,11 +31,11 @@ public class GetListFileDataProcedure extends StoredProcedure {
         compile();
     }
 
-    public List<FileData> execute(Integer offset, Integer pageSize) {
+    public List<DataFile> execute(Integer offset, Integer pageSize) {
         Map<String, Object> params = new HashMap<>();
         params.put(OFFSET, offset);
         params.put(PAGE_SIZE, pageSize);
         Map<String, Object> stringObjectMap = execute(params);
-        return (List<FileData>) stringObjectMap.get(REFCUR);
+        return (List<DataFile>) stringObjectMap.get(REFCUR);
     }
 }
