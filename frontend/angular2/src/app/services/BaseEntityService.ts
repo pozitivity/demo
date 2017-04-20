@@ -10,6 +10,9 @@ export class BaseEntityService {
         this.headers.append('Content-Type', 'application/json');
         this.options = new RequestOptions({headers: this.headers});
     }
+
+    public BACKEND_URL = "http://localhost:8080/api";
+
     protected handleError(error: any) {
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';

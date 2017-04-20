@@ -10,14 +10,8 @@ export class BubbleService extends BaseEntityService {
         super();
     }
 
-    private BACKEND_URL = "http://localhost:8080/api";
-
-    private bubblesObservable: Observable<Bubble[]>;
-
     getBubbles() : Observable<Bubble[]> {
-        this.bubblesObservable = this.http.get(this.BACKEND_URL + '/bubble')
+        return this.http.get(this.BACKEND_URL + '/bubble')
             .map(response => response.json());
-
-        return this.bubblesObservable;
     }
 }

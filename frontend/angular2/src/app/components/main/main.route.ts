@@ -19,6 +19,9 @@ const routes: Routes  = [
             {
                 path: 'bubble',
                 component: BubbleComponent
+            },
+            {
+
             }
         ]
     }

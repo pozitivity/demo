@@ -35,8 +35,10 @@ public class FileServiceImpl implements FileService {
     @Override
     public File saveTempFile(MultipartFile file) {
         File tempFile = null;
+        System.out.println(System.getProperty("user.dir"));
+        String absolutePath = System.getProperty("user.dir") + "/" + file.getOriginalFilename();
         try {
-            tempFile = File.createTempFile(NAME_TEMP_FILE, getExtension(file.getOriginalFilename()), new File("/some"));
+            tempFile = File.createTempFile(NAME_TEMP_FILE, "." + getExtension(file.getOriginalFilename()), new File("D:/"));
         } catch(IOException e) {
             throw new RuntimeException("Ошибка при сохранении временного файла");
         }
@@ -60,6 +62,7 @@ public class FileServiceImpl implements FileService {
                 headers = parser.getHeaders(file);
                 break;
         }
+        saveTempFile(file);
         return headers;
     }
 }
