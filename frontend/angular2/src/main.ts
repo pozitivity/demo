@@ -2,7 +2,7 @@
  * Created by tatiana.gorbunova on 03.12.2016.
  */
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule);

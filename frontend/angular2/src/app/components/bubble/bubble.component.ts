@@ -52,7 +52,7 @@ export class BubbleComponent implements OnChanges, AfterViewInit {
             bubbles.map(bubble => this.bubbles.push(bubble));
         });
 
-        this.draw();
+        //this.draw();
     }
 
     ngAfterViewInit() {
@@ -86,22 +86,22 @@ export class BubbleComponent implements OnChanges, AfterViewInit {
 //        .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 //}
 
-    draw() : void {
-        let diameter = 1500,
-            format = D3.format(",d"),
-            color = D3.scale.category20c();
-
-        let bubble = D3.layout.pack()
-            .sort(null)
-            .value(function(d){
-                return d.size;
-            })
-            .size([diameter, diameter])
-            .padding(10);
-
-        let canvas = D3.select("#bubble").append("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
-            .append("g");
-    }
+    // draw() : void {
+    //     let diameter = 1500,
+    //         format = D3.format(",d"),
+    //         color = D3.scale.category20c();
+    //
+    //     let bubble = D3.layout.pack()
+    //         .sort(null)
+    //         .value(function(d){
+    //             return d.size;
+    //         })
+    //         .size([diameter, diameter])
+    //         .padding(10);
+    //
+    //     let canvas = D3.select("#bubble").append("svg")
+    //         .attr("width", diameter)
+    //         .attr("height", diameter)
+    //         .append("g");
+    // }
 }

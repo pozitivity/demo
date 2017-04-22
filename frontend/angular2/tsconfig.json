@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -22,7 +22,8 @@
       "uglify-js",
       "webpack",
       "jquery",
-      "d3"
+      "d3",
+      "reflect-metadata"
     ]
   },
   "exclude": [

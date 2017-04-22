@@ -12,7 +12,7 @@ const tryGetEnvironmentVariable = require('./tryGetEnvironmentVariable');
 // problem with copy-webpack-plugin
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
+//const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -182,13 +182,10 @@ module.exports = {
         // NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
         new webpack.DefinePlugin({
             'BACKEND': {
-                'contextPath': tryGetEnvironmentVariable('BACKEND_CONTEXT_PATH', '/privateApi')
+                'contextPath': tryGetEnvironmentVariable('BACKEND_CONTEXT_PATH', '/api')
             },
             'FRONTEND': {
-                'contextPath': tryGetEnvironmentVariable('FRONTEND_CONTEXT_PATH', '/angular2-site')
-            },
-            'SELF_SERVICE': {
-                'contextPath': tryGetEnvironmentVariable('SELF_SERVICE_CONTEXT_PATH', '/self-service')
+                'contextPath': tryGetEnvironmentVariable('FRONTEND_CONTEXT_PATH', '/demo')
             }
         }),
 
@@ -200,7 +197,7 @@ module.exports = {
          *
          * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
          */
-        new ForkCheckerPlugin(),
+        //new ForkCheckerPlugin(),
 
         /*
          * Plugin: CommonsChunkPlugin
