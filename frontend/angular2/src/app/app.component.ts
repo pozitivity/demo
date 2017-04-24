@@ -4,7 +4,7 @@
 import {Component, ViewEncapsulation, ViewContainerRef} from '@angular/core';
 import {Renderer} from "@angular/core";
 import {Router} from "@angular/router";
-import {TranslateService} from "ng2-translate";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'ls-app',
@@ -19,7 +19,6 @@ export class AppComponent {
     constructor(viewContainerRef: ViewContainerRef, private renderer: Renderer, private router: Router, translate : TranslateService) {
         this.viewContainerRef = viewContainerRef;
         translate.addLangs(["ru"]);
-        //translate.addLangs(["en", "ru"]);
         translate.setDefaultLang('ru');
 
         let browserLang = translate.getBrowserLang();

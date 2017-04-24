@@ -18,4 +18,8 @@ export class SidebarComponent {
     }
 
     headers: Headers;
+
+    public toFiles() {
+        this.router.navigateByUrl("/dataFile");
+    }
 }

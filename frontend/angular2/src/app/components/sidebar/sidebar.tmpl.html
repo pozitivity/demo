@@ -1,15 +1,23 @@
 <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
-        <div class="filters">
-            <div class="filter">
-                {{ 'filter.label' | translate }} #1
-            </div>
-            <div class="filter">
-                {{ 'filter.label' | translate }} #2
-            </div>
-            <div class="filter">
-                {{ 'filter.label' | translate }} #3
+        <div class="logo">
+            <img src="../../../assets/images/logo.jpg">
+        </div>
+        <div class="items">
+            <div class="item">
+                <span><a (click)="toFiles()">{{ 'SIDEBAR.FILE' | translate }}</a></span>
             </div>
         </div>
+        <!--<div class="filters">-->
+            <!--<div class="filter">-->
+                <!--{{ 'filter.label' | translate }} #1-->
+            <!--</div>-->
+            <!--<div class="filter">-->
+                <!--{{ 'filter.label' | translate }} #2-->
+            <!--</div>-->
+            <!--<div class="filter">-->
+                <!--{{ 'filter.label' | translate }} #3-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
