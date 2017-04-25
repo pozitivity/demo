@@ -9,8 +9,7 @@ import {RouterModule, Router} from  '@angular/router';
 import {HttpModule, Http, RequestOptions, XHRBackend} from '@angular/http';
 import {Ng2BootstrapModule, ModalModule, AlertModule, TabsModule} from "ngx-bootstrap";
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
-import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateModule} from "@ngx-translate/core";
 
 import {routing} from './app.route';
 import {AppComponent}  from './app.component';
@@ -20,16 +19,12 @@ import {DataFileService} from "./services/data-file.service";
 import {FileService} from "./services/file.service";
 import {TableModule} from "./components/table/table.module";
 import {BubbleModule} from "./components/bubble/bubble.module";
-import {SidebarComponent} from "./components/sidebar/sidebar.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {DataFileModule} from "./components/data-file/data-file.module";
 import {FileModule} from "./components/file/file.module";
 import {CookieService, CookieModule} from "ngx-cookie";
 import {CustomHttp} from "./services/custom-http.service";
-
-export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http, '../assets/i18n', '.json');
-}
+import {SidebarModule} from "./components/sidebar/sidebar.module";
 
 export function createHttpFactory(backend: XHRBackend,
                                   defaultOptions: RequestOptions,
@@ -55,11 +50,11 @@ export function createHttpFactory(backend: XHRBackend,
         TranslateModule.forRoot(),
         DataFileModule,
         FileModule,
-        CookieModule.forRoot()
+        CookieModule.forRoot(),
+        SidebarModule
     ],
     declarations: [
         AppComponent,
-        SidebarComponent,
         FooterComponent],
     providers: [
         {provide: LOCALE_ID, useValue: "ru"},
