@@ -14,8 +14,8 @@ import {
     Router,
     ActivatedRoute
 } from "@angular/router";
-import {BubbleService} from "../../services/BubbleService";
-import {Bubble} from "../../models/bubble-model/Bubble";
+import {BubbleService} from "../../services/bubble.service";
+import {Bubble} from "../../models/bubble-model/bubble.model";
 import * as D3 from "d3";
 
 @Component({

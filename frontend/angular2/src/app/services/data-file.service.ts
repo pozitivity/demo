@@ -4,9 +4,9 @@
 
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/Http";
-import {BaseEntityService} from "./BaseEntityService";
+import {BaseEntityService} from "./base-entity.service";
 import {Observable} from "rxjs";
-import {DataFile} from "../models/DataFile";
+import {DataFile} from "../models/data-file.model";
 
 @Injectable()
 export class DataFileService extends BaseEntityService {

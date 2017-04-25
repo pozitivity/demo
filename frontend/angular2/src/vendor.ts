@@ -10,7 +10,6 @@ import '@angular/core';
 import '@angular/common';
 import '@angular/forms';
 import 'lodash/lodash.min.js';
-import 'angular2-cookie/core.js';
 import 'tether/dist/js/tether.min.js';
 import 'bootstrap';
 

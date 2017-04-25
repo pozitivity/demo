@@ -73,7 +73,7 @@ module.exports = {
          *
          * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
          */
-        extensions: ['', '.ts', '.js'],
+        extensions: ['', '.ts', '.js', '.json'],
 
         // Make sure root is src
         root: helpers.root('src'),
@@ -212,8 +212,8 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: './src/assets/i18n/', // replace with your folder
-                to: 'assets/i18n'
+                from: './src/assets', // replace with your folder
+                to: 'assets'
             }
         ]),
         /*

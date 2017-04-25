@@ -2,12 +2,12 @@
  * Created by tatiana.gorbunova on 20.04.2017.
  */
 import {Component} from "@angular/core";
-import {DataFileService} from "../../services/DataFileService";
-import {DataFile} from "../../models/DataFile";
+import {DataFileService} from "../../services/data-file.service";
+import {DataFile} from "../../models/data-file.model";
 
 @Component({
     selector: 'data-file-comp',
-    template: require('./dataFile.component.html')
+    template: require('./data-file.component.html')
 })
 
 export class DataFileComponent {

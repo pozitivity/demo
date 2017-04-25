@@ -1,4 +1,4 @@
-import {BaseEntityService} from "./BaseEntityService";
+import {BaseEntityService} from "./base-entity.service";
 import {Http, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {Injectable} from "@angular/core";

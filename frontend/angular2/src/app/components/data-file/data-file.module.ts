@@ -2,7 +2,7 @@
  * Created by tatiana.gorbunova on 20.04.2017.
  */
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
-import {DataFileComponent} from "./dataFile.component";
+import {DataFileComponent} from "./data-file.component";
 import {CommonModule} from "@angular/common";
 
 @NgModule({

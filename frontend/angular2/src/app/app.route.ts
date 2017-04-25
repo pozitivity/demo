@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {AppComponent} from "./app.component";
 import {TableComponent} from "./components/table/table.component";
 import {BubbleComponent} from "./components/bubble/bubble.component";
-import {DataFileComponent} from "./components/dataFile/dataFile.component";
+import {DataFileComponent} from "./components/data-file/data-file.component";
 
 const routes: Routes  = [
     {

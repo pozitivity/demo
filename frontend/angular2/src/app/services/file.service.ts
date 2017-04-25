@@ -3,7 +3,7 @@
  */
 
 import {Injectable} from "@angular/core";
-import {BaseEntityService} from "./BaseEntityService";
+import {BaseEntityService} from "./base-entity.service";
 import {Http} from "@angular/http";
 
 @Injectable()

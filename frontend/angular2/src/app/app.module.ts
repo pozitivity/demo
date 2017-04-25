@@ -14,19 +14,28 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 import {routing} from './app.route';
 import {AppComponent}  from './app.component';
-import {TableService} from "./services/TableService";
-import {BubbleService} from "./services/BubbleService";
-import {DataFileService} from "./services/DataFileService";
-import {FileService} from "./services/FileService";
+import {TableService} from "./services/table.service";
+import {BubbleService} from "./services/bubble.service";
+import {DataFileService} from "./services/data-file.service";
+import {FileService} from "./services/file.service";
 import {TableModule} from "./components/table/table.module";
 import {BubbleModule} from "./components/bubble/bubble.module";
 import {SidebarComponent} from "./components/sidebar/sidebar.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {DataFileModule} from "./components/dataFile/dataFile.module";
+import {DataFileModule} from "./components/data-file/data-file.module";
 import {FileModule} from "./components/file/file.module";
+import {CookieService, CookieModule} from "ngx-cookie";
+import {CustomHttp} from "./services/custom-http.service";
 
-export function createTranslateLoader(http: Http) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+export function HttpLoaderFactory(http: Http) {
+    return new TranslateHttpLoader(http, '../assets/i18n', '.json');
+}
+
+export function createHttpFactory(backend: XHRBackend,
+                                  defaultOptions: RequestOptions,
+                                  cookieService: CookieService,
+                                  router: Router) {
+    return new CustomHttp(backend, defaultOptions, cookieService, router);
 }
 
 @NgModule({
@@ -36,13 +45,7 @@ export function createTranslateLoader(http: Http) {
         RouterModule,
         Ng2BootstrapModule,
         routing,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (createTranslateLoader),
-                deps: [Http]
-            }
-        }),
+        TranslateModule.forRoot(),
         ModalModule,
         AlertModule,
         TabsModule,
@@ -51,7 +54,8 @@ export function createTranslateLoader(http: Http) {
         BubbleModule,
         TranslateModule.forRoot(),
         DataFileModule,
-        FileModule
+        FileModule,
+        CookieModule.forRoot()
     ],
     declarations: [
         AppComponent,
@@ -60,12 +64,18 @@ export function createTranslateLoader(http: Http) {
     providers: [
         {provide: LOCALE_ID, useValue: "ru"},
         {provide: LocationStrategy, useClass: HashLocationStrategy},
+        CookieService,
+        {
+            provide: Http,
+            useFactory: createHttpFactory,
+            deps: [XHRBackend, RequestOptions, CookieService, Router]
+        },
         TableService,
         BubbleService,
         DataFileService,
         FileService
     ],
-    bootstrap:    [ AppComponent ],
+    bootstrap: [ AppComponent ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

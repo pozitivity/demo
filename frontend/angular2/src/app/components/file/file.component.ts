@@ -2,7 +2,7 @@
  * Created by tatiana.gorbunova on 20.04.2017.
  */
 import {Component} from "@angular/core";
-import {FileService} from "../../services/FileService";
+import {FileService} from "../../services/file.service";
 import {FileUploader} from "ng2-file-upload";
 
 @Component({
