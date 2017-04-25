@@ -3,15 +3,15 @@
  */
 
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/Http";
 import {BaseEntityService} from "./base-entity.service";
 import {Observable} from "rxjs";
 import {DataFile} from "../models/data-file.model";
+import {WrapHttpService} from "./wrap-http.service";
 
 @Injectable()
 export class DataFileService extends BaseEntityService {
 
-    constructor(private http: Http) {
+    constructor(private http: WrapHttpService) {
         super();
     }
 

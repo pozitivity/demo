@@ -25,6 +25,8 @@ import {FileModule} from "./components/file/file.module";
 import {CookieService, CookieModule} from "ngx-cookie";
 import {CustomHttp} from "./services/custom-http.service";
 import {SidebarModule} from "./components/sidebar/sidebar.module";
+import {MainModule} from "./components/main/main.module";
+import {WrapHttpService} from "./services/wrap-http.service";
 
 export function createHttpFactory(backend: XHRBackend,
                                   defaultOptions: RequestOptions,
@@ -40,7 +42,6 @@ export function createHttpFactory(backend: XHRBackend,
         RouterModule,
         Ng2BootstrapModule,
         routing,
-        TranslateModule.forRoot(),
         ModalModule,
         AlertModule,
         TabsModule,
@@ -51,20 +52,23 @@ export function createHttpFactory(backend: XHRBackend,
         DataFileModule,
         FileModule,
         CookieModule.forRoot(),
-        SidebarModule
+        SidebarModule,
+        MainModule
     ],
     declarations: [
         AppComponent,
-        FooterComponent],
+        FooterComponent
+    ],
     providers: [
         {provide: LOCALE_ID, useValue: "ru"},
         {provide: LocationStrategy, useClass: HashLocationStrategy},
+        WrapHttpService,
         CookieService,
-        {
-            provide: Http,
-            useFactory: createHttpFactory,
-            deps: [XHRBackend, RequestOptions, CookieService, Router]
-        },
+        // {
+        //     provide: Http,
+        //     useFactory: createHttpFactory,
+        //     deps: [XHRBackend, RequestOptions, CookieService, Router]
+        // },
         TableService,
         BubbleService,
         DataFileService,

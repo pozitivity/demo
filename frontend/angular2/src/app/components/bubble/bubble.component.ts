@@ -20,7 +20,7 @@ import * as D3 from "d3";
 
 @Component({
     selector: 'bubble-comp',
-    template: require("./bubble.tmpl.html")
+    template: require("./bubble.component.html")
 })
 
 export class BubbleComponent implements OnChanges, AfterViewInit {

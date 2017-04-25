@@ -7,25 +7,24 @@ import {AppComponent} from "./app.component";
 import {TableComponent} from "./components/table/table.component";
 import {BubbleComponent} from "./components/bubble/bubble.component";
 import {DataFileComponent} from "./components/data-file/data-file.component";
+import {MainComponent} from "./components/main/main.component";
 
 const routes: Routes  = [
     {
         path: '',
-        component: AppComponent,
-        children: [
-            {
-                path: 'table',
-                component: TableComponent
-            },
-            {
-                path: 'bubble',
-                component: BubbleComponent
-            },
-            {
-                path: 'dataFile',
-                component: DataFileComponent
-            }
-        ]
+        component: MainComponent
+    },
+    {
+        path: 'table',
+        component: TableComponent
+    },
+    {
+        path: 'bubble',
+        component: BubbleComponent
+    },
+    {
+        path: 'dataFile',
+        component: DataFileComponent
     }
 ];
 

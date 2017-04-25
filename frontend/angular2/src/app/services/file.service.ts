@@ -4,12 +4,13 @@
 
 import {Injectable} from "@angular/core";
 import {BaseEntityService} from "./base-entity.service";
-import {Http} from "@angular/http";
+import {URLSearchParams} from "@angular/http";
+import {WrapHttpService} from "./wrap-http.service";
 
 @Injectable()
 export class FileService extends BaseEntityService {
 
-    constructor(private http: Http) {
+    constructor(private http: WrapHttpService) {
         super();
     }
 

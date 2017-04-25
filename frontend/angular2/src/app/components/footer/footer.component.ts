@@ -4,7 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'footer-comp',
-    template: require("./footer.tmpl.html"),
+    template: require("./footer.component.html"),
     styles: [require('!style!css!sass!../../../assets/css/partial/footer/footer.scss').toString()]
 })
 

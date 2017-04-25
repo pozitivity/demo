@@ -4,7 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'table-comp',
-    template: require("./table.tmpl.html")
+    template: require("./table.component.html")
 })
 
 export class TableComponent {

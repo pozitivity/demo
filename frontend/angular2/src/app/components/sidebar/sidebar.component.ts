@@ -6,7 +6,7 @@ import {Language} from "../../models/language.model";
 
 @Component({
     selector: 'sidebar-comp',
-    template: require("./sidebar.tmpl.html"),
+    template: require("./sidebar.component.html"),
     styles: [require('!style!css!sass!../../../assets/css/partial/sidebar/sidebar.scss').toString()]
 })
 
