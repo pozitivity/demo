@@ -1,0 +1,49 @@
+.modal-body {
+
+  .col-sm-6 {
+
+    height: 80px;
+
+    .well {
+      height: inherit;
+      line-height: 5vh;
+      text-align: center;
+    }
+
+    .file-select {
+
+      height: inherit;
+      line-height: 9vh;
+
+      .or {
+        float: left;
+        margin-right: 30px;
+      }
+
+      .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .inputfile + label {
+        color: #333;
+        background-color: transparent;
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        font-size: 15px;
+      }
+
+      .fa-upload {
+        margin-right: 10px;
+      }
+    }
+  }
+}

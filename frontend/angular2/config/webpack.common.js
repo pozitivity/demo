@@ -130,7 +130,7 @@ module.exports = {
                 loader: 'json-loader'
             },
             {test: /\.css$/, loader: 'raw', exclude: /node_modules/},
-            {test: /\.css$/, loader: 'style!css?-minimize', exclude: /src/},
+            {test: /\.css$/, loaders: 'style!css?-minimize', exclude: /src/},
 
             {
                 test: /\.scss$/,

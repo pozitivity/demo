@@ -12,6 +12,7 @@ import '@angular/forms';
 import 'lodash/lodash.min.js';
 import 'tether/dist/js/tether.min.js';
 import 'bootstrap';
-
 import 'rxjs';
-require ('font-awesome/css/font-awesome.css');
+//import 'typicons.font';
+
+require('font-awesome/css/font-awesome.css');

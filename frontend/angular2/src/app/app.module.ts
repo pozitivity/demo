@@ -27,6 +27,8 @@ import {CustomHttp} from "./services/custom-http.service";
 import {SidebarModule} from "./components/sidebar/sidebar.module";
 import {MainModule} from "./components/main/main.module";
 import {WrapHttpService} from "./services/wrap-http.service";
+import {FileUploadModule} from "ng2-file-upload/ng2-file-upload";
+import {FormsModule} from "@angular/forms";
 
 export function createHttpFactory(backend: XHRBackend,
                                   defaultOptions: RequestOptions,
@@ -46,6 +48,7 @@ export function createHttpFactory(backend: XHRBackend,
         AlertModule,
         TabsModule,
         CommonModule,
+        FormsModule,
         TableModule,
         BubbleModule,
         TranslateModule.forRoot(),
@@ -53,7 +56,8 @@ export function createHttpFactory(backend: XHRBackend,
         FileModule,
         CookieModule.forRoot(),
         SidebarModule,
-        MainModule
+        MainModule,
+        FileUploadModule
     ],
     declarations: [
         AppComponent,

@@ -11,8 +11,8 @@ import * as RU from "../assets/i18n/ru.json";
 import * as CZ from "../assets/i18n/cz.json";
 
 @Component({
-    selector: 'ls-app',
-    template: require('./app.tmpl.html'),
+    selector: 'app',
+    template: require('./app.component.html'),
     styles: [require('!style!css!sass!../assets/css/style.scss').toString()],
     encapsulation: ViewEncapsulation.None,
 

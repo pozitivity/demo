@@ -5,7 +5,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 @Component({
     selector: 'footer-comp',
     template: require("./footer.component.html"),
-    styles: [require('!style!css!sass!../../../assets/css/partial/footer/footer.scss').toString()]
+    styles: [require('!style!css!sass!../../../assets/css/partial/footer.scss').toString()]
 })
 
 export class FooterComponent {

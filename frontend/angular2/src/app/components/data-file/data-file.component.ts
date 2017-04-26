@@ -1,9 +1,10 @@
 /**
  * Created by tatiana.gorbunova on 20.04.2017.
  */
-import {Component} from "@angular/core";
+import {Component, ViewChild} from "@angular/core";
 import {DataFileService} from "../../services/data-file.service";
 import {DataFile} from "../../models/data-file.model";
+import {FileComponent} from "../file/file.component";
 
 @Component({
     selector: 'data-file-comp',
@@ -16,11 +17,17 @@ export class DataFileComponent {
 
     }
 
+    @ViewChild('fileModal') fileModal: FileComponent;
+
     dataFiles: DataFile[] = [];
 
     ngOnInit() {
         this.dataFileService.getDataFiles().subscribe(dataFiles => {
             this.dataFiles = dataFiles;
         });
+    }
+
+    public openFileModal() {
+        this.fileModal.show();
     }
 }
