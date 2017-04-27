@@ -22,7 +22,7 @@ export class DataFileComponent {
     dataFiles: DataFile[] = [];
 
     ngOnInit() {
-        this.dataFileService.getDataFiles().subscribe(dataFiles => {
+        this.dataFileService.list().subscribe(dataFiles => {
             this.dataFiles = dataFiles;
         });
     }

@@ -13,6 +13,7 @@ public class DataFile {
     private String content;
     private Boolean used;
     private Timestamp create;
+    private Long size;
 
     public Long getId() {
         return id;
@@ -52,5 +53,13 @@ public class DataFile {
 
     public void setCreate(Timestamp create) {
         this.create = create;
+    }
+
+    public Long getSize() {
+        return size;
+    }
+
+    public void setSize(Long size) {
+        this.size = size;
     }
 }

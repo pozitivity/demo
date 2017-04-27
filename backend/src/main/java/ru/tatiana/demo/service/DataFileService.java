@@ -12,7 +12,7 @@ public interface DataFileService {
 
     DataFile getDataFileById(Long id);
 
-    Long saveDataFile(Long id, String content, Boolean used, String name);
+    Long saveDataFile(Long id, String content, Boolean used, String name, Long size);
 
     void deleteDataFile(Long id);
 

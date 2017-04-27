@@ -185,7 +185,7 @@ module.exports = {
                 'contextPath': tryGetEnvironmentVariable('BACKEND_CONTEXT_PATH', '/api')
             },
             'FRONTEND': {
-                'contextPath': tryGetEnvironmentVariable('FRONTEND_CONTEXT_PATH', '/demo')
+                'contextPath': tryGetEnvironmentVariable('FRONTEND_CONTEXT_PATH', '/angular2')
             }
         }),
 

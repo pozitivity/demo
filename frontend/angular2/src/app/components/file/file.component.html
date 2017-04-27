@@ -23,7 +23,8 @@
                             <span class="or">или</span>
                             <input class="inputfile" id="file"
                                    ng2FileSelect type="file"
-                                   [uploader]="uploader" (change)="fileDropped($event.srcElement.files)"/>
+                                   [uploader]="uploader"
+                                   (change)="fileDropped($event.srcElement.files)"/>
                             <label for="file">
                                 <span><i class="fa fa-upload fa-2x"></i>Выберите файл</span>
                             </label>
@@ -32,13 +33,34 @@
                     <div>
                         <!--<progressbar [animate]="false" [value]="50" type="success"><b>50%</b></progressbar>-->
                     </div>
-                    <div></div>
+                    <div class="headers" *ngIf="uploadFile">
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <label>Название полей</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Использовать</label>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngFor="let header of headers; let i = index">
+                            <div class="col-sm-8">
+                                <input type="text" [(ngModel)]="headers[i].value" class="form-control" style="width: 100%" />
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" [ngModel]="headers[i].check">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="pull-rigth">
-                    <button type="button" class="btn btn-default">OK</button>
-                    <button type="button" class="btn btn-danger">Cancel</button>
+                    <button type="button" class="btn btn-default" (click)="upload()">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="hide()">Cancel</button>
                 </div>
             </div>
         </div>

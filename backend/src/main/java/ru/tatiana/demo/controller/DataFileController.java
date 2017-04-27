@@ -18,8 +18,8 @@ public class DataFileController {
     DataFileService dataFileService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<DataFile> getDataFiles(@RequestParam("offset") Integer offset,
-                                   @RequestParam("pageSize") Integer pageSize) {
+    public List<DataFile> getDataFiles(@RequestParam(value = "offset", defaultValue = "50", required = false) Integer offset,
+                                   @RequestParam(value = "pageSize", defaultValue = "0", required = false) Integer pageSize) {
         return dataFileService.getListDataFiles(offset, pageSize);
     }
 
@@ -30,7 +30,7 @@ public class DataFileController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Long saveDataFile(@RequestBody DataFile file) {
-        return dataFileService.saveDataFile(file.getId(), file.getContent(), file.getUsed(), file.getName());
+        return dataFileService.saveDataFile(file.getId(), file.getContent(), file.getUsed(), file.getName(), file.getSize());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

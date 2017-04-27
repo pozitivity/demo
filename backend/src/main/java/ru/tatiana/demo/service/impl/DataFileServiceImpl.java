@@ -28,8 +28,8 @@ public class DataFileServiceImpl implements DataFileService {
     }
 
     @Override
-    public Long saveDataFile(Long id, String content, Boolean used, String name) {
-        return fileDataRepository.saveFileData(id, content, used, name);
+    public Long saveDataFile(Long id, String content, Boolean used, String name, Long size) {
+        return fileDataRepository.saveFileData(id, content, used, name, size);
     }
 
     @Override
@@ -39,8 +39,8 @@ public class DataFileServiceImpl implements DataFileService {
 
 //    @Override
 //    public void parseFile(MultipartFile file) {
-//        DataFile fileData = new DataFile();
-//        fileData.setName(file.getOriginalFilename());
+//        DataFile dataFile = new DataFile();
+//        dataFile.setName(file.getOriginalFilename());
 //
 //        switch(getExtension(file.getOriginalFilename()).toUpperCase()) {
 //            case Parser.CSV:

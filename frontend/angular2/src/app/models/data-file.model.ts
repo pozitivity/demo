@@ -6,4 +6,5 @@ export class DataFile {
     content: string;
     name: string;
     used: boolean;
+    size: number;
 }

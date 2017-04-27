@@ -35,6 +35,7 @@ public class RowExtractor {
         dataFile.setContent(rs.getString("content"));
         dataFile.setUsed(rs.getBoolean("used"));
         dataFile.setCreate(rs.getTimestamp("create_time"));
+        dataFile.setSize(rs.getLong("size"));
         return dataFile;
     }
 }

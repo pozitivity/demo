@@ -11,7 +11,7 @@ export class WrapHttpService {
 
     }
 
-    private BACKEND_URL: string = BACKEND.contextPath + "/demo/api";
+    private BACKEND_URL: string = BACKEND.contextPath;
 
     get(url: string, params?: URLSearchParams) : Observable<Response> {
         return this.http.get(this.BACKEND_URL + url, { search: params });

@@ -2,12 +2,13 @@
  * Created by tatiana.gorbunova on 20.04.2017.
  */
 import {Component, ViewChild, OnInit} from "@angular/core";
-import {FileService} from "../../services/file.service";
+import {DataFileService} from "../../services/data-file.service";
 import {FileUploader, FileItem} from "ng2-file-upload/ng2-file-upload";
 import {ModalDirective} from "ngx-bootstrap/modal";
-import {read, IWorkBook} from "ts-xlsx";
+import {read, IWorkBook, utils} from "ts-xlsx";
 import {IWorkSheet} from "xlsx";
 import {Subject, Observable} from "rxjs";
+import {DataFile} from "../../models/data-file.model";
 
 @Component({
     selector: 'file-modal',
@@ -23,15 +24,20 @@ export class FileComponent implements OnInit {
     public hasBaseDropZoneOver: boolean = false;
     public uploader: FileUploader = new FileUploader({url: this.url});
     public file: any;
-    public wb: IWorkBook;
 
     private fileSubject: Subject<File>;
-    private fileObservable: Observable<{ result: string, payload: any }>;
+    private fileObservable: Observable<Array<Array<string>>>;
+    public parsedFile: Array<any>;
+    public headers: Array<{value: string, check: boolean}>;
+    uploadFile: boolean = false;
+    private dataFile: DataFile = new DataFile();
 
-    constructor(private fileService: FileService) {
+    constructor(private dataFileService: DataFileService) {
         this.fileSubject = new Subject();
         this.fileObservable = this.fileSubject.asObservable()
             .switchMap((file: File) => {
+                this.dataFile.name = file.name;
+                this.dataFile.size = file.size;
                 return new Observable<any>((observer) => {
                     let reader: FileReader = new FileReader();
                     reader.onload = (e) => {
@@ -44,21 +50,19 @@ export class FileComponent implements OnInit {
                 }).map((value: string) => {
                     return read(value, {type: 'binary'});
                 }).map((wb: IWorkBook) => {
-                    console.log(wb);
                     return wb.SheetNames.map((sheetName: string) => {
-                        console.log(sheetName);
-                        let sheet: IWorkSheet = wb.Sheets[sheetName];
-                        console.log(sheet);
-                        return sheet;
+                        return utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
                     });
-                }).map((results: Array<any>) => {
-                    console.log(results);
-                    return {result: 'success', payload: results};
-                })
-                .catch(e => Observable.of({result: 'failure', payload: e}));
+                }).catch(e => Observable.of({result: 'failure', payload: e}));
             });
-        this.fileObservable.subscribe((f) => {
-            console.log(f);
+        this.fileObservable.subscribe((file) => {
+            this.parsedFile = file[0];
+            this.headers = this.parsedFile[0].map(h => {
+                return {
+                    value: h,
+                    check: true
+                }
+            });
         });
     }
 
@@ -77,16 +81,23 @@ export class FileComponent implements OnInit {
         this.fileLgModal.hide();
     }
 
-    // public changeUploadFile(e) {
-    //     console.log(e);
-    //     let reader: FileReader = new FileReader();
-    //     //reader.readAsBinaryString(this.uploader.queue[0]._file);
-    //     //this.wb = read(reader.readAsBinaryString(this.uploader.queue[0]._file), {type: 'binary'});
-    // }
-    //
     public fileDropped(fileList: FileList) {
-        console.log(fileList);
+        this.uploadFile = true;
         this.fileSubject.next(fileList[0]);
+    }
+
+    upload() {
+        console.log(this.parsedFile);
+        this.dataFile.id = null;
+        this.dataFile.used = true;
+        this.parsedFile.splice(0, 1);
+        this.dataFile.content = JSON.stringify(this.parsedFile);
+
+        this.dataFileService.save(this.dataFile).subscribe((resp) => {
+            console.log(resp);
+        });
+        console.log(String(this.parsedFile));
+        console.log(this.dataFile);
     }
 
 }
