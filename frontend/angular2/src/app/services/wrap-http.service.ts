@@ -20,4 +20,8 @@ export class WrapHttpService {
     post(url: string, data, params?: URLSearchParams) : Observable<Response> {
         return this.http.post(this.BACKEND_URL + url, data, { search: params });
     }
+
+    delete(url: string) : Observable<Response> {
+        return this.http.delete(url);
+    }
 }

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10">
     <div>
         <div class="pull-right">
             <button type="button" class="btn btn-xs btn-default" (click)="openFileModal()">
@@ -16,12 +16,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr *ngFor="let dataFile of dataFiles">
+                <td>{{dataFile.name}}</td>
+                <td>{{dataFile.size/1024}} M</td>
+                <td>{{ dataFile.create }}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-xs">
+                    <button type="button" class="btn btn-danger btn-xs" (click)="deleteDataFile(dataFile.id)">
                         <span class="glyphicon glyphicon-trash"></span>
                         Remove
                     </button>

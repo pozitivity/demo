@@ -31,4 +31,9 @@ export class DataFileService extends BaseEntityService {
             .catch(this.handleError);
     }
 
+    delete(id: number) {
+        return this.http.delete("/dataFile/" + id)
+            .catch(this.handleError);
+    }
+
 }

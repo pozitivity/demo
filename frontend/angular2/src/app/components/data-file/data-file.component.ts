@@ -30,4 +30,8 @@ export class DataFileComponent {
     public openFileModal() {
         this.fileModal.show();
     }
+
+    public deleteDataFile(id: number) {
+        this.dataFileService.delete(id);
+    }
 }
