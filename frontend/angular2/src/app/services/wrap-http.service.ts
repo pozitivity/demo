@@ -22,6 +22,6 @@ export class WrapHttpService {
     }
 
     delete(url: string) : Observable<Response> {
-        return this.http.delete(url);
+        return this.http.delete(this.BACKEND_URL + url);
     }
 }

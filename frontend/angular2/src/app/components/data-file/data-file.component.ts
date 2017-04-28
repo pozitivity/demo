@@ -33,6 +33,9 @@ export class DataFileComponent {
     }
 
     public deleteDataFile(id: number) {
-        this.dataFileService.delete(id);
+        this.dataFileService.delete(id).subscribe((resp) => {});
+        this.dataFiles.forEach((item, index, array) => {
+            if (item.id == id) array.splice(index, 1);
+        });
     }
 }

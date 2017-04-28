@@ -7,4 +7,5 @@ export class DataFile {
     name: string;
     used: boolean;
     size: number;
+    headers: string;
 }

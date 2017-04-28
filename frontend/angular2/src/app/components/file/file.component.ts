@@ -87,17 +87,11 @@ export class FileComponent implements OnInit {
     }
 
     upload() {
-        console.log(this.parsedFile);
         this.dataFile.id = null;
-        this.dataFile.used = true;
-        this.parsedFile.splice(0, 1);
+        this.dataFile.used = false;
+        this.dataFile.headers = JSON.stringify(this.parsedFile.splice(0, 1));
         this.dataFile.content = JSON.stringify(this.parsedFile);
-
-        this.dataFileService.save(this.dataFile).subscribe((resp) => {
-            console.log(resp);
-        });
-        console.log(String(this.parsedFile));
-        console.log(this.dataFile);
+        this.dataFileService.save(this.dataFile).subscribe((resp) => {});
     }
 
 }
