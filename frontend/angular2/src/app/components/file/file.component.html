@@ -1,8 +1,8 @@
-<div bsModal #fileLgModal="bs-modal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="FileLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div bsModal [config]="{ backdrop: 'static' }" #fileLgModal="bs-modal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="FileLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title pull-left"></h4>
+                <h4 class="modal-title pull-left">{{ 'DATAFILE.MODAL.HEADER' | translate }}</h4>
                 <button type="button" class="close pull-right" (click)="fileLgModal.hide()" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,18 +15,18 @@
                              (fileOver)="fileOverBase($event)"
                              [uploader]="uploader"
                              class="well drop-zone"
-                             (onFileDrop)="fileDropped($event)"> Перетащите файл в это поле
+                             (onFileDrop)="fileDropped($event)"> {{ 'DATAFILE.MODAL.DROP_FILE' | translate }}
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="file-select">
-                            <span class="or">или</span>
+                            <span class="or">{{ 'DATAFILE.MODAL.OR' | translate }}</span>
                             <input class="inputfile" id="file"
                                    ng2FileSelect type="file"
                                    [uploader]="uploader"
                                    (change)="fileDropped($event.srcElement.files)"/>
                             <label for="file">
-                                <span><i class="fa fa-upload fa-2x"></i>Выберите файл</span>
+                                <span><i class="fa fa-upload fa-2x"></i>{{ 'DATAFILE.MODAL.CHOOSE_FILE' | translate }}</span>
                             </label>
                         </div>
                     </div>
@@ -36,10 +36,10 @@
                     <div class="headers" *ngIf="uploadFile">
                         <div class="form-group">
                             <div class="col-sm-8">
-                                <label>Название полей</label>
+                                <label>{{ 'DATAFILE.MODAL.NAME_FIELD' | translate }}</label>
                             </div>
                             <div class="col-sm-4">
-                                <label>Использовать</label>
+                                <label>{{ 'DATAFILE.MODAL.USED' | translate }}</label>
                             </div>
                         </div>
                         <div class="form-group" *ngFor="let header of headers; let i = index">
@@ -49,7 +49,7 @@
                             <div class="col-sm-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" [ngModel]="headers[i].check">
+                                        <input type="checkbox" [(ngModel)]="headers[i].check">
                                     </label>
                                 </div>
                             </div>
@@ -59,8 +59,8 @@
             </div>
             <div class="modal-footer">
                 <div class="pull-rigth">
-                    <button type="button" class="btn btn-default" (click)="upload()">Save</button>
-                    <button type="button" class="btn btn-danger" (click)="hide()">Cancel</button>
+                    <button type="button" class="btn btn-default" (click)="upload()">{{ 'DATAFILE.MODAL.SAVE' | translate }}</button>
+                    <button type="button" class="btn btn-danger" (click)="hide()">{{ 'DATAFILE.MODAL.CANCEL' | translate }}</button>
                 </div>
             </div>
         </div>

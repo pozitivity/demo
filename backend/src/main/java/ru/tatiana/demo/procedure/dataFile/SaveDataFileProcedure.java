@@ -3,7 +3,10 @@ package ru.tatiana.demo.procedure.dataFile;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.object.StoredProcedure;
+import ru.tatiana.demo.model.DataFile;
+import ru.tatiana.demo.procedure.extractor.dataFile.DataFileExtractor;
 
 import javax.sql.DataSource;
 import java.sql.Types;
@@ -23,7 +26,7 @@ public class SaveDataFileProcedure extends StoredProcedure {
     private static final String FILE_DATA_ID = "_id";
     private static final String SIZE = "_size";
     private static final String HEADERS = "_headers";
-    private static final String REFCUR = "refcur";
+    private static final String REFCUR = "rc_SaveDataFile";
 
     public SaveDataFileProcedure(DataSource dataSource) {
         setDataSource(dataSource);
@@ -34,10 +37,11 @@ public class SaveDataFileProcedure extends StoredProcedure {
         declareParameter(new SqlParameter(NAME, Types.VARCHAR));
         declareParameter(new SqlParameter(SIZE, Types.BIGINT));
         declareParameter(new SqlParameter(HEADERS, Types.VARCHAR));
+        declareParameter(new SqlReturnResultSet(REFCUR, new DataFileExtractor()));
         compile();
     }
 
-    public Long execute(Long id, String content, Boolean used, String name, Long size, String headers) {
+    public DataFile execute(Long id, String content, Boolean used, String name, Long size, String headers) {
         Map<String, Object> params = new HashMap<>();
         params.put(FILE_DATA_ID, id);
         params.put(CONTENT, content);
@@ -46,6 +50,6 @@ public class SaveDataFileProcedure extends StoredProcedure {
         params.put(SIZE, size);
         params.put(HEADERS, headers);
         Map<String, Object> stringObjectMap = execute(params);
-        return (Long) stringObjectMap.get(REFCUR);
+        return (DataFile) stringObjectMap.get(REFCUR);
     }
 }

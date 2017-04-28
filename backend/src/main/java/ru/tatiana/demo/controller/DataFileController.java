@@ -30,7 +30,7 @@ public class DataFileController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Long saveDataFile(@RequestBody DataFile file) throws JsonProcessingException {
+    public DataFile saveDataFile(@RequestBody DataFile file) {
         return dataFileService.saveDataFile(file.getId(), file.getContent(), file.getUsed(), file.getName(), file.getSize(), file.getHeaders());
     }
 

@@ -8,9 +8,10 @@ import {ModalModule} from "ngx-bootstrap/modal";
 import {ProgressbarModule} from "ngx-bootstrap/progressbar";
 import {FileUploadModule} from "ng2-file-upload/ng2-file-upload";
 import {FormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
-    imports: [CommonModule, ModalModule, ProgressbarModule, FileUploadModule, FormsModule],
+    imports: [CommonModule, ModalModule, ProgressbarModule, FileUploadModule, FormsModule, TranslateModule.forRoot()],
     exports: [FileComponent],
     declarations: [FileComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

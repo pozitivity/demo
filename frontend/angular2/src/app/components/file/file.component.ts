@@ -1,9 +1,9 @@
 /**
  * Created by tatiana.gorbunova on 20.04.2017.
  */
-import {Component, ViewChild, OnInit} from "@angular/core";
+import {Component, ViewChild, OnInit, EventEmitter, Output} from "@angular/core";
 import {DataFileService} from "../../services/data-file.service";
-import {FileUploader, FileItem} from "ng2-file-upload/ng2-file-upload";
+import {FileUploader} from "ng2-file-upload/ng2-file-upload";
 import {ModalDirective} from "ngx-bootstrap/modal";
 import {read, IWorkBook, utils} from "ts-xlsx";
 import {IWorkSheet} from "xlsx";
@@ -20,9 +20,10 @@ export class FileComponent implements OnInit {
 
     @ViewChild('fileLgModal') public fileLgModal: ModalDirective;
 
-    private url: string = "http://localhost:8085/api/file/upload";
+    @Output() close: EventEmitter<any> = new EventEmitter();
+
     public hasBaseDropZoneOver: boolean = false;
-    public uploader: FileUploader = new FileUploader({url: this.url});
+    public uploader: FileUploader = new FileUploader({ url: BACKEND.contextPath });
     public file: any;
 
     private fileSubject: Subject<File>;
@@ -78,6 +79,9 @@ export class FileComponent implements OnInit {
     }
 
     public hide() {
+        this.headers = null;
+        this.file = null;
+        this.uploadFile = false;
         this.fileLgModal.hide();
     }
 
@@ -89,9 +93,23 @@ export class FileComponent implements OnInit {
     upload() {
         this.dataFile.id = null;
         this.dataFile.used = false;
+
+        let indexesSkip: number[] = [];
+        this.headers.forEach((item, index, array) => { if (!item.check) indexesSkip.push(index); });
+        this.parsedFile.map(pf =>
+            pf.forEach((item, index, array) => {
+                for (let i = 0; i < indexesSkip.length; i++) {
+                    if (index == indexesSkip[i]) array.splice(index, 1);
+                }
+            })
+        );
+        console.log(this.parsedFile);
         this.dataFile.headers = JSON.stringify(this.parsedFile.splice(0, 1));
         this.dataFile.content = JSON.stringify(this.parsedFile);
-        this.dataFileService.save(this.dataFile).subscribe((resp) => {});
+        this.dataFileService.save(this.dataFile).subscribe((resp) => {
+            this.close.emit(resp);
+            this.hide();
+        });
     }
 
 }

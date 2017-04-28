@@ -14,7 +14,7 @@ public interface DataFileService {
 
     DataFile getDataFileById(Long id);
 
-    Long saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers);
+    DataFile saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers);
 
     void deleteDataFile(Long id);
 

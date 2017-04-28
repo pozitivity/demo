@@ -28,14 +28,19 @@ export class DataFileComponent {
         });
     }
 
+    public addDataFile(newDataFile) {
+        this.dataFiles.push(newDataFile);
+    }
+
     public openFileModal() {
         this.fileModal.show();
     }
 
     public deleteDataFile(id: number) {
-        this.dataFileService.delete(id).subscribe((resp) => {});
-        this.dataFiles.forEach((item, index, array) => {
-            if (item.id == id) array.splice(index, 1);
+        this.dataFileService.delete(id).subscribe((resp) => {
+            this.dataFiles.forEach((item, index, array) => {
+                if (item.id == id) array.splice(index, 1);
+            });
         });
     }
 }

@@ -44,7 +44,7 @@ public class DataFileRepository {
     }
 
     @Transactional
-    public Long saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers) {
+    public DataFile saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers) {
         return saveDataFileProcedure.execute(id, content, used, name, size, headers);
     }
 

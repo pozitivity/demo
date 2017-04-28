@@ -24,7 +24,17 @@
       "DATE_UPLOAD": "Nahrání",
       "REMOVE": "Odstranit"
     },
-    "UPLOAD": "Naložit"
+    "UPLOAD": "Naložit",
+    "MODAL": {
+      "NAME_FIELD": "Názvy polí",
+      "USED": "K použití",
+      "DROP_FILE": "Přetáhnout soubor do tohoto pole",
+      "CHOOSE_FILE": "Vyberte soubor",
+      "SAVE": "Udržet",
+      "CANCEL": "Zrušení",
+      "OR": "nebo",
+      "HEADER": "Stáhnout soubor"
+    }
   },
 
   "MONTHS": {

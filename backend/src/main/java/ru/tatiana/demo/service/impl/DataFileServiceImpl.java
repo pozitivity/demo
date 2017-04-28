@@ -30,7 +30,7 @@ public class DataFileServiceImpl implements DataFileService {
     }
 
     @Override
-    public Long saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers) {
+    public DataFile saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers) {
         return dataFileRepository.saveDataFile(id, content, used, name, size, headers);
     }
 

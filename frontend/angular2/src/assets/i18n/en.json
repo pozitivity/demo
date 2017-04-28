@@ -19,12 +19,22 @@
 
   "DATAFILE": {
     "TABLE": {
-      "NAMEFILE": "",
-      "SIZE": "",
-      "DATE_UPLOAD": "",
-      "REMOVE": ""
+      "NAMEFILE": "Name of file",
+      "SIZE": "Size",
+      "DATE_UPLOAD": "Date of upload",
+      "REMOVE": "Delete"
     },
-    "UPLOAD": ""
+    "UPLOAD": "Upload",
+    "MODAL": {
+      "NAME_FIELD": "Name of fields",
+      "USED": "Use",
+      "DROP_FILE": "Drag the file to this field",
+      "CHOOSE_FILE": "Choose file",
+      "SAVE": "Save",
+      "CANCEL": "Cancel",
+      "OR": "or",
+      "HEADER": "Upload file"
+    }
   },
 
   "MONTHS": {
