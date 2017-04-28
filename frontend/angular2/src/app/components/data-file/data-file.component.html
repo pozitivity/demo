@@ -1,29 +1,29 @@
-<div class="row col-sm-offset-3 col-md-offset-2 col-sm-9 col-md-10">
+<div class="row">
     <div>
         <div class="pull-right">
             <button type="button" class="btn btn-xs btn-default" (click)="openFileModal()">
                 <span class="glyphicon glyphicon-upload"></span>
-                Загрузить
+                {{ 'DATAFILE.UPLOAD' | translate }}
             </button>
         </div>
         <table class="table">
             <thead>
             <tr>
-                <th width="50%">Name</th>
-                <th>Size</th>
-                <th>Date upload</th>
-                <th>Actions</th>
+                <th width="50%">{{ 'DATAFILE.TABLE.NAMEFILE' | translate }}</th>
+                <th>{{ 'DATAFILE.TABLE.SIZE' | translate }}</th>
+                <th>{{ 'DATAFILE.TABLE.DATE_UPLOAD' | translate }}</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let dataFile of dataFiles">
-                <td>{{dataFile.name}}</td>
-                <td>{{dataFile.size/1024}} M</td>
-                <td>{{ dataFile.create }}</td>
+                <td>{{ dataFile.name }}</td>
+                <td>{{ dataFile.size/1024 }} M</td>
+                <td>{{ dataFile.create | date:'medium'}}</td>
                 <td>
                     <button type="button" class="btn btn-danger btn-xs" (click)="deleteDataFile(dataFile.id)">
                         <span class="glyphicon glyphicon-trash"></span>
-                        Remove
+                        {{ 'DATAFILE.TABLE.REMOVE' | translate }}
                     </button>
                 </td>
             </tr>

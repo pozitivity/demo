@@ -1,33 +1,50 @@
 {
-  "filter": {
-    "label": "Filter"
+  "TITLE": {
+    "MDV": "The visualization system of medical data"
   },
+
+  "SIDEBAR": {
+    "FILE": "Upload files"
+  },
+
   "header": {
-    "labelTypeDiagrams": "Types of diagrams",
-    "type": "Type",
-    "3d": "3D",
-    "pie": "Pie",
-    "pyramid": "Pyramid",
-    "bubble": "Bubble",
-    "table": "Table"
+    "LABELTYPEDIAGRAMS": "Types of diagrams",
+    "TYPE": "Type",
+    "3D": "3D",
+    "PIE": "Pie",
+    "PYRAMID": "Pyramid",
+    "BUBBLE": "Bubble",
+    "TABLE": "Table"
   },
-  "months": {
-    "January": { "display": "Jan" },
-    "February": { "display": "Feb" },
-    "March": { "display": "Mar" },
-    "April": { "display": "Apr" },
-    "May": { "display": "May" },
-    "June": { "display":"Jun" },
-    "July": { "display": "Jul" },
-    "August": { "display": "Aug" },
-    "September": { "display": "Sep" },
-    "October": { "display": "Oct" },
-    "November": { "display": "Nov" },
-    "December": { "display": "Dec" }
+
+  "DATAFILE": {
+    "TABLE": {
+      "NAMEFILE": "",
+      "SIZE": "",
+      "DATE_UPLOAD": "",
+      "REMOVE": ""
+    },
+    "UPLOAD": ""
   },
-  "table": {
-    "dateOfBirth": "Date of birth",
-    "treatmentDate": "Treatment date",
-    "diagnosis": "Diagnosis"
+
+  "MONTHS": {
+    "JANUARY": { "DISPLAY": "Jan" },
+    "FEBRUARY": { "DISPLAY": "Feb" },
+    "MARCH": { "DISPLAY": "Mar" },
+    "APRIL": { "DISPLAY": "Apr" },
+    "MAY": { "DISPLAY": "May" },
+    "JUNE": { "DISPLAY":"Jun" },
+    "JULY": { "DISPLAY": "Jul" },
+    "AUGUST": { "DISPLAY": "Aug" },
+    "SEPTEMBER": { "DISPLAY": "Sep" },
+    "OCTOBER": { "DISPLAY": "Oct" },
+    "NOVEMBER": { "DISPLAY": "Nov" },
+    "DECEMBER": { "DISPLAY": "Dec" }
+  },
+
+  "TABLE": {
+    "DATEOFBIRTH": "Date of birth",
+    "TREATMENTDATE": "Treatment date",
+    "DIAGNOSIS": "Diagnosis"
   }
 }

@@ -1,33 +1,49 @@
 {
-  "filter": {
-    "label": "Filtr"
+  "TITLE": {
+    "MDV": "Systém vizualizace lékařských údajů"
   },
-  "header": {
-    "labelTypeDiagrams": "Druhy diagramů",
-    "type": "Druh",
-    "3d": "3D",
-    "pie": "Koláčový",
-    "pyramid": "Pyramid",
-    "bubble": "Bublina",
-    "table": "Tabulka"
+
+  "SIDEBAR": {
+    "FILE": "Stahování souborů"
   },
-  "months": {
-    "January": { "display": "Leden" },
-    "February": { "display": "Feb" },
-    "March": { "display": "Brežen" },
-    "April": { "display": "Apr" },
-    "May": { "display": "May" },
-    "June": { "display":"Jun" },
-    "July": { "display": "Jul" },
-    "August": { "display": "Aug" },
-    "September": { "display": "Sep" },
-    "October": { "display": "Oct" },
-    "November": { "display": "Nov" },
-    "December": { "display": "Dec" }
+
+  "HEADER": {
+    "LABELTYPEDIAGRAMS": "Druhy diagramů",
+    "TYPE": "Druh",
+    "3D": "3D",
+    "PIE": "Koláčový",
+    "PYRAMID": "Pyramid",
+    "BUBBLE": "Bublina",
+    "TABLE": "Tabulka"
   },
-  "table": {
-    "dateOfBirth": "Narozeniny",
-    "treatmentDate": "Datum ošetření",
-    "diagnosis": "Diagnóza"
+
+  "DATAFILE": {
+    "TABLE": {
+      "NAMEFILE": "Jméno souboru",
+      "SIZE": "Hodnota",
+      "DATE_UPLOAD": "Nahrání",
+      "REMOVE": "Odstranit"
+    },
+    "UPLOAD": "Naložit"
+  },
+
+  "MONTHS": {
+    "JANUARY": { "DISPLAY": "Leden" },
+    "FEBRUARY": { "DISPLAY": "Feb" },
+    "MARCH": { "DISPLAY": "Brežen" },
+    "APRIL": { "DISPLAY": "Apr" },
+    "MAY": { "DISPLAY": "May" },
+    "JUNE": { "DISPLAY":"Jun" },
+    "JULY": { "DISPLAY": "Jul" },
+    "AUGUST": { "DISPLAY": "Aug" },
+    "SEPTEMBER": { "DISPLAY": "Sep" },
+    "OCTOBER": { "DISPLAY": "Oct" },
+    "NOVEMBER": { "DISPLAY": "Nov" },
+    "DECEMBER": { "DISPLAY": "Dec" }
+  },
+  "TABLE": {
+    "DATEOFBIRTH": "Narozeniny",
+    "TREATMENTDATE": "Datum ošetření",
+    "DIAGNOSIS": "Diagnóza"
   }
 }

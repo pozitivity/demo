@@ -8,7 +8,8 @@ import {FileComponent} from "../file/file.component";
 
 @Component({
     selector: 'data-file-comp',
-    template: require('./data-file.component.html')
+    template: require('./data-file.component.html'),
+    styles: [require('!style!css!sass!../../../assets/css/partial/data-file.scss').toString()]
 })
 
 export class DataFileComponent {

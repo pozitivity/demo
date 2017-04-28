@@ -8,15 +8,26 @@
   },
 
   "HEADER": {
-    "labelTypeDiagrams": "Виды диаграмм",
-    "type": "Тип",
-    "3d": "3D",
+    "LABELTYPEDIAGRAMS": "Виды диаграмм",
+    "TYPE": "Тип",
+    "3D": "3D",
     "PIE": "Круговая",
-    "pyramid": "Пирамида",
-    "bubble": "Пузырьковая",
-    "table": "Таблица"
+    "PYRAMID": "Пирамида",
+    "BUBBLE": "Пузырьковая",
+    "TABLE": "Таблица"
   },
-  "months": {
+
+  "DATAFILE": {
+    "TABLE": {
+      "NAMEFILE": "Имя файла",
+      "SIZE": "Размер",
+      "DATE_UPLOAD": "Дата загрузки",
+      "REMOVE": "Удалить"
+    },
+    "UPLOAD": "Загрузить"
+  },
+
+  "MONTHS": {
     "January": { "display": "Янв" },
     "February": { "display": "Фев" },
     "March": { "display": "Мар" },
@@ -30,7 +41,7 @@
     "November": { "display": "Нояб" },
     "December": { "display": "Дек" }
   },
-  "table": {
+  "TABLE": {
     "dateOfBirth": "Дата рождение",
     "treatmentDate": "Дата обращения",
     "diagnosis": "Диагноз"
