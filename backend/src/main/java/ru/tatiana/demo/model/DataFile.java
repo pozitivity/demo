@@ -1,7 +1,7 @@
 package ru.tatiana.demo.model;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.HashMap;
 
 /**
  * Created by Tatyana on 11.04.2017.
@@ -14,6 +14,7 @@ public class DataFile {
     private Boolean used;
     private Timestamp create;
     private Long size;
+    private String headers;
 
     public Long getId() {
         return id;
@@ -61,5 +62,13 @@ public class DataFile {
 
     public void setSize(Long size) {
         this.size = size;
+    }
+
+    public String getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(String headers) {
+        this.headers = headers;
     }
 }

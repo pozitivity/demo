@@ -16,7 +16,7 @@ public class DataFileExtractor implements ResultSetExtractor<DataFile> {
         rs.next();
         ResultSet cur = (ResultSet) rs.getObject(1);
         cur.next();
-        DataFile dataFile = RowExtractor.fileData(cur);
+        DataFile dataFile = RowExtractor.dataFile(cur);
         cur.close();
         return dataFile;
     }

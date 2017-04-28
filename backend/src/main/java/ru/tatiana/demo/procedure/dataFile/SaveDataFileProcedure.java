@@ -1,5 +1,7 @@
 package ru.tatiana.demo.procedure.dataFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.StoredProcedure;
 
@@ -13,13 +15,14 @@ import java.util.Map;
  */
 public class SaveDataFileProcedure extends StoredProcedure {
 
-    private static final String SQL = "\"save_fileData\"";
+    private static final String SQL = "\"save_data_file\"";
 
     private static final String CONTENT = "_content";
     private static final String USED = "_used";
     private static final String NAME = "_name";
     private static final String FILE_DATA_ID = "_id";
     private static final String SIZE = "_size";
+    private static final String HEADERS = "_headers";
     private static final String REFCUR = "refcur";
 
     public SaveDataFileProcedure(DataSource dataSource) {
@@ -30,16 +33,18 @@ public class SaveDataFileProcedure extends StoredProcedure {
         declareParameter(new SqlParameter(USED, Types.BOOLEAN));
         declareParameter(new SqlParameter(NAME, Types.VARCHAR));
         declareParameter(new SqlParameter(SIZE, Types.BIGINT));
+        declareParameter(new SqlParameter(HEADERS, Types.VARCHAR));
         compile();
     }
 
-    public Long execute(Long id, String content, Boolean used, String name, Long size) {
+    public Long execute(Long id, String content, Boolean used, String name, Long size, String headers) {
         Map<String, Object> params = new HashMap<>();
         params.put(FILE_DATA_ID, id);
         params.put(CONTENT, content);
         params.put(USED, used);
         params.put(NAME, name);
         params.put(SIZE, size);
+        params.put(HEADERS, headers);
         Map<String, Object> stringObjectMap = execute(params);
         return (Long) stringObjectMap.get(REFCUR);
     }

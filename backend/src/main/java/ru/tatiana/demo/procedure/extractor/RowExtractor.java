@@ -1,11 +1,14 @@
 package ru.tatiana.demo.procedure.extractor;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import ru.tatiana.demo.model.DataFile;
 import ru.tatiana.demo.model.Diagnosis;
 import ru.tatiana.demo.model.PatientModel;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 /**
  * Created by tatiana.gorbunova on 30.11.2016.
@@ -28,14 +31,15 @@ public class RowExtractor {
         return diagnosis;
     }
 
-    public static DataFile fileData(ResultSet rs) throws SQLException {
+    public static DataFile dataFile(ResultSet rs) throws SQLException {
         DataFile dataFile = new DataFile();
         dataFile.setId(rs.getLong("id"));
         dataFile.setName(rs.getString("name"));
-        dataFile.setContent(rs.getString("content"));
         dataFile.setUsed(rs.getBoolean("used"));
         dataFile.setCreate(rs.getTimestamp("create_time"));
         dataFile.setSize(rs.getLong("size"));
+        dataFile.setContent(rs.getString("content"));
+        dataFile.setHeaders(rs.getString("headers"));
         return dataFile;
     }
 }

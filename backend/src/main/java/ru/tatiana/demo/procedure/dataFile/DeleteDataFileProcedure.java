@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by Tatyana on 11.04.2017.
  */
 public class DeleteDataFileProcedure extends StoredProcedure {
-    private static final String SQL = "del_fileData";
+    private static final String SQL = "del_data_file";
 
     private static final String FILE_DATA_ID = "_id";
 

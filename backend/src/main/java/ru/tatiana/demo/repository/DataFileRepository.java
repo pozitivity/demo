@@ -1,5 +1,6 @@
 package ru.tatiana.demo.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.tatiana.demo.procedure.dataFile.GetListDataFileProcedure;
@@ -10,6 +11,7 @@ import ru.tatiana.demo.procedure.dataFile.SaveDataFileProcedure;
 
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,7 +19,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class FileDataRepository {
+public class DataFileRepository {
     private GetDataFileProcedure getDataFileProcedure;
     private GetListDataFileProcedure getListDataFileProcedure;
     private SaveDataFileProcedure saveDataFileProcedure;
@@ -32,22 +34,22 @@ public class FileDataRepository {
     }
 
     @Transactional
-    public List<DataFile> getListFileData(Integer offset, Integer pageSize) {
+    public List<DataFile> getListDataFile(Integer offset, Integer pageSize) {
         return getListDataFileProcedure.execute(offset, pageSize);
     }
 
     @Transactional
-    public DataFile getFileDataById(Long id) {
+    public DataFile getDataFileById(Long id) {
         return getDataFileProcedure.execute(id);
     }
 
     @Transactional
-    public Long saveFileData(Long id, String content, Boolean used, String name, Long size) {
-        return saveDataFileProcedure.execute(id, content, used, name, size);
+    public Long saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers) {
+        return saveDataFileProcedure.execute(id, content, used, name, size, headers);
     }
 
     @Transactional
-    public void deleteSaveFile(Long id) {
+    public void deleteDataFile(Long id) {
         deleteDataFileProcedure.execute(id);
     }
 

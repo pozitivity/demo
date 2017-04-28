@@ -1,5 +1,6 @@
 package ru.tatiana.demo.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.tatiana.demo.model.DataFile;
@@ -29,8 +30,8 @@ public class DataFileController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Long saveDataFile(@RequestBody DataFile file) {
-        return dataFileService.saveDataFile(file.getId(), file.getContent(), file.getUsed(), file.getName(), file.getSize());
+    public Long saveDataFile(@RequestBody DataFile file) throws JsonProcessingException {
+        return dataFileService.saveDataFile(file.getId(), file.getContent(), file.getUsed(), file.getName(), file.getSize(), file.getHeaders());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

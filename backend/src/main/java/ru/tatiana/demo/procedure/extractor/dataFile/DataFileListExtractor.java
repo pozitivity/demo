@@ -19,7 +19,7 @@ public class DataFileListExtractor implements ResultSetExtractor<List<DataFile>>
         rs.next();
         ResultSet cur = (ResultSet) rs.getObject(1);
         while(cur.next()) {
-            dataFiles.add(RowExtractor.fileData(cur));
+            dataFiles.add(RowExtractor.dataFile(cur));
         }
         cur.close();
         return dataFiles;

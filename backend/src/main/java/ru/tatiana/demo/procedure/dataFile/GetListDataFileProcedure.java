@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by Tatyana on 11.04.2017.
  */
 public class GetListDataFileProcedure extends StoredProcedure {
-    private static final String SQL = "\"get_fileDatas\"";
+    private static final String SQL = "\"get_data_files\"";
 
     private static final String OFFSET = "_offset";
     private static final String PAGE_SIZE = "_page_size";

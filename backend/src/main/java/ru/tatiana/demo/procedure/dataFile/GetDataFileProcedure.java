@@ -15,7 +15,7 @@ import java.util.Map;
  * Created by Tatyana on 11.04.2017.
  */
 public class GetDataFileProcedure extends StoredProcedure {
-    private static final String SQL = "\"get_fileData\"";
+    private static final String SQL = "\"get_data_file\"";
 
     private static final String FILE_DATA_ID = "_id";
     private static final String REFCUR = "rc_GetFileData";

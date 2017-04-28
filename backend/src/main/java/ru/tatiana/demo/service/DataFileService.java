@@ -1,7 +1,9 @@
 package ru.tatiana.demo.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import ru.tatiana.demo.model.DataFile;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,7 +14,7 @@ public interface DataFileService {
 
     DataFile getDataFileById(Long id);
 
-    Long saveDataFile(Long id, String content, Boolean used, String name, Long size);
+    Long saveDataFile(Long id, String content, Boolean used, String name, Long size, String headers);
 
     void deleteDataFile(Long id);
 
