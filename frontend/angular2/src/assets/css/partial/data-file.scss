@@ -1,8 +1,56 @@
 data-file-comp {
   padding: 20px;
+  font-family: Panama-Light;
+  letter-spacing: 1px;
 
   .row {
     margin-right: 0;
     margin-left: 0;
+  }
+
+  table {
+    margin: 0 0 2.5em 0 !important;
+    border-collapse: collapse !important;
+
+    td, th {
+      padding: 1.25em 0 !important;
+      border-bottom: 1px solid #e8e8e8 !important;
+      vertical-align: top !important;
+      font-size: 1em !important;
+      line-height: 2.25em !important;
+    }
+
+    td {
+
+      div {
+        background-repeat: no-repeat;
+        background-size: 2.25em 2.25em;
+        width: 2.25em;
+        height: 2.25em;
+        margin-right: -10px;
+      }
+
+      .xls {
+        background-image: url(../../../assets/images/file_ext/xls.png);
+      }
+
+      .xlsx {
+        background-image: url(../../../assets/images/file_ext/xlsx.png);
+      }
+
+      .csv {
+        background-image: url(../../../assets/images/file_ext/csv_text.png);
+      }
+    }
+
+    th {
+      font-weight: normal !important;
+      text-transform: uppercase !important;
+    }
+
+    .action-delete {
+      cursor: pointer;
+
+    }
   }
 }

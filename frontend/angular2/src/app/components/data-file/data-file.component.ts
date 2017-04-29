@@ -43,4 +43,8 @@ export class DataFileComponent {
             });
         });
     }
+
+    public getCls(fileName) {
+        return fileName.split('.')[1];
+    }
 }

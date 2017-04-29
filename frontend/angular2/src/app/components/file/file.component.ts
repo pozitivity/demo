@@ -58,12 +58,14 @@ export class FileComponent implements OnInit {
             });
         this.fileObservable.subscribe((file) => {
             this.parsedFile = file[0];
-            this.headers = this.parsedFile[0].map(h => {
-                return {
-                    value: h,
-                    check: true
-                }
-            });
+            this.headers = this.parsedFile.splice(0, 1)[0]
+                .map(h => {
+                    return {
+                        value: h,
+                        check: true
+                    }
+                });
+            console.log(this.headers);
         });
     }
 
@@ -103,8 +105,7 @@ export class FileComponent implements OnInit {
                 }
             })
         );
-        console.log(this.parsedFile);
-        this.dataFile.headers = JSON.stringify(this.parsedFile.splice(0, 1));
+        this.dataFile.headers = JSON.stringify(this.headers.filter(h => h.check).map(h => h.value));
         this.dataFile.content = JSON.stringify(this.parsedFile);
         this.dataFileService.save(this.dataFile).subscribe((resp) => {
             this.close.emit(resp);

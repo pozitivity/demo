@@ -7,9 +7,10 @@ import {CommonModule} from "@angular/common";
 import {ModalModule} from "ngx-bootstrap/modal";
 import {FileModule} from "../file/file.module";
 import {TranslateModule} from "@ngx-translate/core";
+import {TooltipModule} from "ngx-bootstrap/tooltip";
 
 @NgModule({
-    imports: [CommonModule, ModalModule.forRoot(), FileModule, TranslateModule.forRoot()],
+    imports: [CommonModule, ModalModule.forRoot(), FileModule, TranslateModule.forRoot(), TooltipModule.forRoot()],
     exports: [DataFileComponent],
     declarations: [DataFileComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

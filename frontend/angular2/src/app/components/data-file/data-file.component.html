@@ -9,6 +9,7 @@
         <table class="table">
             <thead>
             <tr>
+                <th></th>
                 <th width="50%">{{ 'DATAFILE.TABLE.NAMEFILE' | translate }}</th>
                 <th>{{ 'DATAFILE.TABLE.SIZE' | translate }}</th>
                 <th>{{ 'DATAFILE.TABLE.DATE_UPLOAD' | translate }}</th>
@@ -17,14 +18,13 @@
             </thead>
             <tbody>
             <tr *ngFor="let dataFile of dataFiles">
+                <td><div [ngClass]="getCls(dataFile.name)"></div></td>
                 <td>{{ dataFile.name }}</td>
                 <td>{{ dataFile.size/1024 }} M</td>
                 <td>{{ dataFile.create | date:'medium'}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-xs" (click)="deleteDataFile(dataFile.id)">
-                        <span class="glyphicon glyphicon-trash"></span>
-                        {{ 'DATAFILE.TABLE.REMOVE' | translate }}
-                    </button>
+                    <i tooltip="{{ 'DATAFILE.TABLE.REMOVE' | translate }}" class="fa fa-minus action-delete"
+                       (click)="deleteDataFile(dataFile.id)"></i>
                 </td>
             </tr>
             </tbody>

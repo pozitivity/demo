@@ -1,49 +1,65 @@
 .modal-body {
 
-  .col-sm-6 {
+  letter-spacing: normal;
+  font-family: Panama-Light;
 
+  .upload-form {
     height: 80px;
 
-    .well {
+    .col-sm-6 {
       height: inherit;
-      line-height: 5vh;
-      text-align: center;
-    }
 
-    .file-select {
-
-      height: inherit;
-      line-height: 9vh;
-
-      .or {
-        float: left;
-        margin-right: 30px;
+      .well {
+        height: inherit;
+        line-height: 5vh;
+        text-align: center;
       }
 
-      .inputfile {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-      }
+      .file-select {
 
-      .inputfile + label {
-        color: #333;
-        background-color: transparent;
-        font-weight: 700;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        cursor: pointer;
-        display: inline-block;
-        overflow: hidden;
-        font-size: 15px;
-      }
+        height: inherit;
+        line-height: 9vh;
 
-      .fa-upload {
-        margin-right: 10px;
+        .or {
+          float: left;
+          margin-right: 30px;
+        }
+
+        .inputfile {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+        }
+
+        .inputfile + label {
+          color: #333;
+          background-color: transparent;
+          font-weight: 700;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          cursor: pointer;
+          display: inline-block;
+          overflow: hidden;
+          font-size: 15px;
+        }
+
+        .fa-upload {
+          margin-right: 10px;
+        }
       }
     }
   }
+
+  .headers {
+    margin-top: 15px;
+
+    span {
+      padding-left: 15px;
+      padding-bottom: 15px;
+    }
+  }
+
 }
