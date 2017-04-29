@@ -22,7 +22,8 @@
       "NAMEFILE": "Name of file",
       "SIZE": "Size",
       "DATE_UPLOAD": "Date of upload",
-      "REMOVE": "Delete"
+      "REMOVE": "Delete",
+      "KB": "KB "
     },
     "UPLOAD": "Upload",
     "MODAL": {

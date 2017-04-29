@@ -23,7 +23,8 @@
       "webpack",
       "jquery",
       "d3",
-      "reflect-metadata"
+      "reflect-metadata",
+      "xlsx"
     ]
   },
   "exclude": [

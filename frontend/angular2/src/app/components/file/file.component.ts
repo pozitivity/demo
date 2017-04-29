@@ -5,10 +5,12 @@ import {Component, ViewChild, OnInit, EventEmitter, Output, ElementRef} from "@a
 import {DataFileService} from "../../services/data-file.service";
 import {FileUploader} from "ng2-file-upload/ng2-file-upload";
 import {ModalDirective} from "ngx-bootstrap/modal";
-import {read, IWorkBook, utils} from "ts-xlsx";
-import {IWorkSheet} from "xlsx";
+//import {read, IWorkBook, utils} from "ts-xlsx";
+//import {IWorkSheet} from "xlsx";
 import {Subject, Observable} from "rxjs";
 import {DataFile} from "../../models/data-file.model";
+import * as XLSX from "xlsx";
+
 
 @Component({
     selector: 'file-modal',
@@ -47,16 +49,16 @@ export class FileComponent implements OnInit {
                     reader.onload = (e) => {
                         observer.next((e.target as any).result);
                     };
-                    reader.readAsBinaryString(file);
+                    reader.readAsArrayBuffer(file);
                     return () => {
                         reader.abort();
                     };
-                }).map((value: string) => {
-                    return read(value, {type: 'binary'});
-                }).map((wb: IWorkBook) => {
-                    debugger;
+                }).map((value: ArrayBuffer) => {
+                    let arr = this.fixData(value);
+                    return XLSX.read(btoa(arr), { type: 'base64' });
+                }).map((wb: XLSX.IWorkBook) => {
                     return wb.SheetNames.map((sheetName: string) => {
-                        return utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
+                        return XLSX.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
                     });
                 }).catch(e => Observable.of({result: 'failure', payload: e}));
             });
@@ -72,6 +74,14 @@ export class FileComponent implements OnInit {
         });
     }
 
+    private fixData(data) {
+        let o = "", l = 0, w = 10240;
+        for (; l < data.byteLength / w; ++l)
+            o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+        o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+        return o;
+    }
+
     ngOnInit() {
         this.uploader.onAfterAddingFile = (item => {
             if (this.target) this.target.value = '';
@@ -82,11 +92,11 @@ export class FileComponent implements OnInit {
         this.hasBaseDropZoneOver = e;
     }
 
-    public show() {
+    public show() : void {
         this.fileLgModal.show();
     }
 
-    public hide() {
+    public hide() : void {
         this.headers = null;
         this.uploadFile = false;
         this.uploadElRef.nativeElement.value = "";
@@ -94,12 +104,23 @@ export class FileComponent implements OnInit {
         this.fileLgModal.hide();
     }
 
-    public fileDropped(event) {
-        console.log('droppped');
+    public fileDropped(event) : void {
         this.uploadFile = true;
-        this.fileSubject.next(event[0]);
+        if (this.getFileExt(event[0].name) == 'csv')
+            this.parseCSV(event[0]);
+        else
+            this.fileSubject.next(event[0]);
         this.target = event.target || event.srcElement;
 
+    }
+
+    private getFileExt(name: string) : string {
+        return name.split('.')[1].toLowerCase();
+    }
+
+    private parseCSV(file) {
+        console.log(file);
+        //console.log(this.csv.parse(file));
     }
 
     upload() {

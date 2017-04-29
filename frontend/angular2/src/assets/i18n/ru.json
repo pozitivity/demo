@@ -22,7 +22,8 @@
       "NAMEFILE": "Имя файла",
       "SIZE": "Размер",
       "DATE_UPLOAD": "Дата загрузки",
-      "REMOVE": "Удалить"
+      "REMOVE": "Удалить",
+      "KB": "KB "
     },
     "UPLOAD": "Загрузить",
     "MODAL": {

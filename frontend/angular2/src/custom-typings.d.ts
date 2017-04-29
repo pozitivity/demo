@@ -55,6 +55,7 @@ declare var HMR: boolean;
 declare var System: SystemJS;
 declare var $: JQueryStatic;
 declare var D3: any;
+declare var XLSX: any;
 
 declare const BACKEND : WebApplication;
 declare const FRONTEND : WebApplication;

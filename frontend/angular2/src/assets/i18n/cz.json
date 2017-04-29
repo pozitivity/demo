@@ -22,7 +22,8 @@
       "NAMEFILE": "Jméno souboru",
       "SIZE": "Hodnota",
       "DATE_UPLOAD": "Nahrání",
-      "REMOVE": "Odstranit"
+      "REMOVE": "Odstranit",
+      "KB": "KB "
     },
     "UPLOAD": "Naložit",
     "MODAL": {

@@ -20,7 +20,7 @@
             <tr *ngFor="let dataFile of dataFiles">
                 <td><div [ngClass]="getCls(dataFile.name)"></div></td>
                 <td>{{ dataFile.name }}</td>
-                <td>{{ dataFile.size/1024 }} M</td>
+                <td>{{ dataFile.size/1024 }} {{ 'DATAFILE.TABLE.KB' | translate }}</td>
                 <td>{{ dataFile.create | date:'medium'}}</td>
                 <td>
                     <i tooltip="{{ 'DATAFILE.TABLE.REMOVE' | translate }}" class="fa fa-minus action-delete"

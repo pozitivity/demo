@@ -13,6 +13,6 @@ import 'lodash/lodash.min.js';
 import 'tether/dist/js/tether.min.js';
 import 'bootstrap';
 import 'rxjs';
-//import 'typicons.font';
+import 'xlsx';
 
 require('font-awesome/css/font-awesome.css');
