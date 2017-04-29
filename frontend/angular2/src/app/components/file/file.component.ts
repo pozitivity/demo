@@ -1,7 +1,7 @@
 /**
  * Created by tatiana.gorbunova on 20.04.2017.
  */
-import {Component, ViewChild, OnInit, EventEmitter, Output} from "@angular/core";
+import {Component, ViewChild, OnInit, EventEmitter, Output, ElementRef} from "@angular/core";
 import {DataFileService} from "../../services/data-file.service";
 import {FileUploader} from "ng2-file-upload/ng2-file-upload";
 import {ModalDirective} from "ngx-bootstrap/modal";
@@ -19,6 +19,7 @@ import {DataFile} from "../../models/data-file.model";
 export class FileComponent implements OnInit {
 
     @ViewChild('fileLgModal') public fileLgModal: ModalDirective;
+    @ViewChild('uploadEl') uploadElRef: ElementRef;
 
     @Output() close: EventEmitter<any> = new EventEmitter();
 
@@ -32,6 +33,8 @@ export class FileComponent implements OnInit {
     public headers: Array<{value: string, check: boolean}>;
     uploadFile: boolean = false;
     private dataFile: DataFile = new DataFile();
+
+    private target: any;
 
     constructor(private dataFileService: DataFileService) {
         this.fileSubject = new Subject();
@@ -51,6 +54,7 @@ export class FileComponent implements OnInit {
                 }).map((value: string) => {
                     return read(value, {type: 'binary'});
                 }).map((wb: IWorkBook) => {
+                    debugger;
                     return wb.SheetNames.map((sheetName: string) => {
                         return utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
                     });
@@ -65,11 +69,13 @@ export class FileComponent implements OnInit {
                         check: true
                     }
                 });
-            console.log(this.headers);
         });
     }
 
     ngOnInit() {
+        this.uploader.onAfterAddingFile = (item => {
+            if (this.target) this.target.value = '';
+        });
     }
 
     public fileOverBase(e: any):void {
@@ -82,14 +88,18 @@ export class FileComponent implements OnInit {
 
     public hide() {
         this.headers = null;
-        this.file = null;
         this.uploadFile = false;
+        this.uploadElRef.nativeElement.value = "";
+        this.uploader.queue.splice(0, 1);
         this.fileLgModal.hide();
     }
 
-    public fileDropped(fileList: FileList) {
+    public fileDropped(event) {
+        console.log('droppped');
         this.uploadFile = true;
-        this.fileSubject.next(fileList[0]);
+        this.fileSubject.next(event[0]);
+        this.target = event.target || event.srcElement;
+
     }
 
     upload() {

@@ -22,7 +22,7 @@
                         <div class="col-sm-6">
                             <div class="file-select">
                                 <span class="or">{{ 'DATAFILE.MODAL.OR' | translate }}</span>
-                                <input class="inputfile" id="file"
+                                <input #uploadEl class="inputfile" id="file"
                                        ng2FileSelect type="file"
                                        [uploader]="uploader"
                                        (change)="fileDropped($event.srcElement.files)"/>
@@ -31,9 +31,6 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <!--<progressbar [animate]="false" [value]="50" type="success"><b>50%</b></progressbar>-->
                     </div>
                     <div class="headers" *ngIf="uploadFile">
                         <span>Отметьте нужные поля и, если необходимо, отредактируйте названия полей</span>
@@ -63,9 +60,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="pull-rigth">
+                <div class="pull-right">
                     <button type="button" class="btn btn-default" (click)="upload()">{{ 'DATAFILE.MODAL.SAVE' | translate }}</button>
-                    <button type="button" class="btn btn-danger" (click)="hide()">{{ 'DATAFILE.MODAL.CANCEL' | translate }}</button>
+                    <button type="button" class="btn btn-mdv-cancel" (click)="hide()">{{ 'DATAFILE.MODAL.CANCEL' | translate }}</button>
                 </div>
             </div>
         </div>

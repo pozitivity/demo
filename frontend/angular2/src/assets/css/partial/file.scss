@@ -1,65 +1,90 @@
-.modal-body {
+.modal-content {
+  border-radius: 0 !important;
 
-  letter-spacing: normal;
-  font-family: Panama-Light;
+  .modal-body {
+    letter-spacing: normal;
+    font-family: Panama-Light;
 
-  .upload-form {
-    height: 80px;
+    .upload-form {
+      height: 80px;
 
-    .col-sm-6 {
-      height: inherit;
-
-      .well {
+      .col-sm-6 {
         height: inherit;
-        line-height: 5vh;
-        text-align: center;
+
+        .well {
+          height: inherit;
+          line-height: 5vh;
+          text-align: center;
+          border-radius: 0;
+        }
+
+        .file-select {
+
+          height: inherit;
+          line-height: 9vh;
+
+          .or {
+            float: left;
+            margin-right: 30px;
+          }
+
+          .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+          }
+
+          .inputfile + label {
+            color: #333;
+            background-color: transparent;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            font-size: 15px;
+          }
+
+          .fa-upload {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .headers {
+      margin-top: 15px;
+
+      span {
+        padding-left: 15px;
+        padding-bottom: 15px;
       }
 
-      .file-select {
+      .headers-form {
+         label {
+           font-weight: normal !important;
+         }
 
-        height: inherit;
-        line-height: 9vh;
-
-        .or {
-          float: left;
-          margin-right: 30px;
-        }
-
-        .inputfile {
-          width: 0.1px;
-          height: 0.1px;
-          opacity: 0;
-          overflow: hidden;
-          position: absolute;
-          z-index: -1;
-        }
-
-        .inputfile + label {
-          color: #333;
-          background-color: transparent;
-          font-weight: 700;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          cursor: pointer;
-          display: inline-block;
-          overflow: hidden;
-          font-size: 15px;
-        }
-
-        .fa-upload {
-          margin-right: 10px;
+        .form-control {
+          border-radius: 0 !important;
         }
       }
     }
   }
 
-  .headers {
-    margin-top: 15px;
+  .modal-footer {
+    .btn {
+      border-radius: 0 !important;
+    }
 
-    span {
-      padding-left: 15px;
-      padding-bottom: 15px;
+    .btn-mdv-cancel {
+      color: #000;
+      background-color: #e8e8e8;
+      border-color: #e3e3e3;
     }
   }
-
 }
