@@ -42,4 +42,9 @@ export class SidebarComponent {
     public changeLang(key: string) {
         this.translate.use(key);
     }
+
+    public getHeight() {
+        if (this.showLanguage) return "210";
+        else return "60";
+    }
 }

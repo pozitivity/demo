@@ -8,12 +8,12 @@
                 <span><a (click)="toFiles()" [translate]="'SIDEBAR.FILE'"></a></span>
             </div>
         </div>
-        <div class="nav-dropdown">
-            <a href="" class="nav-dropdown-open" (click)="showLanguage = !showLanguage">{{ langkey }}</a>
+        <div class="nav-dropdown" [ngStyle]="{'height.px': getHeight()}">
+            <a class="nav-dropdown-open" (click)="showLanguage = !showLanguage">{{ langkey }}</a>
             <div class="nav-content">
                 <ul>
                     <li *ngFor="let lang of langs" (click)="changeLang(lang.key)">
-                        <a href="">{{ lang.description }}</a>
+                        <a>{{ lang.description }}</a>
                     </li>
                 </ul>
             </div>

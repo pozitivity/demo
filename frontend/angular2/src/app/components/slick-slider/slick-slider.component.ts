@@ -22,14 +22,13 @@ export class SlickSliderComponent implements AfterContentInit {
     }
 
     ngAfterContentInit() {
-        console.log(this.options);
         for (let key in this.options) {
             this.defaultOptions[key] = this.options[key];
         }
 
         this.$element = $(this.el.nativeElement)
             .slick(this.defaultOptions);
-        console.log(this.$element);
+
         $('.slick-slide').click((e) => {
             let slideIndex = $(e.currentTarget).data('slick-index');
             this.$element.slick('slickGoTo', slideIndex);

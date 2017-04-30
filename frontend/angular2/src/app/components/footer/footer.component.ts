@@ -12,7 +12,7 @@ export class FooterComponent {
 
     public availableTypes: any [] = [];
 
-    constructor() {
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
         this.availableTypes = [
             {
                 name: 'pie',
@@ -46,6 +46,6 @@ export class FooterComponent {
     }
 
     public to(url: string) {
-        console.log(url);
+        this.router.navigateByUrl(url);
     }
 }
