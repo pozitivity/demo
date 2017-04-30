@@ -7,13 +7,26 @@
     "FILE": "Upload files"
   },
 
-  "header": {
+  "TYPE_DIAGRAMS": {
     "LABELTYPEDIAGRAMS": "Types of diagrams",
     "TYPE": "Type",
     "3D": "3D",
-    "PIE": "Pie",
-    "PYRAMID": "Pyramid",
-    "BUBBLE": "Bubble",
+    "PIE": {
+      "NAME": "Pie",
+      "DESCRIPTION": "Pie chart"
+    },
+    "PYRAMID": {
+      "NAME": "Pyramid",
+      "DESCRIPTION": "Pyramid chart"
+    },
+    "BUBBLE": {
+      "NAME": "Bubble",
+      "DESCRIPTION": "Bubble chart"
+    },
+    "BARCHART": {
+      "NAME": "Bar chart",
+      "DESCRIPTION": "Bar chart"
+    },
     "TABLE": "Table"
   },
 

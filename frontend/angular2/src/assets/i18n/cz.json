@@ -7,13 +7,26 @@
     "FILE": "Stahování souborů"
   },
 
-  "HEADER": {
+  "TYPE_DIAGRAMS": {
     "LABELTYPEDIAGRAMS": "Druhy diagramů",
     "TYPE": "Druh",
     "3D": "3D",
-    "PIE": "Koláčový",
-    "PYRAMID": "Pyramid",
-    "BUBBLE": "Bublina",
+    "PIE": {
+      "NAME": "Koláčový",
+      "DESCRIPTION": "Koláčový graf"
+    },
+    "PYRAMID": {
+      "NAME": "Pyramida",
+      "DESCRIPTION": "Pyramida"
+    },
+    "BUBBLE": {
+      "NAME": "Bublina",
+      "DESCRIPTION": "Bublinová tabulka"
+    },
+    "BARCHART": {
+      "NAME": "Sloupcový graf",
+      "DESCRIPTION": "Sloupcový graf"
+    },
     "TABLE": "Tabulka"
   },
 

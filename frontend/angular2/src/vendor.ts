@@ -15,5 +15,6 @@ import 'bootstrap';
 import 'rxjs';
 import 'xlsx';
 import 'slick-carousel';
+import 'slick-carousel/slick/slick.scss';
 
 require('font-awesome/css/font-awesome.css');

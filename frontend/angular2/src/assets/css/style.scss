@@ -6,6 +6,12 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   font-family: Panama-Light;
   src: url(fonts/Panama-Light.otf);
 }
+
+@font-face {
+  font-family: Drugs;
+  src: url(fonts/Drugs.otf);
+}
+
 .body {
   font-family: Panama-Light;
   letter-spacing: 1px;

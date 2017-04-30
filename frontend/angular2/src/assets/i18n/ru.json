@@ -7,13 +7,26 @@
     "FILE": "Загрузка файлов"
   },
 
-  "HEADER": {
+  "TYPE_DIAGRAMS": {
     "LABELTYPEDIAGRAMS": "Виды диаграмм",
     "TYPE": "Тип",
     "3D": "3D",
-    "PIE": "Круговая",
-    "PYRAMID": "Пирамида",
-    "BUBBLE": "Пузырьковая",
+    "PIE": {
+      "NAME": "Круговая",
+      "DESCRIPTION": "Круговая секторная диаграмма"
+    },
+    "PYRAMID": {
+      "NAME": "Пирамида",
+      "DESCRIPTION": "Пирамида"
+    },
+    "BUBBLE": {
+      "NAME": "Пузырьковая",
+      "DESCRIPTION": "Пузырьковая диаграмма"
+    },
+    "BARCHART": {
+      "NAME": "Столбчатая",
+      "DESCRIPTION": "Столбчатая диаграмма"
+    },
     "TABLE": "Таблица"
   },
 

@@ -10,6 +10,7 @@ import {DataFileComponent} from "./components/data-file/data-file.component";
 import {MainComponent} from "./components/main/main.component";
 import {PieComponent} from "./components/pie/pie.component";
 import {BarchartComponent} from "./components/barchart/barchart.component";
+import {PyramidComponent} from "./components/pyramid/pyramid.component";
 
 const routes: Routes  = [
     {
@@ -35,6 +36,10 @@ const routes: Routes  = [
     {
         path: 'barchart',
         component: BarchartComponent
+    },
+    {
+        path: 'pyramid',
+        component: PyramidComponent
     }
 ];
 

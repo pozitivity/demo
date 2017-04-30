@@ -1,19 +1,19 @@
-<div class="footer">
+<div class="footer col-sm-9 col-md-10">
     <div class="row">
         <div class="bottom">
-            <div class="col-sm-12">
-                <slick-slider [options]="{slidesToShow: 3}">
-                    <div class="item">
-                        <div class="pie"></div>
+            <slick-slider [options]="{slidesToShow: 3, variableWidth: true, centerMode: true}">
+                <div class="item" *ngFor="let type of availableTypes">
+                    <div (click)="to(type.name)">
+                        <div class="zoom">
+                            <div [ngClass]="type.name"></div>
+                        </div>
+                        <div class="caption">
+                            <h2 [translate]="type.caption.title"></h2>
+                            <p [translate]="type.caption.description"></p>
+                        </div>
                     </div>
-                    <div class="item">
-                        <div class="bubble"></div>
-                    </div>
-                    <div class="item">
-                        <div class="barchart"></div>
-                    </div>
-                </slick-slider>
-            </div>
+                </div>
+            </slick-slider>
         </div>
     </div>
 </div>

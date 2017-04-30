@@ -22,7 +22,6 @@ import {BubbleModule} from "./components/bubble/bubble.module";
 import {DataFileModule} from "./components/data-file/data-file.module";
 import {FileModule} from "./components/file/file.module";
 import {CookieService, CookieModule} from "ngx-cookie";
-import {CustomHttp} from "./services/custom-http.service";
 import {SidebarModule} from "./components/sidebar/sidebar.module";
 import {MainModule} from "./components/main/main.module";
 import {WrapHttpService} from "./services/wrap-http.service";
@@ -32,13 +31,7 @@ import {FooterModule} from "./components/footer/footer.module";
 import {PieModule} from "./components/pie/pie.module";
 import {SlickSliderModule} from "./components/slick-slider/slick-slider.module";
 import {BarchartModule} from "./components/barchart/barchart.module";
-
-export function createHttpFactory(backend: XHRBackend,
-                                  defaultOptions: RequestOptions,
-                                  cookieService: CookieService,
-                                  router: Router) {
-    return new CustomHttp(backend, defaultOptions, cookieService, router);
-}
+import {PyramidModule} from "./components/pyramid/pyramid.module";
 
 @NgModule({
     imports:      [
@@ -64,7 +57,8 @@ export function createHttpFactory(backend: XHRBackend,
         FooterModule,
         PieModule,
         SlickSliderModule,
-        BarchartModule
+        BarchartModule,
+        PyramidModule
     ],
     declarations: [
         AppComponent
@@ -74,11 +68,6 @@ export function createHttpFactory(backend: XHRBackend,
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         WrapHttpService,
         CookieService,
-        // {
-        //     provide: Http,
-        //     useFactory: createHttpFactory,
-        //     deps: [XHRBackend, RequestOptions, CookieService, Router]
-        // },
         TableService,
         BubbleService,
         DataFileService,

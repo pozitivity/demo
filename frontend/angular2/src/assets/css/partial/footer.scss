@@ -1,26 +1,134 @@
 .footer {
 
+  bottom: 0;
+  position: fixed;
+  height: 130px;
+
   .bottom {
-    bottom: 0;
-    position: fixed;
-    height: 200px;
     text-align: center;
-    padding: 0 1.25em;
     transition: opacity 0.5s, left 0.5s, transform 0.5s;
-    width: 80%;
 
-    .item {
+    slick-slider {
 
-      .pie {
-        background-image: url(../../images/types/pie.png);
+      .slick-prev, .slick-next {
+        position: absolute;
+        top: 35%;
+        z-index: 1001;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        color: transparent;
+        width: 50px;
+        height: 50px;
       }
 
-      .barchart {
-        background-image: url(../../images/types/barchart.jpg);
+      .slick-slide {
+        opacity: 0.5;
       }
 
-      .bubble {
-        background-image: url(../../images/types/bubble.png);
+      .slick-current {
+        opacity: 1 !important;
+      }
+
+      .slick-prev.slick-arrow, .slick-next.slick-arrow {
+        background-size: 50px 50px;
+        background-repeat: no-repeat;
+      }
+
+      .slick-prev.slick-arrow {
+        background-image: url(../../images/slick/Back-104.png);
+      }
+
+      .slick-next.slick-arrow {
+        background-image: url(../../images/slick/Forward-104.png);
+      }
+
+      .slick-prev {
+        left: 90px;
+      }
+
+      .slick-next {
+        right: 90px;
+      }
+
+      .item {
+        width: 400px;
+        height: 130px;
+        float:left;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        padding: 15px;
+        cursor: pointer;
+        //border-left: 0;
+        border: 1px solid #e8e8e8;
+        //border-top: 1px solid #e8e8e8;
+        //border-bottom: 1px solid #e8e8e8;
+        background-color: #fcfcfc;
+
+        .zoom {
+          width: 100px;
+          height: 100px;
+          position: relative;
+          margin: 0;
+          overflow: hidden;
+          padding: 0.3125em 0.625em 0 1.25em;
+          float: left;
+
+          div {
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-size: 100px 100px;
+            transition: transform 0.5s ease;
+            image-rendering: -webkit-optimize-contrast;
+            background-repeat: no-repeat;
+          }
+          .pie {
+            background-image: url(../../images/types/pie.png);
+          }
+
+          .barchart {
+            background-image: url(../../images/types/barchart.jpg);
+          }
+
+          .bubble {
+            background-image: url(../../images/types/bubble.png);
+          }
+
+          .pyramid {
+            background-image: url(../../images/types/pyramid.png);
+          }
+        }
+
+        .caption {
+          width: 40%;
+          padding: 0.3125em 0.625em 0 1.25em;
+          float: left;
+
+          h2 {
+            font-size: 1.125em;
+            line-height: 1.3333333333em;
+            position: relative;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.5s;
+            font-family: Drugs, serif;
+            letter-spacing: 1px;
+          }
+
+          p {
+            font-size: 0.875em;
+            line-height: 1.066666667em;
+            font-family: Drugs, sans-serif;
+            font-weight: 300;
+            transition: color 0.5s;
+            letter-spacing: 1px;
+          }
+        }
       }
     }
   }

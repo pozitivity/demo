@@ -9,8 +9,40 @@ import {Router, ActivatedRoute} from "@angular/router";
 })
 
 export class FooterComponent {
-    constructor() {
 
+    public availableTypes: any [] = [];
+
+    constructor() {
+        this.availableTypes = [
+            {
+                name: 'pie',
+                caption: {
+                    title: 'TYPE_DIAGRAMS.PIE.NAME',
+                    description: 'TYPE_DIAGRAMS.PIE.DESCRIPTION'
+                }
+            },
+            {
+                name: 'bubble',
+                caption: {
+                    title: 'TYPE_DIAGRAMS.BUBBLE.NAME',
+                    description: 'TYPE_DIAGRAMS.BUBBLE.DESCRIPTION'
+                }
+            },
+            {
+                name: 'barchart',
+                caption: {
+                    title: 'TYPE_DIAGRAMS.BARCHART.NAME',
+                    description: 'TYPE_DIAGRAMS.BARCHART.DESCRIPTION'
+                }
+            },
+            {
+                name: "pyramid",
+                caption: {
+                    title: 'TYPE_DIAGRAMS.PYRAMID.NAME',
+                    description: 'TYPE_DIAGRAMS.PYRAMID.DESCRIPTION'
+                }
+            }
+        ]
     }
 
     public to(url: string) {
