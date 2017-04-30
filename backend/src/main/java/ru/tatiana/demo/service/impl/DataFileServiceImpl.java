@@ -1,14 +1,17 @@
 package ru.tatiana.demo.service.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.tatiana.demo.model.DataFile;
 import ru.tatiana.demo.repository.DataFileRepository;
 import ru.tatiana.demo.service.DataFileService;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tatyana on 11.04.2017.
@@ -39,4 +42,23 @@ public class DataFileServiceImpl implements DataFileService {
         dataFileRepository.deleteDataFile(id);
     }
 
+    @Override
+    public List<Map> getContentDataFileAsJson(Long id) throws IOException {
+        List<Map> asJson = new ArrayList<>();
+        DataFile dataFile = getDataFileById(id);
+        ObjectMapper oMapper = new ObjectMapper();
+        List<String> headers = oMapper.readValue(dataFile.getHeaders(),
+                oMapper.getTypeFactory().constructCollectionType(List.class, String.class));
+        List<List<String>> content = oMapper.readValue(dataFile.getContent(),
+                oMapper.getTypeFactory().constructCollectionType(List.class,
+                        oMapper.getTypeFactory().constructCollectionType(List.class, String.class)));
+        for (List<String> item: content) {
+            Map<String, String> objectMap = new HashMap<>();
+            for (int i = 0; i < item.size(); i++) {
+                objectMap.put(headers.get(i), item.get(i));
+            }
+            asJson.add(objectMap);
+        }
+        return asJson;
+    }
 }

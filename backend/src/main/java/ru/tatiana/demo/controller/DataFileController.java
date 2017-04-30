@@ -1,12 +1,13 @@
 package ru.tatiana.demo.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.tatiana.demo.model.DataFile;
 import ru.tatiana.demo.service.DataFileService;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tatyana on 12.04.2017.
@@ -37,5 +38,10 @@ public class DataFileController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteDataFile(@PathVariable("id") Long id) {
         dataFileService.deleteDataFile(id);
+    }
+
+    @RequestMapping(value = "/asjson/{id}", method = RequestMethod.GET)
+    public List<Map> getDataFileAsJson(@PathVariable("id") Long id) throws IOException {
+        return dataFileService.getContentDataFileAsJson(id);
     }
 }
