@@ -19,7 +19,6 @@ import {DataFileService} from "./services/data-file.service";
 import {FileService} from "./services/file.service";
 import {TableModule} from "./components/table/table.module";
 import {BubbleModule} from "./components/bubble/bubble.module";
-import {FooterComponent} from "./components/footer/footer.component";
 import {DataFileModule} from "./components/data-file/data-file.module";
 import {FileModule} from "./components/file/file.module";
 import {CookieService, CookieModule} from "ngx-cookie";
@@ -29,6 +28,10 @@ import {MainModule} from "./components/main/main.module";
 import {WrapHttpService} from "./services/wrap-http.service";
 import {FileUploadModule} from "ng2-file-upload/ng2-file-upload";
 import {FormsModule} from "@angular/forms";
+import {FooterModule} from "./components/footer/footer.module";
+import {PieModule} from "./components/pie/pie.module";
+import {SlickSliderModule} from "./components/slick-slider/slick-slider.module";
+import {BarchartModule} from "./components/barchart/barchart.module";
 
 export function createHttpFactory(backend: XHRBackend,
                                   defaultOptions: RequestOptions,
@@ -57,11 +60,14 @@ export function createHttpFactory(backend: XHRBackend,
         CookieModule.forRoot(),
         SidebarModule,
         MainModule,
-        FileUploadModule
+        FileUploadModule,
+        FooterModule,
+        PieModule,
+        SlickSliderModule,
+        BarchartModule
     ],
     declarations: [
-        AppComponent,
-        FooterComponent
+        AppComponent
     ],
     providers: [
         {provide: LOCALE_ID, useValue: "ru"},

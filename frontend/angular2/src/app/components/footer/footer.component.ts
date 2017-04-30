@@ -9,5 +9,11 @@ import {Router, ActivatedRoute} from "@angular/router";
 })
 
 export class FooterComponent {
+    constructor() {
 
+    }
+
+    public to(url: string) {
+        console.log(url);
+    }
 }

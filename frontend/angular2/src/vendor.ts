@@ -14,5 +14,6 @@ import 'tether/dist/js/tether.min.js';
 import 'bootstrap';
 import 'rxjs';
 import 'xlsx';
+import 'slick-carousel';
 
 require('font-awesome/css/font-awesome.css');

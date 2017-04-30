@@ -56,9 +56,9 @@
     "rainbowvis.js": "^1.0.1",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.0.1",
+    "slick-carousel": "1.6.0",
     "systemjs": "0.20.12",
     "tether": "^1.4.0",
-    "typicons.font": "^2.0.8",
     "xlsx": "0.9.12",
     "zone.js": "^0.8.5"
   },
@@ -71,6 +71,7 @@
     "@types/lodash": "0.0.28",
     "@types/node": "^6.0.38",
     "@types/reflect-metadata": "^0.0.5",
+    "@types/slick-carousel": "1.6.31",
     "@types/source-map": "^0.1.26",
     "@types/uglify-js": "^2.0.27",
     "@types/webpack": "^1.12.29",

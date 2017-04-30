@@ -8,6 +8,8 @@ import {TableComponent} from "./components/table/table.component";
 import {BubbleComponent} from "./components/bubble/bubble.component";
 import {DataFileComponent} from "./components/data-file/data-file.component";
 import {MainComponent} from "./components/main/main.component";
+import {PieComponent} from "./components/pie/pie.component";
+import {BarchartComponent} from "./components/barchart/barchart.component";
 
 const routes: Routes  = [
     {
@@ -25,6 +27,14 @@ const routes: Routes  = [
     {
         path: 'dataFile',
         component: DataFileComponent
+    },
+    {
+        path: 'pie',
+        component: PieComponent
+    },
+    {
+        path: 'barchart',
+        component: BarchartComponent
     }
 ];
 

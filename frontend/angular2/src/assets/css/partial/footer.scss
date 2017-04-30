@@ -1,14 +1,28 @@
-.header {
-  font-family: Panama-Light;
-  text-transform: uppercase;
-  padding: 1em 0;
+.footer {
 
-  .header_type {
-    cursor: pointer;
-    padding: 1em 2em;
+  .bottom {
+    bottom: 0;
+    position: fixed;
+    height: 200px;
+    text-align: center;
+    padding: 0 1.25em;
+    transition: opacity 0.5s, left 0.5s, transform 0.5s;
+    width: 80%;
 
-    &hover, &focus {
-      text-decoration: underline;
+    .item {
+
+      .pie {
+        background-image: url(../../images/types/pie.png);
+      }
+
+      .barchart {
+        background-image: url(../../images/types/barchart.jpg);
+      }
+
+      .bubble {
+        background-image: url(../../images/types/bubble.png);
+      }
     }
   }
+
 }
