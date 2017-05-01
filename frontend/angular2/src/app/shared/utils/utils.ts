@@ -2,6 +2,7 @@
  * Created by tatiana.gorbunova on 01.05.2017.
  */
 import {Injectable} from "@angular/core";
+import {isNumeric} from "rxjs/util/isNumeric";
 
 @Injectable()
 export class Utils {
@@ -19,10 +20,19 @@ export class Utils {
         return mappingData;
     }
 
-    public static getNamesProperty(obj: Object) : Array<string> {
-        let namesProperty: Array<string> = [];
+    public static getNamesProperty(obj: Object) : Array<any> {
+        let namesProperty: Array<any> = [];
         for (let name in obj) {
-            namesProperty.push(name);
+            let property = { name: "", type: "" };
+            if (new Date(obj[name]).toDateString() != "Invalid Date") {
+                property.type = "Date";
+            } else if (isNumeric(obj[name])) {
+                property.type = "number";
+            } else {
+                property.type = "string";
+            }
+            property.name = name;
+            namesProperty.push(property);
         }
         return namesProperty;
     }

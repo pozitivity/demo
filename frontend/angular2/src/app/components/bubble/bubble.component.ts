@@ -22,7 +22,7 @@ export class BubbleComponent implements OnInit, D3ComponentInterface, OnDestroy 
     svg: any;
 
     public data = [];
-    public namesProperty: Array<string> = [];
+    public namesProperty: Array<any> = [];
     public filter: string;
     public mappingData: Array<any> = [];
 
@@ -38,7 +38,7 @@ export class BubbleComponent implements OnInit, D3ComponentInterface, OnDestroy 
         this.subscription = this.dataService.getContentDataFileAsJson().subscribe(content => {
             this.data = content;
             this.namesProperty = Utils.getNamesProperty(this.data[0]);
-            this.filter = this.namesProperty[0];
+            this.filter = this.namesProperty[0].name;
             this.mappingData = Utils.mapData(this.data, this.filter);
             this.refreshSvg();
         });
@@ -103,7 +103,7 @@ export class BubbleComponent implements OnInit, D3ComponentInterface, OnDestroy 
     }
 
     removeLegend() {
-        d3Selection.select("#bar_legend")
+        d3Selection.select("#bubble_legend")
             .transition()
             .duration(1000)
             .style("opacity", "0");

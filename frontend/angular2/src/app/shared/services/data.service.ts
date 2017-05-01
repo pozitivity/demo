@@ -20,6 +20,7 @@ export class DataService extends BaseEntityService {
     private FILE_NAME_PROPERTY: string = "file";
     private contentAsJson: Observable<any> = null;
     private subject: BehaviorSubject<NamedEntity> = new BehaviorSubject(null);
+    private selectedId;
 
     private initData() {
         if (this.getFileFromLS() != null) {
@@ -28,10 +29,12 @@ export class DataService extends BaseEntityService {
     }
 
     getContentDataFileAsJson() : Observable<any> {
-        let id;
-        if (this.getFileFromLS() != null) id = this.getFileFromLS().id;
-        if (!this.contentAsJson) {
-            this.contentAsJson = this.http.get("/dataFile/asjson/" + id)
+        //let id;
+        //if (this.getFileFromLS() != null) id = this.getFileFromLS().id;
+        if (this.getFileFromLS() == null) return null;
+        if (!this.contentAsJson || this.selectedId != this.getFileFromLS().id) {
+            this.selectedId = this.getFileFromLS().id;
+            this.contentAsJson = this.http.get("/dataFile/asjson/" + this.selectedId)
                 .map(response => response.json())
                 .publishReplay(1)
                 .refCount()

@@ -20,7 +20,7 @@ export class PieComponent implements OnDestroy, D3ComponentInterface, OnInit {
 
     private subscription;
     public data = [];
-    public namesProperty: Array<string> = [];
+    public namesProperty: Array<any> = [];
     public filter: string;
     public mappingData: Array<any> = [];
 
@@ -46,7 +46,7 @@ export class PieComponent implements OnDestroy, D3ComponentInterface, OnInit {
         this.subscription = this.dataService.getContentDataFileAsJson().subscribe(content => {
             this.data = content;
             this.namesProperty = Utils.getNamesProperty(this.data[0]);
-            this.filter = this.namesProperty[0];
+            this.filter = this.namesProperty[0].name;
             this.mappingData = Utils.mapData(this.data, this.filter);
             this.refreshSvg();
         });

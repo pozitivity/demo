@@ -6,7 +6,7 @@
                 <label class="col-sm-3">{{ 'COMMON.FILTER' | translate }}</label>
                 <div class="col-sm-9">
                     <select class="form-control" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)">
-                        <option *ngFor="let name of namesProperty">{{ name }}</option>
+                        <option *ngFor="let name of namesProperty">{{ name.name }}</option>
                     </select>
                 </div>
             </div>

@@ -30,7 +30,7 @@ export class BarchartComponent implements OnInit, OnDestroy, D3ComponentInterfac
     color: any;
     svg: any;
 
-    public namesProperty: Array<string> = [];
+    public namesProperty: Array<any> = [];
     public filter: string;
 
     constructor(private dataService: DataService) {
@@ -43,7 +43,7 @@ export class BarchartComponent implements OnInit, OnDestroy, D3ComponentInterfac
         this.subscription = this.dataService.getContentDataFileAsJson().subscribe(content => {
             this.data = content;
             this.namesProperty = Utils.getNamesProperty(this.data[0]);
-            this.filter = this.namesProperty[0];
+            this.filter = this.namesProperty[0].name;
             this.mappingData = this.mapData(this.data, this.filter);
             this.refreshSvg();
         });
@@ -107,7 +107,6 @@ export class BarchartComponent implements OnInit, OnDestroy, D3ComponentInterfac
     }
 
     updateLegend(d) {
-        console.log(d);
         d3Selection.select("#bar_legend")
             .html("<h2>" + d.name + "</h2><p>" + d.size + "</p>")
             .transition()
