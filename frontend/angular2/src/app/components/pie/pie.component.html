@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="pie-comp">
+    <h1></h1>
+    <div class="form-group">
+        <label class="col-sm-4"></label>
+        <div class="col-sm-8">
+            <select class="form-control" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)">
+                <option *ngFor="let name of namesProperty">{{ name }}</option>
+            </select>
+        </div>
+    </div>
+    <div id="pieChart"></div>
+</div>

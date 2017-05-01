@@ -17,16 +17,19 @@ export class DataService extends BaseEntityService {
         this.initData();
     }
 
+    private FILE_NAME_PROPERTY: string = "file";
     private contentAsJson: Observable<any> = null;
     private subject: BehaviorSubject<NamedEntity> = new BehaviorSubject(null);
 
     private initData() {
-        if (localStorage.getItem("file") != "undefined") {
+        if (this.getFileFromLS() != null) {
             this.subject.next(JSON.parse(localStorage.getItem("file")));
         }
     }
 
-    getContentDataFileAsJson(id: number) : Observable<any> {
+    getContentDataFileAsJson() : Observable<any> {
+        let id;
+        if (this.getFileFromLS() != null) id = this.getFileFromLS().id;
         if (!this.contentAsJson) {
             this.contentAsJson = this.http.get("/dataFile/asjson/" + id)
                 .map(response => response.json())
@@ -42,7 +45,17 @@ export class DataService extends BaseEntityService {
     }
 
     selectFile(file: NamedEntity) {
-        localStorage.setItem("file", JSON.stringify(file));
+        this.setFileToLS(file);
         this.subject.next(file);
+    }
+
+    getFileFromLS() {
+        if (localStorage.getItem(this.FILE_NAME_PROPERTY) != "undefined")
+            return JSON.parse(localStorage.getItem(this.FILE_NAME_PROPERTY));
+        else return null;
+    }
+
+    setFileToLS(value: any) {
+        localStorage.setItem(this.FILE_NAME_PROPERTY, JSON.stringify(value));
     }
 }
