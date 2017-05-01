@@ -13,10 +13,10 @@ import {TranslateModule} from "@ngx-translate/core";
 
 import {routing} from './app.route';
 import {AppComponent}  from './app.component';
-import {TableService} from "./services/table.service";
-import {BubbleService} from "./services/bubble.service";
-import {DataFileService} from "./services/data-file.service";
-import {FileService} from "./services/file.service";
+import {TableService} from "./shared/services/table.service";
+import {BubbleService} from "./shared/services/bubble.service";
+import {DataFileService} from "./shared/services/data-file.service";
+import {FileService} from "./shared/services/file.service";
 import {TableModule} from "./components/table/table.module";
 import {BubbleModule} from "./components/bubble/bubble.module";
 import {DataFileModule} from "./components/data-file/data-file.module";
@@ -24,7 +24,7 @@ import {FileModule} from "./components/file/file.module";
 import {CookieService, CookieModule} from "ngx-cookie";
 import {SidebarModule} from "./components/sidebar/sidebar.module";
 import {MainModule} from "./components/main/main.module";
-import {WrapHttpService} from "./services/wrap-http.service";
+import {WrapHttpService} from "./shared/services/wrap-http.service";
 import {FileUploadModule} from "ng2-file-upload/ng2-file-upload";
 import {FormsModule} from "@angular/forms";
 import {FooterModule} from "./components/footer/footer.module";
@@ -32,7 +32,7 @@ import {PieModule} from "./components/pie/pie.module";
 import {SlickSliderModule} from "./components/slick-slider/slick-slider.module";
 import {BarchartModule} from "./components/barchart/barchart.module";
 import {PyramidModule} from "./components/pyramid/pyramid.module";
-import {DataService} from "./services/data.service";
+import {DataService} from "./shared/services/data.service";
 
 @NgModule({
     imports:      [

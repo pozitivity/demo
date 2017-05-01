@@ -43,6 +43,9 @@ function BubbleController($translate, $filter, Bubble) {
             .append("g");
 
         var nodes = bubble.nodes(ctrl.bubbles);
+
+        console.log(nodes);
+
         var node = canvas.selectAll(".node")
             .data(bubble.nodes(ctrl.bubbles)
                 .filter(function(d) { return !d.children; }))

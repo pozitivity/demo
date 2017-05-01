@@ -2,7 +2,7 @@ import {BaseEntityService} from "./base-entity.service";
 import {URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {Injectable} from "@angular/core";
-import {Bubble} from "../models/bubble-model/bubble.model";
+import {Bubble} from "../../models/bubble-model/bubble.model";
 import {WrapHttpService} from "./wrap-http.service";
 
 @Injectable()

@@ -2,7 +2,7 @@
  * Created by tatiana.gorbunova on 20.04.2017.
  */
 import {Component, ViewChild, OnInit, EventEmitter, Output, ElementRef} from "@angular/core";
-import {DataFileService} from "../../services/data-file.service";
+import {DataFileService} from "../../shared/services/data-file.service";
 import {FileUploader} from "ng2-file-upload/ng2-file-upload";
 import {ModalDirective} from "ngx-bootstrap/modal";
 //import {read, IWorkBook, utils} from "ts-xlsx";

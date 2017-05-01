@@ -2,10 +2,10 @@
  * Created by tatiana.gorbunova on 20.04.2017.
  */
 import {Component, ViewChild} from "@angular/core";
-import {DataFileService} from "../../services/data-file.service";
+import {DataFileService} from "../../shared/services/data-file.service";
 import {DataFile} from "../../models/data-file.model";
 import {FileComponent} from "../file/file.component";
-import {DataService} from "../../services/data.service";
+import {DataService} from "../../shared/services/data.service";
 import {NamedEntity} from "../../models/named-entity.model";
 
 @Component({

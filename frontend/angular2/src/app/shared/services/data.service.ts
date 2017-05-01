@@ -6,8 +6,8 @@ import {Observable} from "rxjs/Rx";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {BaseEntityService} from "./base-entity.service";
 import {WrapHttpService} from "./wrap-http.service";
-import {DataFile} from "../models/data-file.model";
-import {NamedEntity} from "../models/named-entity.model";
+import {DataFile} from "../../models/data-file.model";
+import {NamedEntity} from "../../models/named-entity.model";
 
 @Injectable()
 export class DataService extends BaseEntityService {

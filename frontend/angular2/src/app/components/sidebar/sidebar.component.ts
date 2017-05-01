@@ -3,7 +3,7 @@ import {Http, Headers} from "@angular/http";
 import {Router, ActivatedRoute} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
 import {Language} from "../../models/language.model";
-import {DataService} from "../../services/data.service";
+import {DataService} from "../../shared/services/data.service";
 import {DataFile} from "../../models/data-file.model";
 import {NamedEntity} from "../../models/named-entity.model";
 
