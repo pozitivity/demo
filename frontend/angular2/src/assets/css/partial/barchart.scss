@@ -1,0 +1,28 @@
+.bar-comp {
+
+  padding-top: 40px;
+  font-family: Drugs, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  #barChart {
+    overflow: auto;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+
+    .form-control {
+      border-radius: 0 !important;
+    }
+  }
+
+  .legend {
+    padding-top: 100px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+}

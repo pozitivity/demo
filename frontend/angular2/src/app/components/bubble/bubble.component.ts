@@ -103,7 +103,7 @@ export class BubbleComponent implements OnInit, D3ComponentInterface, OnDestroy 
     }
 
     removeLegend() {
-        d3Selection.select("#pie_legend")
+        d3Selection.select("#bar_legend")
             .transition()
             .duration(1000)
             .style("opacity", "0");

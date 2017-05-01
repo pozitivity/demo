@@ -37,7 +37,7 @@ export class PieComponent implements OnDestroy, D3ComponentInterface, OnInit {
     private container: any;
 
     constructor(private dataService: DataService) {
-        this.width = 1000 - this.margin.left - this.margin.right;
+        this.width = 800 - this.margin.left - this.margin.right;
         this.height = 800 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
     }
