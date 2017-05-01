@@ -8,6 +8,11 @@
                 <span><a (click)="toFiles()" [translate]="'SIDEBAR.FILE'"></a></span>
             </div>
         </div>
+        <div *ngIf="file != null" class="" [ngStyle]="{'bottom.px': getHeight()}" style="position: fixed;" class="items">
+            <div class="item">
+                <span><a>Выбранный файл: {{ file.name }}</a></span>
+            </div>
+        </div>
         <div class="nav-dropdown" [ngStyle]="{'height.px': getHeight()}">
             <a class="nav-dropdown-open" (click)="showLanguage = !showLanguage">{{ langkey }}</a>
             <div class="nav-content">

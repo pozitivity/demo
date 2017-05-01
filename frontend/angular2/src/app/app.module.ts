@@ -32,6 +32,7 @@ import {PieModule} from "./components/pie/pie.module";
 import {SlickSliderModule} from "./components/slick-slider/slick-slider.module";
 import {BarchartModule} from "./components/barchart/barchart.module";
 import {PyramidModule} from "./components/pyramid/pyramid.module";
+import {DataService} from "./services/data.service";
 
 @NgModule({
     imports:      [
@@ -71,7 +72,8 @@ import {PyramidModule} from "./components/pyramid/pyramid.module";
         TableService,
         BubbleService,
         DataFileService,
-        FileService
+        FileService,
+        DataService
     ],
     bootstrap: [ AppComponent ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

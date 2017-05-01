@@ -36,7 +36,8 @@
       "SIZE": "Size",
       "DATE_UPLOAD": "Date of upload",
       "REMOVE": "Delete",
-      "KB": "KB "
+      "KB": "KB ",
+      "USED": "Used"
     },
     "UPLOAD": "Upload",
     "MODAL": {

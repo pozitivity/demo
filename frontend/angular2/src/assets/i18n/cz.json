@@ -36,7 +36,8 @@
       "SIZE": "Hodnota",
       "DATE_UPLOAD": "Nahrání",
       "REMOVE": "Odstranit",
-      "KB": "KB "
+      "KB": "KB ",
+      "USED": "Použitý"
     },
     "UPLOAD": "Naložit",
     "MODAL": {

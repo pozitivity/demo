@@ -8,9 +8,10 @@ import {ModalModule} from "ngx-bootstrap/modal";
 import {FileModule} from "../file/file.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {TooltipModule} from "ngx-bootstrap/tooltip";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
-    imports: [CommonModule, ModalModule.forRoot(), FileModule, TranslateModule.forRoot(), TooltipModule.forRoot()],
+    imports: [CommonModule, ModalModule.forRoot(), FileModule, TranslateModule.forRoot(), TooltipModule.forRoot(), FormsModule],
     exports: [DataFileComponent],
     declarations: [DataFileComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
