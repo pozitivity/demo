@@ -7,6 +7,8 @@ import * as d3 from "d3";
 import * as d3Selection from "d3-selection";
 import * as d3Scale from "d3-scale";
 import * as d3Shape from "d3-shape";
+import * as d3Zoom from "d3-zoom";
+import {TranslateService} from "@ngx-translate/core";
 
 export const Stats: any[] = [
     {age: "<5", population: 2704659},
@@ -23,7 +25,7 @@ export const Stats: any[] = [
     template: require("./pie.component.html"),
     styles: [require('!style!css!sass!../../../assets/css/partial/pie.scss').toString()]
 })
-export class PieComponent implements OnDestroy, OnInit {
+export class PieComponent implements OnDestroy {
 
     private subscription;
     public data = [];
@@ -42,15 +44,17 @@ export class PieComponent implements OnDestroy, OnInit {
     private color: any;
     private svg: any;
     private zoom: any;
+    private container: any;
 
-    constructor(private dataService: DataService) {
+    constructor(private dataService: DataService,
+                private translate: TranslateService) {
         this.subscription = this.dataService.getContentDataFileAsJson().subscribe(content => {
             this.data = content;
             this.getNamesProperty(this.data[0]);
             this.refreshSvg();
         });
         this.width = 1000 - this.margin.left - this.margin.right;
-        this.height = 700 - this.margin.top - this.margin.bottom;
+        this.height = 800 - this.margin.top - this.margin.bottom;
         this.radius = Math.min(this.width, this.height) / 2;
         this.svg = d3Selection.select("svg");
     }
@@ -62,9 +66,6 @@ export class PieComponent implements OnDestroy, OnInit {
         this.filter = this.namesProperty[0];
     }
 
-    ngOnInit() {
-    }
-
     onChangeFilter(newFilter) {
         this.refreshSvg();
     }
@@ -74,18 +75,26 @@ export class PieComponent implements OnDestroy, OnInit {
         this.arc = d3Shape.arc()
             .outerRadius(this.radius - 10)
             .innerRadius(0);
-        this.labelArc = d3Shape.arc()
-             .outerRadius(this.radius - 40)
-             .innerRadius(this.radius - 40);
+        // this.labelArc = d3Shape.arc()
+        //      .outerRadius(this.radius - 40)
+        //      .innerRadius(this.radius - 40);
+        this.zoom = d3Zoom.zoom()
+            .scaleExtent([1, Infinity])
+            .on("zoom", this.zoomed);
+
         this.pie = d3Shape.pie()
             .sort(null)
-            .value((d:any) => d.length);
+            .value((d:any) => d.size);
+
         this.svg = d3Selection.select("#pieChart")
             .append("svg")
             .attr("width", this.width + this.margin.right + this.margin.left)
-            .attr("height", this.height + this.margin.top + this.margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
+            .attr("height", this.height + this.margin.top + this.margin.bottom);
+
+
+        this.container = this.svg.append("g")
+            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")")
+            //.call(this.zoom);
     }
 
     clearSvg() {
@@ -93,15 +102,30 @@ export class PieComponent implements OnDestroy, OnInit {
     }
 
     drawPie() {
-        let g = this.svg.selectAll(".arc")
+        let g = this.container.selectAll(".arc")
             .data(this.pie(this.mappingData))
             .enter().append("g")
             .attr("class", "arc");
         g.append("path").attr("d", this.arc)
             .attr("fill", (d:any, i) => this.color(this.mappingData[i].name));
-        // g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
-        //     .attr("dy", ".35em")
-        //     .text((d: any) => d.data.name);
+
+        g.on("mouseover", this.updateLegend)
+            .on("mouseout", this.removeLegend);
+    }
+
+    updateLegend(d) {
+        d3Selection.select("#pie_legend")
+            .html("<h2>" + d.data.name + "</h2><p>" + d.data.size + "</p>")
+            .transition()
+            .duration(200)
+            .style("opacity", "1");
+    }
+
+    removeLegend(d) {
+        d3Selection.select("#pie_legend")
+            .transition()
+            .duration(1000)
+            .style("opacity", "0");
     }
 
     mapData() {
@@ -112,7 +136,7 @@ export class PieComponent implements OnDestroy, OnInit {
             return previous;
         }, Object.create(null));
         for (let name in result) {
-            this.mappingData.push({ name: name, length: result[name].length});
+            this.mappingData.push({ name: name, size: result[name].length});
         }
     }
 
@@ -121,6 +145,10 @@ export class PieComponent implements OnDestroy, OnInit {
         this.clearSvg();
         this.initSvg();
         this.drawPie();
+    }
+
+    zoomed() {
+        this.container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
     }
 
     ngOnDestroy() {

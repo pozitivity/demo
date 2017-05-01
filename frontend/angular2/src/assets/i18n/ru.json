@@ -7,6 +7,14 @@
     "FILE": "Загрузка файлов"
   },
 
+  "COMMON": {
+    "FILTER": "Фильтр"
+  },
+
+  "PIE": {
+    "PATIENTS": "пациентов"
+  },
+
   "TYPE_DIAGRAMS": {
     "LABELTYPEDIAGRAMS": "Виды диаграмм",
     "TYPE": "Тип",

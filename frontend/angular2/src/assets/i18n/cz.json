@@ -7,6 +7,14 @@
     "FILE": "Stahování souborů"
   },
 
+  "COMMON": {
+    "FILTER": "Filtr"
+  },
+
+  "PIE": {
+    "PATIENTS": "pacientů"
+  },
+
   "TYPE_DIAGRAMS": {
     "LABELTYPEDIAGRAMS": "Druhy diagramů",
     "TYPE": "Druh",

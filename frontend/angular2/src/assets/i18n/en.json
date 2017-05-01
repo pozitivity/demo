@@ -7,6 +7,14 @@
     "FILE": "Upload files"
   },
 
+  "COMMON": {
+    "FILTER": "Filter"
+  },
+
+  "PIE": {
+    "PATIENTS": "patients"
+  },
+
   "TYPE_DIAGRAMS": {
     "LABELTYPEDIAGRAMS": "Types of diagrams",
     "TYPE": "Type",
