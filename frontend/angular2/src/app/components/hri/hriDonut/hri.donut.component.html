@@ -1,12 +1,12 @@
 <div class="col-sm-12">
     <div class="col-sm-6">
-        <div>
+        <div class="panel">
             <canvas #donut baseChart [data]="donutChartData"
                     [labels]="donutChartLabels"
                     [chartType]="donutChartType"
                     [colors]="donutChartColors"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"
+                    (chartHover)="chartDonutHovered($event)"
+                    (chartClick)="chartDonutClicked($event)"
                     [legend]="false"></canvas>
             <div class="donut-inner">
                 <h2>Индекс <br/> здоровья</h2>
@@ -15,6 +15,14 @@
         </div>
     </div>
     <div class="col-sm-6">
-        <canvas #line baseChart></canvas>
+        <div class="panel">
+            <canvas #line baseChart [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartLineHover($even)"
+                    (chartClick)="chartLineClick($event)"></canvas>
+        </div>
     </div>
 </div>

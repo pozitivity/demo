@@ -2,7 +2,7 @@
  * Created by tatiana.gorbunova on 21.05.2017.
  */
 import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
-import {indicators} from "../hri.data";
+import {indicators, years, lineChartData} from "../hri.data";
 
 @Component({
     selector: 'hri-donut',
@@ -19,9 +19,27 @@ export class HRIDonutComponent implements OnInit {
     }];
     private color: string[];
 
+    public lineChartLegend: boolean = true;
+    public lineChartType: string = "line";
+    public lineChartData;
+    public lineChartLabels;
+    public lineChartColors;
+
     @ViewChild("donut") canvasDonut: ElementRef;
 
     constructor() {
+        this.lineChartData = lineChartData;
+        this.lineChartLabels = years;
+        this.lineChartColors = [
+            { // grey
+                backgroundColor: 'rgba(148,159,177,0.2)',
+                borderColor: 'rgba(148,159,177,1)',
+                pointBackgroundColor: 'rgba(148,159,177,1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+            }
+        ]
     }
 
     ngOnInit() {
@@ -38,36 +56,21 @@ export class HRIDonutComponent implements OnInit {
                 this.donutChartData.push(1);
             });
         });
-
-        //this.textInMiddle();
     }
 
-    private textInMiddle() {
-        let ctx = this.canvasDonut.nativeElement.getContext("2d");
-        console.log(ctx);
-        var width = this.canvasDonut.nativeElement.clientWidth,
-            height = this.canvasDonut.nativeElement.clientHeight;
-
-        var fontSize = (height / 250).toFixed(2);
-        ctx.canvas.font = fontSize + "em Verdana";
-        ctx.textBaseline = "middle";
-        ctx.fillStyle = "blue";
-
-        var text = "Pass Rate 82%",
-            textX = Math.round((width - ctx.measureText(text).width) / 2),
-            textY = height -10;
-
-        ctx.fillText(text, textX, textY);
-        ctx.restore();
-    }
-
-    public chartClicked(e:any):void {
+    public chartDonutClicked(e:any):void {
         console.log(e);
     }
 
-    public chartHovered(e:any):void {
+    public chartDonutHovered(e:any):void {
         console.log(e);
     }
 
+    public chartLineClicked(e:any):void {
+        console.log(e);
+    }
 
+    public chartLineHovered(e:any):void {
+        console.log(e);
+    }
 }

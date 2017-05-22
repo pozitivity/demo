@@ -36,7 +36,6 @@ export class MapContentComponent implements OnInit {
                     let color = colors[0];
                     collection.setStyles((object, yobject) => {
                         let level = object.properties.level;
-                        console.log(color);
                         return ({
                             zIndex: level,
                             zIndexHover: level,

@@ -137,3 +137,15 @@ export const colors: any [] = [{
     border: '',
     score: 'exc'
 }];
+
+export const lineChartData: Array<any> = [
+    { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], label: 'Центральный ФО' },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 1 },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 2 },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 3 },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 4 },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 5 },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 6 },
+    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 7 },
+    // { data: [0, 0, 0, 0, 0, 0.85], districtId: 8 },
+];

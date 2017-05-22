@@ -10,7 +10,7 @@ import {districts, indicators, years} from "./hri.data";
     styles: [require('!style!css!sass!../../../assets/css/partial/hri.scss').toString()]
 })
 export class HRIComponent {
-    public mode = "map";
+    public mode = "district";
 
     public selectedDistrict = districts[0].name;
     public selectedIndicator = indicators[0].name;
