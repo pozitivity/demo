@@ -11,6 +11,7 @@ import {MainComponent} from "./components/main/main.component";
 import {PieComponent} from "./components/pie/pie.component";
 import {BarchartComponent} from "./components/barchart/barchart.component";
 import {PyramidComponent} from "./components/pyramid/pyramid.component";
+import {HRIComponent} from "./components/hri/hri.component";
 
 const routes: Routes  = [
     {
@@ -40,6 +41,10 @@ const routes: Routes  = [
     {
         path: 'pyramid',
         component: PyramidComponent
+    },
+    {
+        path: 'hri',
+        component: HRIComponent
     }
 ];
 

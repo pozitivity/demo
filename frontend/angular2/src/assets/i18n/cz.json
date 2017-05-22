@@ -8,7 +8,9 @@
   },
 
   "COMMON": {
-    "FILTER": "Filtr"
+    "FILTER": "Filtr",
+    "BYYEAR": "Podle roku",
+    "BYMONTH": "Měsíčně"
   },
 
   "PIE": {
@@ -34,6 +36,10 @@
     "BARCHART": {
       "NAME": "Sloupcový graf",
       "DESCRIPTION": "Sloupcový graf"
+    },
+    "STREAMGRAPH": {
+      "NAME": "Streamgraph",
+      "DESCRIPTION": "Streamgraph"
     },
     "TABLE": "Tabulka"
   },

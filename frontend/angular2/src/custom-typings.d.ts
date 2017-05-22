@@ -54,6 +54,7 @@ declare var ENV: string;
 declare var HMR: boolean;
 declare var System: SystemJS;
 declare var $: JQueryStatic;
+declare var osmeRegions: any;
 //declare var D3: any;
 declare var XLSX: any;
 

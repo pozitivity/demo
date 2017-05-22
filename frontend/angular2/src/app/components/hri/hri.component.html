@@ -1,0 +1,56 @@
+<div class="col-sm-12">
+    <div class="form-inline" style="padding-top:15px;">
+        <div class="form-group" style="padding-left:10px; padding-right: 20px;">
+            <div class="btn-group">
+                <label class="btn btn-success" [(ngModel)]="mode" btnRadio="Left" (click)="changeMode('district')" uncheckable>Округ</label>
+                <label class="btn btn-success" [(ngModel)]="mode" btnRadio="Right" (click)="changeMode('map')" uncheckable>Карта</label>
+            </div>
+        </div>
+        <div class="form-group" style="padding-right: 20px;">
+            <button type="button" class="btn btn-success">Округ</button>
+            <div class="btn-group" dropdown style="margin-left:-5px;">
+                <button type="button" class="btn btn-default">{{ selectedDistrict }}</button>
+                <button type="button" dropdownToggle class="btn btn-success dropdown-toggle dropdown-toggle-split">
+                    <span class="caret"></span>
+                    <span class="sr-only">Split Button!</span>
+                </button>
+                <ul *dropdownMenu class="dropdown-menu" role="menu">
+                    <li role="menuitem" *ngFor="let district of districts">
+                        <a class="dropdown-item">{{ district.name }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group" style="padding-right: 20px;">
+            <button type="button" class="btn btn-success">Индикатор</button>
+            <div class="btn-group" dropdown style="margin-left: -5px;">
+                <button type="button" class="btn btn-default">{{ selectedIndicator }}</button>
+                <button type="button" dropdownToggle class="btn btn-success dropdown-toggle dropdown-toggle-split">
+                    <span class="caret"></span>
+                    <span class="sr-only">Split Button!</span>
+                </button>
+                <ul *dropdownMenu class="dropdown-menu" role="menu">
+                    <li role="menuitem" *ngFor="let indicator of indicators" dropdown>
+                        <a dropdownToggle class="dropdown-item dropdown-toggle">{{ indicator.name }}<span class="caret"></span></a>
+                        <ul *dropdownMenu class="dropdown-menu" role="menu">
+                            <li role="menuitem" *ngFor="let child of indicator.childs">
+                                <a class="dropdown-item">{{ child.name }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group" style="padding-right: 20px;">
+            <!--<nouislider [connect]="true" [min]="1990" [max]="2015" [(ngModel)]="range" [step]="5"></nouislider>-->
+        </div>
+    </div>
+    <div style="padding-top: 20px;">
+        <div *ngIf="mode=='district'" class="wrapper_district">
+            <hri-donut></hri-donut>
+        </div>
+        <div *ngIf="mode=='map'" class="wrapper_map">
+            <hri-map></hri-map>
+        </div>
+    </div>
+</div>

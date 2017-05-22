@@ -32,6 +32,7 @@ export class BarchartComponent implements OnInit, OnDestroy, D3ComponentInterfac
 
     public namesProperty: Array<any> = [];
     public filter: string;
+    public type: string;
 
     constructor(private dataService: DataService) {
         this.width = 3000 - this.margin.right - this.margin.left;
@@ -44,7 +45,7 @@ export class BarchartComponent implements OnInit, OnDestroy, D3ComponentInterfac
             this.data = content;
             this.namesProperty = Utils.getNamesProperty(this.data[0]);
             this.filter = this.namesProperty[0].name;
-            this.mappingData = this.mapData(this.data, this.filter);
+            this.type = this.namesProperty[0].type;
             this.refreshSvg();
         });
     }
@@ -127,6 +128,7 @@ export class BarchartComponent implements OnInit, OnDestroy, D3ComponentInterfac
 
     refreshSvg() {
         this.mappingData = this.mapData(this.data, this.filter);
+        this.type = this.namesProperty.find(np => np.name == this.filter);
         this.clearSvg();
         this.initSvg();
         this.initAxis();

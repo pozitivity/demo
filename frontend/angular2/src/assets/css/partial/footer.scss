@@ -59,10 +59,7 @@
         transform: matrix(1, 0, 0, 1, 0, 0);
         padding: 15px;
         cursor: pointer;
-        //border-left: 0;
         border: 1px solid #e8e8e8;
-        //border-top: 1px solid #e8e8e8;
-        //border-bottom: 1px solid #e8e8e8;
         background-color: #fcfcfc;
 
         .zoom {
@@ -101,6 +98,10 @@
 
           .pyramid {
             background-image: url(../../images/types/pyramid.png);
+          }
+
+          .streamgraph {
+            background-image: url(../../images/types/stream_graph.png);
           }
         }
 

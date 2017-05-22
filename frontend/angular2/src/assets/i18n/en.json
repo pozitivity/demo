@@ -8,7 +8,9 @@
   },
 
   "COMMON": {
-    "FILTER": "Filter"
+    "FILTER": "Filter",
+    "BYYEAR": "By year",
+    "BYMONTH": "By month"
   },
 
   "PIE": {
@@ -34,6 +36,10 @@
     "BARCHART": {
       "NAME": "Bar chart",
       "DESCRIPTION": "Bar chart"
+    },
+    "STREAMGRAPH": {
+      "NAME": "Streamgraph",
+      "DESCRIPTION": "Streamgraph"
     },
     "TABLE": "Table"
   },

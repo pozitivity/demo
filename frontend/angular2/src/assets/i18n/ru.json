@@ -8,7 +8,9 @@
   },
 
   "COMMON": {
-    "FILTER": "Фильтр"
+    "FILTER": "Фильтр",
+    "BYMONTH": "По месяцам",
+    "BYYEAR": "ПО годам"
   },
 
   "PIE": {
@@ -34,6 +36,10 @@
     "BARCHART": {
       "NAME": "Столбчатая",
       "DESCRIPTION": "Столбчатая диаграмма"
+    },
+    "STREAMGRAPH": {
+      "NAME": "Потоковая",
+      "DESCRIPTION": "Потоковая диаграмма"
     },
     "TABLE": "Таблица"
   },

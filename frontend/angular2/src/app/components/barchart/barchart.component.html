@@ -7,8 +7,12 @@
             <div class="form-group col-sm-12 pull-right">
                 <label class="col-sm-3">{{ 'COMMON.FILTER' | translate }}</label>
                 <div class="col-sm-9">
-                    <select class="form-control" [(ngModel)]="filter" (ngModelChange)="onChangeFilter($event)">
+                    <select class="form-control" [(ngModel)]="filter.name" (ngModelChange)="onChangeFilter($event)">
                         <option [ngValue]="name.name" *ngFor="let name of namesProperty">{{ name.name }}</option>
+                    </select>
+                    <select *ngIf="filter.type == 'Date'">
+                        <option>{{ 'COMMON.BYMONTH' | translate }}</option>
+                        <option>{{ 'COMMON.BYYEAR' | translate }}</option>
                     </select>
                 </div>
             </div>

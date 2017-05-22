@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+    <div class="col-sm-6">
+        <div>
+            <canvas #donut baseChart [data]="donutChartData"
+                    [labels]="donutChartLabels"
+                    [chartType]="donutChartType"
+                    [colors]="donutChartColors"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"
+                    [legend]="false"></canvas>
+            <div class="donut-inner">
+                <h2>Индекс <br/> здоровья</h2>
+                <h3>75</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <canvas #line baseChart></canvas>
+    </div>
+</div>

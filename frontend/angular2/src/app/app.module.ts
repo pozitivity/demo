@@ -10,6 +10,7 @@ import {HttpModule, Http, RequestOptions, XHRBackend} from '@angular/http';
 import {Ng2BootstrapModule, ModalModule, AlertModule, TabsModule} from "ngx-bootstrap";
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
 import {TranslateModule} from "@ngx-translate/core";
+import {AgmCoreModule} from "@agm/core";
 
 import {routing} from './app.route';
 import {AppComponent}  from './app.component';
@@ -33,6 +34,7 @@ import {SlickSliderModule} from "./components/slick-slider/slick-slider.module";
 import {BarchartModule} from "./components/barchart/barchart.module";
 import {PyramidModule} from "./components/pyramid/pyramid.module";
 import {DataService} from "./shared/services/data.service";
+import {HRIModule} from "./components/hri/hri.module";
 
 @NgModule({
     imports:      [
@@ -59,7 +61,8 @@ import {DataService} from "./shared/services/data.service";
         PieModule,
         SlickSliderModule,
         BarchartModule,
-        PyramidModule
+        PyramidModule,
+        HRIModule
     ],
     declarations: [
         AppComponent

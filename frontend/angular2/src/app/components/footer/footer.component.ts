@@ -41,6 +41,13 @@ export class FooterComponent {
                     title: 'TYPE_DIAGRAMS.PYRAMID.NAME',
                     description: 'TYPE_DIAGRAMS.PYRAMID.DESCRIPTION'
                 }
+            },
+            {
+                name: "streamgraph",
+                caption: {
+                    title: 'TYPE_DIAGRAMS.STREAMGRAPH.NAME',
+                    description: 'TYPE_DIAGRAMS.STREAMGRAPH.DESCRIPTION'
+                }
             }
         ]
     }
