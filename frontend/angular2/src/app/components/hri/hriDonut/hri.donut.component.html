@@ -1,28 +1,31 @@
 <div class="col-sm-12">
     <div class="col-sm-6">
-        <div class="panel">
-            <canvas #donut baseChart [data]="donutChartData"
-                    [labels]="donutChartLabels"
-                    [chartType]="donutChartType"
-                    [colors]="donutChartColors"
-                    (chartHover)="chartDonutHovered($event)"
-                    (chartClick)="chartDonutClicked($event)"
-                    [legend]="false"></canvas>
-            <div class="donut-inner">
-                <h2>Индекс <br/> здоровья</h2>
-                <h3>75</h3>
-            </div>
+        <div class="chart-container">
+            <div class="aster-chart-title">Центральный федеральный округ</div>
+            <div id="asterChart"></div>
         </div>
     </div>
     <div class="col-sm-6">
-        <div class="panel">
-            <canvas #line baseChart [datasets]="lineChartData"
-                    [labels]="lineChartLabels"
-                    [colors]="lineChartColors"
-                    [legend]="lineChartLegend"
-                    [chartType]="lineChartType"
-                    (chartHover)="chartLineHover($even)"
-                    (chartClick)="chartLineClick($event)"></canvas>
-        </div>
+        <!--<div class="chart-container">-->
+            <div class="chart-container-right">
+                <div class="chart-container-top chart-container">
+                    <canvas #line baseChart [datasets]="lineChartData"
+                            [labels]="lineChartLabels"
+                            [colors]="lineChartColors"
+                            [legend]="lineChartLegend"
+                            [chartType]="lineChartType"
+                            (chartHover)="chartLineHover($event)"
+                            (chartClick)="chartLineClick($event)"></canvas>
+                </div>
+                <div class="chart-container-bottom chart-container">
+                    <div class="title-container">
+                        <b>Индикатор:</b> Ожидаемая продолжительность жизни (женщины)
+                    </div>
+                    <div class="info-body">
+                        <b>Цель № 1:</b> Повышение продолжительности жизни
+                    </div>
+                </div>
+            </div>
+        <!--</div>-->
     </div>
 </div>

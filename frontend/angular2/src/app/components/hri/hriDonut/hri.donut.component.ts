@@ -2,7 +2,12 @@
  * Created by tatiana.gorbunova on 21.05.2017.
  */
 import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
-import {indicators, years, lineChartData} from "../hri.data";
+import {indicators, years, lineChartData, data} from "../hri.data";
+import * as d3Hierarchy from "d3-hierarchy";
+import * as d3Scale from "d3-scale";
+import * as d3Selection from "d3-selection";
+import * as d3Shape from "d3-shape";
+import * as d3Path from "d3-path";
 
 @Component({
     selector: 'hri-donut',
@@ -11,21 +16,24 @@ import {indicators, years, lineChartData} from "../hri.data";
 })
 export class HRIDonutComponent implements OnInit {
 
-    public donutChartLabels: string[] = [];
-    public donutChartData: number[] = [];
-    public donutChartType: string = 'doughnut';
-    public donutChartColors: any = [{
-        backgroundColor: []
-    }];
-    private color: string[];
-
     public lineChartLegend: boolean = true;
     public lineChartType: string = "line";
     public lineChartData;
     public lineChartLabels;
     public lineChartColors;
 
-    @ViewChild("donut") canvasDonut: ElementRef;
+    // d3
+    color: any;
+    width: number;
+    height: number;
+    svg: any;
+    pie: any;
+    tip: any;
+    arc: any;
+    outlineArc: any;
+    radius: number;
+    innerRadius: number;
+    data: any;
 
     constructor() {
         this.lineChartData = lineChartData;
@@ -43,19 +51,68 @@ export class HRIDonutComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.color = ["#736cf0", "#f06ca7", "#6cf0b5", "#ebf711", "#f78c11"];
-        this.donutChartColors[0].backgroundColor = [];
-        indicators.forEach((ind, index) => {
-            let color = this.color[index];
-            this.donutChartColors[0].backgroundColor.push(color);
-            this.donutChartLabels.push(ind.name);
-            this.donutChartData.push(1);
-            ind.childs.forEach(ch => {
-                this.donutChartLabels.push(ch.name);
-                this.donutChartColors[0].backgroundColor.push(color);
-                this.donutChartData.push(1);
-            });
-        });
+
+        this.clearSvg();
+        this.initSvg();
+        this.draw();
+    }
+
+    initSvg() {
+        this.color = d3Scale.scaleOrdinal(d3Scale.schemeCategory20c);
+        this.width = 600;
+        this.height = 600;
+        this.radius = Math.min(this.width, this.height)/2;
+        this.innerRadius = 0.3 * this.radius;
+
+        this.svg = d3Selection.select("#asterChart")
+            .append("svg")
+            .attr("width", this.width)
+            .attr("height", this.height)
+            .append("g")
+            .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");;
+    }
+
+    clearSvg() {
+        d3Selection.select("#asterChart").select("svg").remove();
+    }
+
+    draw() {
+        this.pie = d3Shape.pie()
+            .sort(null)
+            .value((d: any) => d.width);
+
+        this.arc = d3Shape.arc()
+            .innerRadius(this.innerRadius)
+            .outerRadius((d: any) => { return (this.radius - this.innerRadius) * (d.data.score / 100) + this.innerRadius });
+
+        this.outlineArc = d3Shape.arc()
+            .innerRadius(this.innerRadius)
+            .outerRadius(this.radius);
+
+        let path = this.svg.selectAll(".solidArc")
+            .data(this.pie(data))
+            .enter().append("path")
+            .attr("fill", (d: any) => {console.log(d); return d.data.color})
+            .attr("class", "solidArc")
+            .attr("stroke", "gray")
+            .attr("d", this.arc);
+            //.on("mouseover")
+            //.on("mouseout")
+
+        let outerPath = this.svg.selectAll(".outlineArc")
+            .data(this.pie(data))
+            .enter().append("path")
+            .attr("fill", "none")
+            .attr("stroke", "gray")
+            .attr("class", "outlineArc")
+            .attr("d", this.outlineArc);
+
+        this.svg.append("svg:text")
+            .attr("class", "aster-score")
+            .attr("dy", ".35em")
+            .attr("text-anchor", "middle") // text-align: right
+            .text("Индекс здоровья: " + 85);
+
     }
 
     public chartDonutClicked(e:any):void {
