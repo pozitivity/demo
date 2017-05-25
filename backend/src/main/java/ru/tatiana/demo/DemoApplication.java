@@ -14,8 +14,6 @@ public class DemoApplication extends SpringBootServletInitializer {
     }
 
     public static void main(String args[]) {
-        //ConvertData convert = new ConvertData();
-        //convert.readDataFromFile();
         SpringApplication.run(DemoApplication.class, args);
     }
 }
