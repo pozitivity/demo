@@ -24,7 +24,8 @@
       "jquery",
       "d3",
       "reflect-metadata",
-      "xlsx"
+      "xlsx",
+      "d3-tip"
     ]
   },
   "exclude": [

@@ -5,56 +5,58 @@
                 <div class="form-group">
                     <label class="mode">Режим</label>
                     <div class="btn-group">
-                        <label class="btn btn-success" [(ngModel)]="mode" btnRadio="Left" (click)="changeMode('district')" uncheckable>Округ</label>
-                        <label class="btn btn-success" [(ngModel)]="mode" btnRadio="Right" (click)="changeMode('map')" uncheckable>Карта</label>
+                        <label class="btn btn-success" [(ngModel)]="mode" btnRadio="Left"
+                               [ngClass]="{'btn-success': mode == 'district', 'btn-default': mode == 'map'}"
+                               (click)="changeMode('district')" uncheckable>Округ</label>
+                        <label class="btn btn-success" [(ngModel)]="mode" btnRadio="Right"
+                               [ngClass]="{'btn-success': mode == 'map', 'btn-default': mode == 'district'}"
+                               (click)="changeMode('map')" uncheckable>Карта</label>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="selectedDistrict">
                     <button type="button" class="btn btn-success">Округ</button>
                     <div class="btn-group dropdown" dropdown>
-                        <button type="button" class="btn btn-default">{{ selectedDistrict }}</button>
+                        <button type="button" class="btn btn-default">{{ selectedDistrict.name }}</button>
                         <button type="button" dropdownToggle class="btn btn-success dropdown-toggle dropdown-toggle-split">
                             <span class="caret"></span>
                             <span class="sr-only">Split Button!</span>
                         </button>
                         <ul *dropdownMenu class="dropdown-menu" role="menu">
-                            <li role="menuitem" *ngFor="let district of districts">
+                            <li role="menuitem" *ngFor="let district of districts" (click)="toggleDropdownDistrict(district)">
                                 <a class="dropdown-item">{{ district.name }}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="selectedIndicator">
                     <button type="button" class="btn btn-success">Индикатор</button>
                     <div class="btn-group dropdown" dropdown>
-                        <button type="button" class="btn btn-default">{{ selectedIndicator }}</button>
+                        <button type="button" class="btn btn-default">{{ selectedIndicator.name }}</button>
                         <button type="button" dropdownToggle class="btn btn-success dropdown-toggle dropdown-toggle-split">
                             <span class="caret"></span>
                             <span class="sr-only">Split Button!</span>
                         </button>
                         <ul *dropdownMenu class="dropdown-menu" role="menu">
-                            <li role="menuitem" *ngFor="let indicator of indicators" dropdown>
-                                <a dropdownToggle class="dropdown-item dropdown-toggle">{{ indicator.name }}<span class="caret"></span></a>
-                                <ul *dropdownMenu class="dropdown-menu" role="menu">
-                                    <li role="menuitem" *ngFor="let child of indicator.childs">
-                                        <a class="dropdown-item">{{ child.name }}</a>
-                                    </li>
-                                </ul>
+                            <li role="menuitem" *ngFor="let indicator of indicators" (click)="toggleDropdownIndicator(indicator)">
+                                <a class="dropdown-item" [ngClass]="{'child':isChild(indicator)}">{{ indicator.name }}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="form-group">
-                    <!--<nouislider [connect]="true" [min]="1990" [max]="2015" [(ngModel)]="range" [step]="5"></nouislider>-->
+                    <nouislider [connect]="true" [min]="1990"
+                                [max]="2015" [(ngModel)]="year"
+                                [step]="5" [tooltips]="[true]"
+                                (ngModelChange)="changeYear($event)"></nouislider>
                 </div>
             </div>
         </div>
         <div style="padding-top: 20px;" class="view">
-            <div *ngIf="mode=='district'" class="wrapper_district">
-                <hri-donut></hri-donut>
+            <div *ngIf="mode=='district' && scores && indicators" class="wrapper_district">
+                <hri-donut [district]="selectedDistrict" [indicator]="selectedIndicator" [scores]="scores" [year]="year" [indicators]="indicators"></hri-donut>
             </div>
-            <div *ngIf="mode=='map'" class="wrapper_map">
-                <hri-map></hri-map>
+            <div *ngIf="mode=='map' && scores" class="wrapper_map">
+                <hri-map [indicator]="selectedIndicator" [scores]="scores" [year]="year"></hri-map>
             </div>
         </div>
     </div>

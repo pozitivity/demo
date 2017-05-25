@@ -44,4 +44,11 @@ public class Score {
         this.indicatorId = indicatorId;
     }
 
+    public Map<Long, Float> getValueByYear() {
+        return valueByYear;
+    }
+
+    public void setValueByYear(Map<Long, Float> valueByYear) {
+        this.valueByYear = valueByYear;
+    }
 }

@@ -58,6 +58,10 @@ declare var osmeRegions: any;
 //declare var D3: any;
 declare var XLSX: any;
 
+interface d3 {
+    tip: any;
+}
+
 declare const BACKEND : WebApplication;
 declare const FRONTEND : WebApplication;
 declare const SELF_SERVICE : WebApplication;

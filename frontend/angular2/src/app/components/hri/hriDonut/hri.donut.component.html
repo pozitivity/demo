@@ -1,14 +1,14 @@
 <div class="col-sm-12">
     <div class="col-sm-6">
         <div class="chart-container">
-            <div class="aster-chart-title">Центральный федеральный округ</div>
+            <div class="aster-chart-title">{{ district.name }}, {{ year }}</div>
             <div id="asterChart"></div>
         </div>
     </div>
     <div class="col-sm-6">
         <!--<div class="chart-container">-->
             <div class="chart-container-right">
-                <div class="chart-container-top chart-container">
+                <div class="chart-container-top chart-container" *ngIf="lineChartData">
                     <canvas #line baseChart [datasets]="lineChartData"
                             [labels]="lineChartLabels"
                             [colors]="lineChartColors"
@@ -19,7 +19,7 @@
                 </div>
                 <div class="chart-container-bottom chart-container">
                     <div class="title-container">
-                        <b>Индикатор:</b> Ожидаемая продолжительность жизни (женщины)
+                        <b>Индикатор:</b> {{ indicator.name }}
                     </div>
                     <div class="info-body">
                         <b>Цель № 1:</b> Повышение продолжительности жизни

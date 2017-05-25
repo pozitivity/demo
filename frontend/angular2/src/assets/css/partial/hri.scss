@@ -16,7 +16,7 @@
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
       min-height: 70px;
-      padding: 15px;
+      padding: 25px;
 
       .form-group {
         padding-right: 25px !important;
@@ -32,6 +32,41 @@
         .btn-group.dropdown {
           margin-left: -5px;
         }
+
+        .dropdown-menu {
+          .child {
+            margin-left: 20px;
+          }
+
+          li {
+            font-size: 16px;
+          }
+        }
+
+        nouislider {
+          width: 300px;
+
+          .noUi-target {
+            background: #fff !important;
+          }
+
+          .noUi-handle {
+            border: 1px solid #4c9f38 !important;
+            background: #4c9f38 !important;
+            top: -8px !important;
+          }
+
+          .noUi-tooltip {
+            background: #4c9f38 !important;
+            color: #fff !important;
+            border: 1px solid #4c9f38 !important;
+
+          }
+
+          .noUi-horizontal {
+            height: 14px !important;
+          }
+        }
       }
     }
 
@@ -44,9 +79,7 @@
       .sebm-google-map-container {
         height: 800px;
       }
-      nouislider {
-        width: 300px;
-      }
+
       .donut-inner {
         margin-top: -500px;
         margin-bottom: 100px;
@@ -73,6 +106,19 @@
           font-weight: 400;
           text-align: center;
           margin: 8px auto;
+        }
+
+        div.tooltip {
+          position: absolute;
+          text-align: center;
+          width: 60px;
+          height: 28px;
+          padding: 2px;
+          font: 12px sans-serif;
+          background: lightsteelblue;
+          border: 0px;
+          border-radius: 8px;
+          pointer-events: none;
         }
       }
 
