@@ -79,7 +79,7 @@
       padding-bottom: 20px;
 
       .sebm-google-map-container {
-        height: 800px;
+        height: 700px;
       }
 
       .donut-inner {
@@ -91,9 +91,28 @@
         margin-bottom: 5px;
         margin-top: 0;
       }
-      .square {
-        width: 30px;
-        height: 30px;
+
+
+      .color-scale {
+
+        .color-scale-item {
+          display: inline-block;
+          width: 10%;
+          border-right: 1px solid #fff;
+          border-left: 1px solid #fff;
+
+          .square {
+            height: 30px;
+            text-align: center;
+
+            span {
+              font-size: 16px;
+              color: #fff;
+              padding: 10px;
+              font-weight: 600;
+            }
+          }
+        }
       }
 
       .chart-container {

@@ -55,8 +55,8 @@
             <div *ngIf="mode=='district' && scores && indicators" class="wrapper_district">
                 <hri-donut [district]="selectedDistrict" [indicator]="selectedIndicator" [scores]="scores" [year]="year" [indicators]="indicators"></hri-donut>
             </div>
-            <div *ngIf="mode=='map' && scores" class="wrapper_map">
-                <hri-map [indicator]="selectedIndicator" [scores]="scores" [year]="year"></hri-map>
+            <div *ngIf="mode=='map' && scores && districts" class="wrapper_map">
+                <hri-map [indicator]="selectedIndicator" [scores]="scores" [year]="year" [districts]="districts"></hri-map>
             </div>
         </div>
     </div>

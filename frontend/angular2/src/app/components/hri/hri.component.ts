@@ -36,7 +36,7 @@ export class HRIComponent {
 
         this.hriService.getIndicators().subscribe(indicators => {
             this.indicators = indicators;
-            this.selectedIndicator = this.indicators[0];
+            this.selectedIndicator = this.indicators[1];
         });
 
         this.hriService.getScores().subscribe(scores => {

@@ -3,6 +3,7 @@
  */
 import {Component, OnInit, ElementRef, ViewChild, Input, OnChanges} from "@angular/core";
 import {HriService} from "../../../shared/services/hri.service";
+import {colors} from "../hri.data";
 
 @Component({
     selector: 'hri-map',
@@ -14,9 +15,14 @@ export class HRIMapComponent implements OnInit, OnChanges {
     @Input() indicator;
     @Input() scores;
     @Input() year;
+    @Input() districts;
 
     public lat: number;
     public lng: number;
+
+    public data: any;
+
+    colors: any = colors;
 
     @ViewChild("map") mapElementRef: ElementRef;
 
@@ -24,16 +30,40 @@ export class HRIMapComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
-
         this.lat = 61.52401;
         this.lng = 105.318756;
+
+
+        this.data = this.scores.filter(s => s.indicatorId == this.indicator.id).map(s => {
+            debugger;
+            let score = s.valueByYear[this.year].score;
+            let color = this.colors.find(c => score >= c.min && score < c.max);
+            return {
+                score: score,
+                id: s.id,
+                districtId: s.districtId,
+                indicatorId: s.indicatorId,
+                fillColor: color.fillColor,
+                strokeColor: color.strokeColor
+            };
+        });
     }
 
     ngOnChanges(changes) {
         if (this.hriService.isChange()) {
-            console.log(this.indicator);
-            console.log(this.scores);
-            console.log(this.year);
+
+            this.data = this.scores.filter(s => s.indicatorId == this.indicator.id).map(s => {
+                let score = s.valueByYear[this.year].score;
+                let color = this.colors.find(c => score >= c.min && score < c.max);
+                return {
+                    score: score,
+                    id: s.id,
+                    districtId: s.districtId,
+                    indicatorId: s.indicatorId,
+                    fillColor: color.fillColor,
+                    strokeColor: color.strokeColor
+                };
+            });
         }
     }
 }

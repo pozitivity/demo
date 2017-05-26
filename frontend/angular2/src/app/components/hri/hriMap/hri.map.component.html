@@ -1,21 +1,14 @@
 <div>
-    <div #map class="col-sm-9">
+    <div #map class="col-sm-12" *ngIf="districts && data">
         <agm-map [latitude]="lat" [longitude]="lng" [zoomControl]="false" [mapkey]="'firstmap'">
-            <map-content></map-content>
+            <map-content [districts]="districts" [data]="data"></map-content>
         </agm-map>
-    </div>
-    <div class="col-sm-3">
-        <div class="panel">
-            <div style="display:inline-block"><div class="square" style="background-color: red"></div><span>0 - 10</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: orangered"></div><span>10 - 20</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: darkorange"></div><span>20 - 30</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: orange"></div><span>30 - 40</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: yellow"></div><span>40 - 50</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: greenyellow"></div><span>50 - 60</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: lawngreen"></div><span>60 - 70</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: green"></div><span>70 - 80</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: darkgreen"></div><span>80 - 90</span></div>
-            <div style="display:inline-block"><div class="square" style="background-color: seagreen"></div><span>90 - 100</span></div>
+        <div class="panel color-scale">
+            <div *ngFor="let color of colors" style="display: inline-block" class="color-scale-item">
+                <div class="square" [ngStyle]="{'background-color': color.fillColor}">
+                    <span>{{color.min}} - {{color.max}}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

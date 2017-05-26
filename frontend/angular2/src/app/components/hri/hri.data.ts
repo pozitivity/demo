@@ -120,153 +120,54 @@ export const indicators: any[] = [{
 
 export const years: number[] = [ 1990, 1995, 2000, 2005, 2010, 2015 ];
 
-export const colors: any [] = [{
-    fill: '#f2652e',
-    border: '',
-    score: 'bad'
+export const colors = [{
+    min: 0,
+    max: 10,
+    fillColor: "#f2297c",
+    strokeColor: "#f2297c"
 }, {
-    fill: '#efa417',
-    border: '',
-    score: 'not bad'
+    min: 10,
+    max: 20,
+    fillColor: "#f2293d",
+    strokeColor: "#f2293d"
 }, {
-    fill: '#f4f416',
-    border: '',
-    score: 'good'
+    min: 20,
+    max: 30,
+    fillColor: "#f24e29",
+    strokeColor: "#f24e29"
 }, {
-    fill: '#14e584',
-    border: '',
-    score: 'exc'
+    min: 30,
+    max: 40,
+    fillColor: "#f28029",
+    strokeColor: "#f28029"
+}, {
+    min: 40,
+    max: 50,
+    fillColor: "#f2af29",
+    strokeColor: "#f2af29"
+}, {
+    min: 50,
+    max: 60,
+    fillColor: "#f2e429",
+    strokeColor: "#f2e429"
+}, {
+    min: 60,
+    max: 70,
+    fillColor: "#bcf229",
+    strokeColor: "#bcf229"
+}, {
+    min: 70,
+    max: 80,
+    fillColor: "#83f229",
+    strokeColor: "#83f229"
+}, {
+    min: 80,
+    max: 90,
+    fillColor: "#0ecc24",
+    strokeColor: "#0ecc24"
+}, {
+    min: 90,
+    max: 100,
+    fillColor: "#07b753",
+    strokeColor: "#07b753"
 }];
-
-export const lineChartData: Array<any> = [
-    { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], label: 'Центральный ФО' },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 1 },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 2 },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 3 },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 4 },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 5 },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 6 },
-    // { data: [0.5, 0.56, 0.65, 0.6, 0.72, 0.78], districtId: 7 },
-    // { data: [0, 0, 0, 0, 0, 0.85], districtId: 8 },
-];
-
-export const data = [{
-    id: 0,
-    score: 75,
-    color: "#9E0041",
-    label: "Ожидаемая продолжительность жизни (женщины)",
-    width: 0.5
-}, {
-    id: 1,
-    score: 82,
-    color: "#9E0041",
-    label: "Ожидаемая продолжительность жизни (мужчины)",
-    width: 0.5
-}, {
-
-},{
-    id: 10,
-    score: 56,
-    color: "#E1514B",
-    label: "Число умерших на 1000 населения",
-    width: 0.5
-},{
-    id: 11,
-    score: 82,
-    color: "#E1514B",
-    label: "Младенческая смертность",
-    width: 0.5
-},{
-    id: 12,
-    score: 82,
-    color: "#E1514B",
-    label: "Коэффициент материнской смертности",
-    width: 0.5
-},{
-    id: 13,
-    score: 82,
-    color: "#E1514B",
-    label: "Смертность по основным причинам (болезни органов дыхания)",
-    width: 0.5
-},{
-    id: 14,
-    score: 82,
-    color: "#E1514B",
-    label: "Смертность по основным причинам (болезни органов пищеварения)",
-    width: 0.5
-},{
-    id: 15,
-    score: 82,
-    color: "#E1514B",
-    label: "Смертность по основным причинам (новообразования)",
-    width: 0.5
-},{
-    id: 16,
-    score: 82,
-    color: "#E1514B",
-    label: "Смертность по основным причинам (болезни системы кровообращения)",
-    width: 0.5
-},{
-    id: 17,
-    score: 82,
-    color: "#E1514B",
-    label: "Смертность по основным причинам (внешние причины)",
-    width: 0.5
-}
-// ,{
-//     id: 20,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 21,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 22,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 23,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 24,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 25,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 1,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 1,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 1,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 1,
-//     score: 82,
-//     color: "",
-//     label: ""
-// },{
-//     id: 1,
-//     score: 82,
-//     color: "",
-//     label: ""
-//}
-];

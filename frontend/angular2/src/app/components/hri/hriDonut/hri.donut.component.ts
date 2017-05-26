@@ -2,7 +2,7 @@
  * Created by tatiana.gorbunova on 21.05.2017.
  */
 import {Component, ElementRef, OnInit, ViewChild, OnChanges, Input} from "@angular/core";
-import {indicators, years, lineChartData, data} from "../hri.data";
+import {indicators, years} from "../hri.data";
 import * as d3Hierarchy from "d3-hierarchy";
 import * as d3Scale from "d3-scale";
 import * as d3Selection from "d3-selection";
@@ -66,8 +66,8 @@ export class HRIDonutComponent implements OnInit, OnChanges {
             scales: {
                 yAxes: [{
                     ticks: {
-                        min: 0,
-                        max: 100,
+                        // min: 0,
+                        // max: 100,
                         fontSize: 14
                     }
                 }],
@@ -135,7 +135,7 @@ export class HRIDonutComponent implements OnInit, OnChanges {
                     let d = {
                         width: 0.5,
                         color: this.colors.find(c => c.id == parentId).color,
-                        score: s.valueByYear[this.year],
+                        score: s.valueByYear[this.year].score,
                         label: this.indicators.find(i =>  i.id == s.indicatorId).name,
                         id: s.id
                     };
@@ -160,7 +160,7 @@ export class HRIDonutComponent implements OnInit, OnChanges {
             if (scores.length > 0) {
                 for (let property in scores[0].valueByYear) {
                     if (scores[0].valueByYear.hasOwnProperty(property)) {
-                        line.data.push(scores[0].valueByYear[property]);
+                        line.data.push(scores[0].valueByYear[property].value);
                         lineChartLabels.push(property);
                     }
                 }
