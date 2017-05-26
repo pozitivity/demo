@@ -54,7 +54,8 @@ export class HRIComponent {
     }
 
     public changeYear(event) {
-        console.log(event);
+        this.year = event;
+        this.hriService.setChange(true);
     }
 
     public toggleDropdownDistrict(district) {

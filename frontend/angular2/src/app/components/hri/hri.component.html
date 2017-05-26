@@ -13,7 +13,7 @@
                                (click)="changeMode('map')" uncheckable>Карта</label>
                     </div>
                 </div>
-                <div class="form-group" *ngIf="selectedDistrict">
+                <div class="form-group" *ngIf="selectedDistrict && mode == 'district'">
                     <button type="button" class="btn btn-success">Округ</button>
                     <div class="btn-group dropdown" dropdown>
                         <button type="button" class="btn btn-default">{{ selectedDistrict.name }}</button>

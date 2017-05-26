@@ -5,6 +5,8 @@
   background-color: #fff;
   color: rgb(69, 69, 69);
 
+  font-family: Verdana, Arial, sans-serif;
+
   .hri-container {
     align-content: stretch;
     border: 1px solid #ccc;
@@ -26,7 +28,7 @@
         }
 
         .btn-group, label, button {
-          font-size: 16px;
+          font-size: 15px;
         }
 
         .btn-group.dropdown {
@@ -101,24 +103,38 @@
         border-radius: 4px;
         flex-direction: column;
 
+        #asterChart {
+          padding-bottom: 15px;
+        }
+
         .aster-chart-title {
           font-size: 18px;
           font-weight: 400;
           text-align: center;
           margin: 8px auto;
+          padding-top: 15px;
+          padding-bottom: 10px;
+        }
+
+        .line-chart-title {
+          font-size: 18px;
+          font-weight: 400;
+          text-align: center;
+          padding-bottom: 10px;
         }
 
         div.tooltip {
           position: absolute;
           text-align: center;
-          width: 60px;
-          height: 28px;
-          padding: 2px;
-          font: 12px sans-serif;
-          background: lightsteelblue;
+          padding: 5px;
+          font: 15px sans-serif;
+          background: rgba(68, 157, 68, 1);
           border: 0px;
-          border-radius: 8px;
-          pointer-events: none;
+          top: 80px;
+          color: #fff;
+          width: 170px;
+          left: 20px;
+          border-radius: 5px;
         }
       }
 
@@ -126,10 +142,12 @@
         flex: 6;
         flex-direction: column;
         display: flex;
+        margin-right: -8px;
 
         .chart-container-top {
           flex: 7;
           margin: 8px;
+          padding: 15px;
         }
 
         .chart-container-bottom {
@@ -143,6 +161,8 @@
             font-size: 20px;
             color: #fff;
             padding: 10px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
           }
 
           .info-body {

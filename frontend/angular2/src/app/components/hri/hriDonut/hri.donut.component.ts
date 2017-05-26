@@ -24,11 +24,12 @@ export class HRIDonutComponent implements OnInit, OnChanges {
     @Input() year;
     @Input("indicators") indicators;
 
-    public lineChartLegend: boolean = true;
+    public lineChartLegend: boolean = false;
     public lineChartType: string = "line";
     public lineChartData;
     public lineChartLabels = [];
     public lineChartColors;
+    public lineChartOptions: any;
 
     // d3
     color: any;
@@ -45,24 +46,55 @@ export class HRIDonutComponent implements OnInit, OnChanges {
 
     colors: any;
 
-    @ViewChild(BaseChartDirective) baseChart;
+    targetIndicators: any;
+    selectedTargetIndicator: any;
 
     constructor(private hriService: HriService) {
         this.lineChartColors = [
-            { // grey
-                backgroundColor: 'rgba(148,159,177,0.2)',
-                borderColor: 'rgba(148,159,177,1)',
-                pointBackgroundColor: 'rgba(148,159,177,1)',
+            {
+                backgroundColor: 'rgba(68, 157, 68, 0.2)',
+                borderColor: 'rgba(68, 157, 68, 1)',
+                pointBackgroundColor: 'rgba(68, 157, 68, 1)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+                pointHoverBorderColor: 'rgba(68, 157, 68, 0.8)'
             }
-        ]
+        ];
+
+        this.lineChartOptions = {
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                        fontSize: 14
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontSize: 14
+                    }
+                }]
+            },
+            legend: {
+                labels: {
+                    fontSize: 16
+                }
+            }
+        }
     }
 
     ngOnInit() {
 
         let ids = this.indicators.filter(i => i.parentId == 0).map(i => i.id);
+        this.targetIndicators = this.indicators.filter(i => i.parentId == 0);
+        this.targetIndicators.forEach((ti, ind) => {
+            if (ti.id == this.indicator.parentId) {
+                this.selectedTargetIndicator = ti;
+                this.selectedTargetIndicator.target = ind + 1;
+            }
+        });
 
         this.colors = [{
             id: ids[0],
@@ -88,17 +120,9 @@ export class HRIDonutComponent implements OnInit, OnChanges {
             this.draw();
         });
 
-        this.mapLineChartData(this.scores.filter(s => s.districtId == this.district.id && s.indicatorId == this.indicator.id)).then(data => {
-            console.log(data);
-            this.lineChartData = data;
-            this.baseChart.ngOnChanges({
-                datasets: {
-                    currentValue: data,
-                    previousValue: null,
-                    firstChange: false,
-                    isFirstChange: () => false
-                }
-            })
+        this.mapLineChartData(this.scores.filter(s => s.districtId == this.district.id && s.indicatorId == this.indicator.id)).then((resp: any) => {
+            this.lineChartData = resp.data;
+            this.lineChartLabels = resp.labels;
         });
     }
 
@@ -126,30 +150,25 @@ export class HRIDonutComponent implements OnInit, OnChanges {
     mapLineChartData(scores) {
         return new Promise((resolve, reject) => {
             let lineChartData = [];
+            let lineChartLabels = [];
 
             let line = {
                 data: [],
-                label: this.district.name
+                label: this.indicator.name
             };
 
             if (scores.length > 0) {
                 for (let property in scores[0].valueByYear) {
                     if (scores[0].valueByYear.hasOwnProperty(property)) {
                         line.data.push(scores[0].valueByYear[property]);
-                        this.lineChartLabels.push(property);
+                        lineChartLabels.push(property);
                     }
                 }
                 lineChartData.push(line);
-                resolve(lineChartData);
-                // scores[0].valueByYear.forEach((v, ind) => {
-                //     line.data.push(v);
-                //     this.lineChartLabels.push(ind);
-                //
-                //     if (ind == scores[0].valueByYear.length - 1) {
-                //         lineChartData.push(line);
-                //         resolve(lineChartData);
-                //     }
-                // });
+                resolve({
+                    data: lineChartData,
+                    labels: lineChartLabels
+                });
             }
         });
     }
@@ -163,17 +182,25 @@ export class HRIDonutComponent implements OnInit, OnChanges {
                 this.draw();
             });
 
-            this.mapLineChartData(this.scores.filter(s => s.districtId == this.district.id && s.indicatorId == this.indicator.id)).then(data => {
-                this.lineChartData = [];
-                this.lineChartData = data;
+            this.mapLineChartData(this.scores.filter(s => s.districtId == this.district.id && s.indicatorId == this.indicator.id)).then((resp: any) => {
+                this.lineChartData = resp.data;
+                this.lineChartLabels = resp.labels;
+            });
+
+            this.targetIndicators = this.indicators.filter(i => i.parentId == 0);
+            this.targetIndicators.forEach((ti, ind) => {
+                if (ti.id == this.indicator.parentId) {
+                    this.selectedTargetIndicator = ti;
+                    this.selectedTargetIndicator.target = ind + 1;
+                }
             });
         }
     }
 
     initSvg() {
         this.color = d3Scale.scaleOrdinal(d3Scale.schemeCategory20c);
-        this.width = 600;
-        this.height = 600;
+        this.width = 650;
+        this.height = 650;
         this.radius = Math.min(this.width, this.height)/2;
         this.innerRadius = 0.3 * this.radius;
 
@@ -190,13 +217,6 @@ export class HRIDonutComponent implements OnInit, OnChanges {
     }
 
     draw() {
-
-        // let tip = d3Tip.attr('class', 'd3-tip')
-        //     .offset([0, 0])
-        //     .html(function(d) {
-        //         return d.data.label + ": <span style='color:orangered'>" + d.data.score + "</span>";
-        //     });
-
         this.pie = d3Shape.pie()
             .sort(null)
             .value((d: any) => d.width);
@@ -210,9 +230,9 @@ export class HRIDonutComponent implements OnInit, OnChanges {
             .outerRadius(this.radius);
 
         // Define the div for the tooltip
-        var div = d3Selection.select("#asterChart").append("div")
+        let tooltip = d3Selection.select("#asterChart").append("div")
             .attr("class", "tooltip")
-            .style("opacity", 0);
+            .style("visibility", "hidden");
 
         let path = this.svg.selectAll(".solidArc")
             .data(this.pie(this.data))
@@ -223,18 +243,13 @@ export class HRIDonutComponent implements OnInit, OnChanges {
             .attr("d", this.arc)
             .on("mouseover", (d: any) => {
                 console.log(d);
-                // div
-                //     .duration(200)
-                //     .style("opacity", .9);
-                div.html(d.data.label)
-                    //.style("left", (d3.event.pageX) + "px")
-                    //.style("top", (d3.event.pageY - 28) + "px");
+                return tooltip.style("visibility", "visible")
+                    .text(d.data.label + ": " + d.data.score)
+                    .attr("dy", "1.5em")
+                    .style("opacity", "1");
             })
             .on("mouseout", (d: any) => {
-                console.log(d);
-                // div.transition()
-                //     .duration(500)
-                //     .style("opacity", 0);
+                return tooltip.style("visibility", "hidden");
             });
 
         let outerPath = this.svg.selectAll(".outlineArc")
@@ -245,11 +260,25 @@ export class HRIDonutComponent implements OnInit, OnChanges {
             .attr("class", "outlineArc")
             .attr("d", this.outlineArc);
 
-        this.svg.append("svg:text")
+        let g = this.svg.append("g")
             .attr("class", "aster-score")
-            .attr("dy", ".35em")
-            .attr("text-anchor", "middle") // text-align: right
-            .text("Индекс здоровья: " + 85);
+            .attr("text-anchor", "middle");
+
+        g.append("text")
+            .attr("dy", "-1.1em") // text-align: right
+            .text("Индекс")
+            .attr("font-size", 26);
+
+        g.append("text")
+            .attr("dy" , ".2em")
+            .text("здоровья:")
+            .attr("font-size", 26);
+
+        g.append("text")
+            .attr("dy" , "1.5em")
+            .text("85")
+            .attr("font-size", 40)
+            .attr("font-weight", "bold");
 
     }
 
